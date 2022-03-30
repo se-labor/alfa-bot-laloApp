@@ -14,6 +14,22 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
+## Opening iOS Project
+
+run `npx cap open ios` or open ios/App/App.xworkspace - Needs Xcode installed
+
+## Running iOS Project
+
+run via terminal using `npx cap run ios` or open Xcode, select device and start.
+
+## Opening Android Project
+
+run `npx cap open android` or open Android Studio and import `android/` directory as an Android Studio project
+
+## Running Android Project
+
+run via terminal using `npx cap run android` or open Android Studio, select device and start.
+
 ## Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
