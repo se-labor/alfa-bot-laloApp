@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {NgForm} from "@angular/forms";
 
 @Component({
   selector: 'app-input-area',
@@ -12,4 +13,12 @@ export class InputAreaComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onSubmit(f: NgForm) {
+    console.log(f.value);
+    f.reset();
+  }
+
+  onVoiceInput() {
+
+  }
 }

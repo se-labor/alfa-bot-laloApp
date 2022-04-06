@@ -1,17 +1,18 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HeaderComponent } from './header/header.component';
-import { TextAreaComponent } from './text-area/text-area.component';
-import { BotMessageComponent } from './text-area/bot-message/bot-message.component';
-import { UserMessageComponent } from './text-area/user-message/user-message.component';
-import { InputAreaComponent } from './input-area/input-area.component';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {HeaderComponent} from './header/header.component';
+import {TextAreaComponent} from './text-area/text-area.component';
+import {BotMessageComponent} from './text-area/bot-message/bot-message.component';
+import {UserMessageComponent} from './text-area/user-message/user-message.component';
+import {InputAreaComponent} from './input-area/input-area.component';
 import {ApiModule, BotService, Configuration} from "./api";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {MaterialModule} from "./material/material.module";
+import {FormsModule} from "@angular/forms";
 
 export function apiConfigFactory(): Configuration {
   return new Configuration({
@@ -37,11 +38,13 @@ export function botServiceFactory(httpClient: HttpClient, basePath: string, conf
     InputAreaComponent
   ],
   imports: [
+    HttpClientModule,
     AppRoutingModule,
     ApiModule,
     BrowserModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule
   ],
   providers: [    {
     provide: Configuration,
