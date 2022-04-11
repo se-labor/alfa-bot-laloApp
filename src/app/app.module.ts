@@ -13,13 +13,14 @@ import {ApiModule, BotService, Configuration} from "./api";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {MaterialModule} from "./material/material.module";
 import {FormsModule} from "@angular/forms";
+import {environment} from "../environments/environment";
 
 export function apiConfigFactory(): Configuration {
   return new Configuration({
     // Left undefined to use default Path defined in BotService
-    basePath: undefined,
+    basePath: environment.apiUrl,
     credentials: {
-      key: '92d13306-b96e-11eb-b8e0-0242ac120002',
+      key: environment.apiKey,
     },
   });
 }
