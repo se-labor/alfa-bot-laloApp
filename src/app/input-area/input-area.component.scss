@@ -1,16 +1,35 @@
-mat-form-field {
+.alfa-input-area-form mat-form-field {
   margin: 0.5rem;
   height: 60px;
 }
 
-button {
+.alfa-input-area-form button {
   margin: 0.5rem;
   background: orange;
   color: white;
+  float: right;
 }
 
-form {
+form.alfa-input-area-form  {
   background: orange;
+  display: block;
+  align-items: center;
 }
 
+.alfa-input-area-form label.mat-form-field-label{
+  /*change color of label*/
+  color: white !important;
+}
 
+.alfa-input-area-form div.mat-form-field-outline {
+  /*change color of outline*/
+  color: white !important;
+}
+
+.alfa-input-area-form input.mat-input-element {
+  /*change color of text*/
+  color: white !important;
+}
+
+.alfa-input-area-buttons {
+}

@@ -1,10 +1,12 @@
-<form #f="ngForm" (ngSubmit)="onSubmit(f)" class="input-area" autocomplete="off">
+<form #f="ngForm" (ngSubmit)="onSubmit(f)" class="input-area alfa-input-area-form" autocomplete="off">
   <mat-form-field floatLabel="always" appearance="outline" hideRequiredMarker>
     <mat-label>Gib eine Nachricht ein...</mat-label>
     <input type="text" name="message" ngModel matInput spellcheck="false">
   </mat-form-field>
-  <button mat-flat-button type="submit"><mat-icon>send</mat-icon></button>
-  <button mat-flat-button (click)="onVoiceInput()"><mat-icon>mic</mat-icon></button>
+  <span class="alfa-input-area-buttons">
+    <button mat-flat-button type="submit"><mat-icon>send</mat-icon></button>
+    <button mat-flat-button (click)="onVoiceInput()"><mat-icon>mic</mat-icon></button>
+  </span>
 </form>
 
 

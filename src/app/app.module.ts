@@ -20,13 +20,13 @@ export function apiConfigFactory(): Configuration {
     // Left undefined to use default Path defined in BotService
     basePath: environment.apiUrl,
     credentials: {
-      key: environment.apiKey,
+      Authorization: environment.apiKey
     },
   });
 }
 
-export function botServiceFactory(httpClient: HttpClient, basePath: string, configuration: Configuration): BotService {
-  return new BotService(httpClient,basePath, configuration);
+export function botServiceFactory(httpClient: HttpClient, basePath: string): BotService {
+  return new BotService(httpClient,basePath, apiConfigFactory());
 }
 
 @NgModule({
@@ -47,15 +47,11 @@ export function botServiceFactory(httpClient: HttpClient, basePath: string, conf
     MaterialModule,
     FormsModule
   ],
-  providers: [    {
-    provide: Configuration,
-    useFactory: apiConfigFactory,
-    multi: false
-  },
+  providers: [
     {
       provide: BotService,
       useFactory: botServiceFactory,
-      deps: [HttpClient, Configuration]
+      deps: [HttpClient]
     },],
   bootstrap: [AppComponent]
 })
