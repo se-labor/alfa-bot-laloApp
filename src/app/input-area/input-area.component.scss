@@ -1,8 +1,29 @@
+// For mobile devices only
+@media only screen and (max-width: 868px) {
+  .alfa-input-area-form mat-form-field {
+    margin: 0.5rem;
+    height: 60px;
+    width: calc(100% - 180px);
+  }
+
+  .alfa-input-area-buttons {
+    position: absolute;
+    right: 0;
+    display: inline-block;
+  }
+}
+
 .alfa-input-area-form mat-form-field {
   margin: 0.5rem;
   height: 60px;
   width: calc(100% - 180px);
+  max-width: 868px;
 }
+
+.alfa-input-area-buttons {
+  display: inline-block;
+}
+
 
 .alfa-input-area-form button {
   margin: 0.5rem;
@@ -32,8 +53,3 @@
   color: white !important;
 }
 
-.alfa-input-area-buttons {
-  position: absolute;
-  right: 0;
-  display: inline-block;
-}
