@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { BotMessageComponent } from './bot-message.component';
+import {BotMessageComponent} from './bot-message.component';
 
 describe('BotMessageComponent', () => {
   let component: BotMessageComponent;
