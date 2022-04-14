@@ -1,6 +1,7 @@
 .alfa-input-area-form mat-form-field {
   margin: 0.5rem;
   height: 60px;
+  width: calc(100% - 180px);
 }
 
 .alfa-input-area-form button {
@@ -10,9 +11,9 @@
   float: right;
 }
 
-form.alfa-input-area-form  {
+.alfa-input-area-form  {
   background: orange;
-  display: block;
+  display: flex;
   align-items: center;
 }
 
@@ -32,4 +33,7 @@ form.alfa-input-area-form  {
 }
 
 .alfa-input-area-buttons {
+  position: absolute;
+  right: 0;
+  display: inline-block;
 }
