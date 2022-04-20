@@ -1,0 +1,33 @@
+<li class="mat-list-item" [ngSwitch]="determineType(this.botResponse)">
+  <ng-template ngSwitchCase="BOT_RESPONSE_TYPE_ENUM.TEXT">
+    <mat-card>
+      <mat-card-title>
+        <h2>Lalo</h2>
+      </mat-card-title>
+      <mat-card-content>
+        Lalo Nachricht!
+      </mat-card-content>
+    </mat-card>
+  </ng-template>
+  <ng-template ngSwitchCase="BOT_RESPONSE_TYPE_ENUM.IMAGE">
+    <mat-card>
+      <mat-card-title>
+        <h2>Lalo</h2>
+      </mat-card-title>
+      <mat-card-content>
+        Lalo Nachricht!
+      </mat-card-content>
+    </mat-card>
+  </ng-template>
+  <ng-template ngSwitchCase="BOT_RESPONSE_TYPE_ENUM.BUTTONS">
+    <mat-card>
+      <mat-card-title>
+        <h2>Lalo</h2>
+      </mat-card-title>
+      <mat-card-content>
+        Lalo Nachricht!
+      </mat-card-content>
+    </mat-card>
+  </ng-template>
+</li>
+

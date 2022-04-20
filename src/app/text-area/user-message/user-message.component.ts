@@ -1,4 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {UserMessage} from "../../api";
 
 @Component({
   selector: 'app-user-message',
@@ -6,15 +7,10 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./user-message.component.scss']
 })
 export class UserMessageComponent implements OnInit {
-  message: string = '';
+  @Input() userMessage: UserMessage = {identifier: '', content: ''};
   constructor() { }
 
   ngOnInit(): void {
-/*    this.botService.getInitialBotMessage(this.userService.getUUID(), "body").subscribe(
-      (response: BotResponse[]) => {
-        this.message = response[0].message;
-      }
-    );*/
   }
-
 }
+

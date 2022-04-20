@@ -5,18 +5,20 @@ import {MatCardModule} from "@angular/material/card";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {MatIconModule} from "@angular/material/icon";
+import {MatListModule} from "@angular/material/list";
 
-const material = [
+const materialImports = [
   MatButtonModule,
   MatToolbarModule,
   MatCardModule,
   MatFormFieldModule,
   MatInputModule,
-  MatIconModule
+  MatIconModule,
+  MatListModule
 ];
 
 @NgModule({
-  imports: [material],
-  exports: [material],
+  imports: [materialImports],
+  exports: [materialImports],
 })
 export class MaterialModule { }

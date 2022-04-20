@@ -6,7 +6,7 @@ import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HeaderComponent} from './header/header.component';
 import {TextAreaComponent} from './text-area/text-area.component';
-import {BotMessageComponent} from './text-area/bot-message/bot-message.component';
+import {BotResponseComponent} from './text-area/bot-response/bot-response.component';
 import {UserMessageComponent} from './text-area/user-message/user-message.component';
 import {InputAreaComponent} from './input-area/input-area.component';
 import {ApiModule, BotService, Configuration} from "./api";
@@ -34,7 +34,7 @@ export function botServiceFactory(httpClient: HttpClient, basePath: string): Bot
     AppComponent,
     HeaderComponent,
     TextAreaComponent,
-    BotMessageComponent,
+    BotResponseComponent,
     UserMessageComponent,
     InputAreaComponent
   ],
