@@ -1,0 +1,207 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "ALFA-Bot API",
+        "version": "v1"
+    },
+    "servers": [
+        {
+            "url": "https://alfabot.se-labor.de/alfabotapi",
+            "description": "Generated server url"
+        }
+    ],
+    "paths": {
+        "/bot/sendUserMessage": {
+            "post": {
+                "tags": [
+                    "Bot"
+                ],
+                "operationId": "sendUserMessage",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UserMessage"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/BotResponse"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "Authorization": []
+                    }
+                ]
+            }
+        },
+        "/bot/sendUserButtonSelection": {
+            "post": {
+                "tags": [
+                    "Bot"
+                ],
+                "operationId": "sendUserButtonSelection",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ButtonSelection"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/BotResponse"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "Authorization": []
+                    }
+                ]
+            }
+        },
+        "/bot/initialMessage": {
+            "get": {
+                "tags": [
+                    "Bot"
+                ],
+                "operationId": "getInitialBotMessage",
+                "parameters": [
+                    {
+                        "name": "userIdentifier",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/BotResponse"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "Authorization": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "UserMessage": {
+                "required": [
+                    "content",
+                    "identifier"
+                ],
+                "type": "object",
+                "properties": {
+                    "identifier": {
+                        "type": "string"
+                    },
+                    "content": {
+                        "type": "string"
+                    }
+                }
+            },
+            "BotButton": {
+                "required": [
+                    "payload",
+                    "title"
+                ],
+                "type": "object",
+                "properties": {
+                    "payload": {
+                        "type": "string"
+                    },
+                    "title": {
+                        "type": "string"
+                    }
+                }
+            },
+            "BotResponse": {
+                "required": [
+                    "buttons",
+                    "imageUrl",
+                    "message"
+                ],
+                "type": "object",
+                "properties": {
+                    "message": {
+                        "type": "string"
+                    },
+                    "imageUrl": {
+                        "type": "string"
+                    },
+                    "buttons": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/BotButton"
+                        }
+                    }
+                }
+            },
+            "ButtonSelection": {
+                "required": [
+                    "identifier",
+                    "payload"
+                ],
+                "type": "object",
+                "properties": {
+                    "identifier": {
+                        "type": "string"
+                    },
+                    "payload": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "securitySchemes": {
+            "Authorization": {
+                "type": "apiKey",
+                "name": "X-API-KEY",
+                "in": "header"
+            }
+        }
+    }
+}

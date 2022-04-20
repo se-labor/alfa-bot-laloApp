@@ -1,0 +1,15 @@
+.gitignore
+README.md
+api.module.ts
+api/api.ts
+api/bot.service.ts
+configuration.ts
+encoder.ts
+git_push.sh
+index.ts
+model/botButton.ts
+model/botResponse.ts
+model/buttonSelection.ts
+model/models.ts
+model/userMessage.ts
+variables.ts
