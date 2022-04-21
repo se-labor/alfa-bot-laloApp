@@ -1,10 +1,10 @@
-<li class="mat-list-item" [ngSwitch]="determineType(this.botResponse)">
+<div  [ngSwitch]="determineType(this.botResponse)">
   <ng-template ngSwitchCase="{{BOT_RESPONSE_TYPE_ENUM.TEXT}}">
     <mat-card>
       <mat-card-title>
         <h2>Lalo</h2>
       </mat-card-title>
-      <mat-card-content >
+      <mat-card-content>
         <markdown [data]="this.botResponse.message"></markdown>
       </mat-card-content>
     </mat-card>
@@ -37,6 +37,4 @@
       </mat-card-content>
     </mat-card>
   </ng-template>
-
-</li>
-
+</div>

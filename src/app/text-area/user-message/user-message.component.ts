@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {UserMessage} from "../../api";
+import {UserMessage} from "../../modules/api";
 
 @Component({
   selector: 'app-user-message',

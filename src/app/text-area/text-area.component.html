@@ -1,5 +1,5 @@
-<ul>
-  <div *ngFor="let message of messages" [ngSwitch]="determineMessageType(message)">
+<ol class="chat">
+  <li *ngFor="let message of messages" [ngSwitch]="determineMessageType(message)">
     <ng-template ngSwitchCase="{{MESSAGE_TYPE_ENUM.BOT}}">
       <app-bot-response
         [botResponse]="$any(message)">
@@ -11,5 +11,5 @@
         [userMessage]="$any(message)">
       </app-user-message>
     </ng-template>
-  </div>
-</ul>
+  </li>
+</ol>

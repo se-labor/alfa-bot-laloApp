@@ -2,7 +2,20 @@ div {
   padding: 0;
 }
 
-ul {
+.chat {
   list-style: none;
-  padding: 0;
+  background: none;
+  margin: 0;
+  position: absolute;
+  top:64px;
+  height: calc(100% - 140px);
+  width: 100%;
+  overflow-y: scroll;
+  padding: 0 17px 0 0;
+}
+
+.chat li {
+  padding: 5px;
+  overflow: hidden;
+  display: flex;
 }

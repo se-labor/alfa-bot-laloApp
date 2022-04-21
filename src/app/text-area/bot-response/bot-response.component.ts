@@ -1,6 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {BotButton, BotResponse} from "../../api";
+import {BotButton, BotResponse} from "../../modules/api";
 import {BOT_RESPONSE_TYPE} from "../../shared/app-enums.model";
+import {MessageService} from "../../shared/message.service";
+import {UserService} from "../../shared/user.service";
 
 @Component({
   selector: 'app-bot-response',
@@ -10,14 +12,14 @@ import {BOT_RESPONSE_TYPE} from "../../shared/app-enums.model";
 export class BotResponseComponent implements OnInit {
   @Input() botResponse: BotResponse = {message: '', imageUrl: '', buttons: []};
   BOT_RESPONSE_TYPE_ENUM = BOT_RESPONSE_TYPE;
-  constructor() { }
+  constructor(private messageService: MessageService, private userService: UserService) { }
 
   ngOnInit(): void {
   }
 
   determineType(botResponse: BotResponse): string {
     if (botResponse.message !== '') {
-      if (botResponse.imageUrl !== '') {
+      if (botResponse.buttons.length > 0) {
         return this.BOT_RESPONSE_TYPE_ENUM.BUTTONS_AND_TEXT;
       } else {
         return this.BOT_RESPONSE_TYPE_ENUM.TEXT;
@@ -32,6 +34,6 @@ export class BotResponseComponent implements OnInit {
   }
 
   onButtonClick(button: BotButton) {
-
+    this.messageService.processUserMessage({identifier: this.userService.getUUID(), content: button.title});
   }
 }

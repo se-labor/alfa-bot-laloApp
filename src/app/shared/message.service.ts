@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {BotResponse, BotService, UserMessage} from "../api";
+import {BotResponse, BotService, UserMessage} from "../modules/api";
 import {Subject} from "rxjs";
 import {first} from "rxjs/operators";
 

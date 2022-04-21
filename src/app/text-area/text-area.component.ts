@@ -1,5 +1,5 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {BotResponse, UserMessage} from "../api";
+import {BotResponse, UserMessage} from "../modules/api";
 import {MessageService} from "../shared/message.service";
 import {Subscription} from "rxjs";
 import {MESSAGE_TYPE} from "../shared/app-enums.model";
