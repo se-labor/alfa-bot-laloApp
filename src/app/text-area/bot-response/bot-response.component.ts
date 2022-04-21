@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {BotResponse} from "../../api";
+import {BotButton, BotResponse} from "../../api";
 import {BOT_RESPONSE_TYPE} from "../../shared/app-enums.model";
 
 @Component({
@@ -8,20 +8,30 @@ import {BOT_RESPONSE_TYPE} from "../../shared/app-enums.model";
   styleUrls: ['./bot-response.component.scss']
 })
 export class BotResponseComponent implements OnInit {
-  BOT_RESPONSE_TYPE_ENUM = BOT_RESPONSE_TYPE;
   @Input() botResponse: BotResponse = {message: '', imageUrl: '', buttons: []};
+  BOT_RESPONSE_TYPE_ENUM = BOT_RESPONSE_TYPE;
   constructor() { }
 
   ngOnInit(): void {
   }
 
   determineType(botResponse: BotResponse): string {
-    if (botResponse.imageUrl) {
+    if (botResponse.message !== '') {
+      if (botResponse.imageUrl !== '') {
+        return this.BOT_RESPONSE_TYPE_ENUM.BUTTONS_AND_TEXT;
+      } else {
+        return this.BOT_RESPONSE_TYPE_ENUM.TEXT;
+      }
+    } else if (botResponse.imageUrl !== '') {
       return BOT_RESPONSE_TYPE.IMAGE;
     } else if (botResponse.buttons.length > 0) {
       return BOT_RESPONSE_TYPE.BUTTONS;
     } else {
       return BOT_RESPONSE_TYPE.TEXT;
     }
+  }
+
+  onButtonClick(button: BotButton) {
+
   }
 }

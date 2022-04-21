@@ -24,6 +24,8 @@
     "@capacitor/android": "^3.4.3",
     "@capacitor/core": "^3.4.3",
     "@capacitor/ios": "^3.4.3",
+    "ajv": "^6.9.1",
+    "ngx-markdown": "^12.1.0",
     "rxjs": "~6.6.0",
     "ts-node": "^10.7.0",
     "tslib": "^2.3.0",

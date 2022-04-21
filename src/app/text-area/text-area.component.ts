@@ -10,9 +10,9 @@ import {MESSAGE_TYPE} from "../shared/app-enums.model";
   styleUrls: ['./text-area.component.scss']
 })
 export class TextAreaComponent implements OnInit, OnDestroy {
-  MESSAGE_TYPE_ENUM = MESSAGE_TYPE;
   messages: (BotResponse | UserMessage)[] = [];
   private messageSubscription: Subscription = new Subscription();
+  MESSAGE_TYPE_ENUM = MESSAGE_TYPE;
   constructor(private messageService: MessageService) { }
 
   ngOnInit(): void {

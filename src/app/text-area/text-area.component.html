@@ -1,12 +1,12 @@
 <ul>
   <div *ngFor="let message of messages" [ngSwitch]="determineMessageType(message)">
-    <ng-template ngSwitchCase="MESSAGE_TYPE_ENUM.BOT">
+    <ng-template ngSwitchCase="{{MESSAGE_TYPE_ENUM.BOT}}">
       <app-bot-response
         [botResponse]="$any(message)">
       </app-bot-response>
     </ng-template>
 
-    <ng-template ngSwitchCase="MESSAGE_TYPE_ENUM.USER">
+    <ng-template ngSwitchCase="{{MESSAGE_TYPE_ENUM.USER}}">
       <app-user-message
         [userMessage]="$any(message)">
       </app-user-message>

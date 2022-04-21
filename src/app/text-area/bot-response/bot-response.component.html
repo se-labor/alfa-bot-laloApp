@@ -1,33 +1,42 @@
 <li class="mat-list-item" [ngSwitch]="determineType(this.botResponse)">
-  <ng-template ngSwitchCase="BOT_RESPONSE_TYPE_ENUM.TEXT">
+  <ng-template ngSwitchCase="{{BOT_RESPONSE_TYPE_ENUM.TEXT}}">
+    <mat-card>
+      <mat-card-title>
+        <h2>Lalo</h2>
+      </mat-card-title>
+      <mat-card-content >
+        <markdown [data]="this.botResponse.message"></markdown>
+      </mat-card-content>
+    </mat-card>
+  </ng-template>
+
+  <ng-template ngSwitchCase="{{BOT_RESPONSE_TYPE_ENUM.BUTTONS}}">
+    <mat-card>
+      <mat-card-actions>
+        <button mat-raised-button *ngFor="let button of botResponse.buttons" (click)="onButtonClick(button)">{{button.title}}</button>
+      </mat-card-actions>
+    </mat-card>
+  </ng-template>
+
+  <ng-template ngSwitchCase="{{BOT_RESPONSE_TYPE_ENUM.BUTTONS_AND_TEXT}}">
+    <mat-card>
+      <markdown [data]="this.botResponse.message"></markdown>
+      <mat-card-actions>
+        <button mat-raised-button *ngFor="let button of botResponse.buttons" (click)="onButtonClick(button)">{{button.title}}</button>
+      </mat-card-actions>
+    </mat-card>
+  </ng-template>
+
+  <ng-template ngSwitchCase="{{BOT_RESPONSE_TYPE_ENUM.IMAGE}}">
     <mat-card>
       <mat-card-title>
         <h2>Lalo</h2>
       </mat-card-title>
       <mat-card-content>
-        Lalo Nachricht!
+        <img [src]="botResponse.imageUrl">
       </mat-card-content>
     </mat-card>
   </ng-template>
-  <ng-template ngSwitchCase="BOT_RESPONSE_TYPE_ENUM.IMAGE">
-    <mat-card>
-      <mat-card-title>
-        <h2>Lalo</h2>
-      </mat-card-title>
-      <mat-card-content>
-        Lalo Nachricht!
-      </mat-card-content>
-    </mat-card>
-  </ng-template>
-  <ng-template ngSwitchCase="BOT_RESPONSE_TYPE_ENUM.BUTTONS">
-    <mat-card>
-      <mat-card-title>
-        <h2>Lalo</h2>
-      </mat-card-title>
-      <mat-card-content>
-        Lalo Nachricht!
-      </mat-card-content>
-    </mat-card>
-  </ng-template>
+
 </li>
 

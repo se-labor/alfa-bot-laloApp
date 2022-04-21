@@ -14,6 +14,7 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {MaterialModule} from "./material/material.module";
 import {FormsModule} from "@angular/forms";
 import {environment} from "../environments/environment";
+import {MarkdownModule} from "ngx-markdown";
 
 export function apiConfigFactory(): Configuration {
   return new Configuration({
@@ -45,7 +46,8 @@ export function botServiceFactory(httpClient: HttpClient, basePath: string): Bot
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
-    FormsModule
+    FormsModule,
+    MarkdownModule.forRoot({ loader: HttpClient })
   ],
   providers: [
     {
