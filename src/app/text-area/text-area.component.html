@@ -1,15 +1,13 @@
-<ol class="chat">
-  <li *ngFor="let message of messages" [ngSwitch]="determineMessageType(message)">
+<ol #messageList class="chat">
+  <li *ngFor="let message of messages"
+      [ngSwitch]="determineMessageType(message)"
+      [ngClass]="determineMessageType(message)===MESSAGE_TYPE_ENUM.USER?'userMessage':'botResponse'">
     <ng-template ngSwitchCase="{{MESSAGE_TYPE_ENUM.BOT}}">
-      <app-bot-response
-        [botResponse]="$any(message)">
-      </app-bot-response>
+      <app-bot-response [botResponse]="$any(message)"></app-bot-response>
     </ng-template>
 
     <ng-template ngSwitchCase="{{MESSAGE_TYPE_ENUM.USER}}">
-      <app-user-message
-        [userMessage]="$any(message)">
-      </app-user-message>
+      <app-user-message [userMessage]="$any(message)"></app-user-message>
     </ng-template>
   </li>
 </ol>

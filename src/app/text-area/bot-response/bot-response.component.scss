@@ -1,3 +1,63 @@
-img {
- max-height: 200px;
+
+button {
+  margin-left: 5px;
+  margin-bottom: 5px;
+  background-color: #f8ab41;
+  color: white;
 }
+
+.message {
+  background-color: white;
+  border-radius: 0.25rem;
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem 1rem;
+  max-width: 80%;
+}
+
+.message img {
+  width: 100%;
+  height: auto;
+}
+
+.message p {
+  border-radius: 1.15rem;
+  line-height: 1.25;
+  position: relative;
+  padding: 0.5rem .875rem;
+  word-wrap: break-word;
+  height: fit-content;
+  width: fit-content;
+}
+
+.message p::before,
+.message p::after {
+  bottom: -0.1rem;
+  content: "";
+  height: 1rem;
+  position: absolute;
+}
+
+p.from-bot {
+  align-items: flex-start;
+  background-color: #42c3fe;
+  color: white;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+p.from-bot:before {
+  border-bottom-right-radius: 0.8rem 0.7rem;
+  border-left: 1rem solid #42c3fe;
+  left: -0.35rem;
+  transform: translate(0, -0.1rem);
+}
+
+p.from-bot::after {
+  background-color: white;
+  border-bottom-right-radius: 0.5rem;
+  left: 20px;
+  transform: translate(-30px, -2px);
+  width: 10px;
+}
+

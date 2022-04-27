@@ -1,3 +1,52 @@
 mat-card {
-  margin: 0.5rem;
+  background-color: #ffa017;
+  z-index: 2;
+  border-radius: 9px;
+  color: white;
+}
+
+.message {
+  background-color: #fff;
+  border-radius: 0.25rem;
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem 1rem;
+  max-width: 80%;
+}
+
+.message p {
+  border-radius: 1.15rem;
+  line-height: 1.25;
+  padding: 0.5rem .875rem;
+  position: relative;
+  word-wrap: break-word;
+}
+
+.message p::before,
+.message p::after {
+  bottom: -0.1rem;
+  content: "";
+  height: 1rem;
+  position: absolute;
+}
+
+p.from-user {
+  align-self: flex-end;
+  background-color: #f8ab41;
+  color: #fff;
+}
+
+p.from-user::before {
+  border-bottom-left-radius: 0.8rem 0.7rem;
+  border-right: 1rem solid #f8ab41;
+  right: -0.35rem;
+  transform: translate(0, -0.1rem);
+}
+
+p.from-user::after {
+  background-color: #fff;
+  border-bottom-left-radius: 0.5rem;
+  right: -40px;
+  transform:translate(-30px, -2px);
+  width: 10px;
 }

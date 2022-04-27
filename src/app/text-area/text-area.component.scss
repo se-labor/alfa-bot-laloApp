@@ -1,6 +1,13 @@
 div {
   padding: 0;
 }
+// Override the position and size of the textarea, because of automatic restyling from material
+@media only screen and (max-width: 599px) {
+  .chat {
+    top: 56px !important;
+    height: calc(100% - 132px) !important;
+  }
+}
 
 .chat {
   list-style: none;
@@ -8,14 +15,24 @@ div {
   margin: 0;
   position: absolute;
   top:64px;
+  // Calculate the height of the chat area
   height: calc(100% - 140px);
   width: 100%;
   overflow-y: scroll;
-  padding: 0 17px 0 0;
+  padding: 0;
+  // Remove automatically added left margin
+  padding-inline-start: 0 !important;
 }
 
 .chat li {
-  padding: 5px;
   overflow: hidden;
   display: flex;
+}
+
+.botResponse {
+  direction: ltr;
+}
+
+.userMessage {
+  direction: rtl;
 }

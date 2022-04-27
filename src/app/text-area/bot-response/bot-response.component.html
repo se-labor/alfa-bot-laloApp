@@ -1,40 +1,22 @@
-<div  [ngSwitch]="determineType(this.botResponse)">
-  <ng-template ngSwitchCase="{{BOT_RESPONSE_TYPE_ENUM.TEXT}}">
-    <mat-card>
-      <mat-card-title>
-        <h2>Lalo</h2>
-      </mat-card-title>
-      <mat-card-content>
-        <markdown [data]="this.botResponse.message"></markdown>
-      </mat-card-content>
-    </mat-card>
-  </ng-template>
-
-  <ng-template ngSwitchCase="{{BOT_RESPONSE_TYPE_ENUM.BUTTONS}}">
-    <mat-card>
-      <mat-card-actions>
-        <button mat-raised-button *ngFor="let button of botResponse.buttons" (click)="onButtonClick(button)">{{button.title}}</button>
-      </mat-card-actions>
-    </mat-card>
-  </ng-template>
-
-  <ng-template ngSwitchCase="{{BOT_RESPONSE_TYPE_ENUM.BUTTONS_AND_TEXT}}">
-    <mat-card>
+<div class="message" [ngSwitch]="determineType(this.botResponse)">
+  <p class="from-bot">
+    <ng-template ngSwitchCase="{{BOT_RESPONSE_TYPE_ENUM.TEXT}}">
       <markdown [data]="this.botResponse.message"></markdown>
-      <mat-card-actions>
-        <button mat-raised-button *ngFor="let button of botResponse.buttons" (click)="onButtonClick(button)">{{button.title}}</button>
-      </mat-card-actions>
-    </mat-card>
-  </ng-template>
+    </ng-template>
 
-  <ng-template ngSwitchCase="{{BOT_RESPONSE_TYPE_ENUM.IMAGE}}">
-    <mat-card>
-      <mat-card-title>
-        <h2>Lalo</h2>
-      </mat-card-title>
-      <mat-card-content>
-        <img [src]="botResponse.imageUrl">
-      </mat-card-content>
-    </mat-card>
-  </ng-template>
+    <ng-template ngSwitchCase="{{BOT_RESPONSE_TYPE_ENUM.BUTTONS}}">
+      <button mat-raised-button *ngFor="let button of botResponse.buttons" (click)="onButtonClick(button)">{{button.title}}</button>
+    </ng-template>
+
+    <ng-template ngSwitchCase="{{BOT_RESPONSE_TYPE_ENUM.BUTTONS_AND_TEXT}}">
+      <markdown [data]="this.botResponse.message"></markdown>
+      <button mat-raised-button *ngFor="let button of botResponse.buttons" (click)="onButtonClick(button)">{{button.title}}</button>
+    </ng-template>
+
+    <ng-template ngSwitchCase="{{BOT_RESPONSE_TYPE_ENUM.IMAGE}}">
+      <img [src]="botResponse.imageUrl">
+    </ng-template>
+  </p>
 </div>
+
+
