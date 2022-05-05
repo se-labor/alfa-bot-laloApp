@@ -1,4 +1,4 @@
-import {BotButton} from "../modules/api";
+import {BotButton} from "../../modules/api";
 
 export interface IndexedBotResponse {
   index: number;

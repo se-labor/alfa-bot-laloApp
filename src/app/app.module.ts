@@ -15,6 +15,8 @@ import {MaterialModule} from "./modules/material/material.module";
 import {FormsModule} from "@angular/forms";
 import {environment} from "../environments/environment";
 import {MarkdownModule} from "ngx-markdown";
+import {FlexLayoutModule} from "@angular/flex-layout";
+import {ImageLoadedDirective} from './text-area/bot-response/image-loaded.directive';
 
 export function apiConfigFactory(): Configuration {
   return new Configuration({
@@ -37,7 +39,8 @@ export function botServiceFactory(httpClient: HttpClient, basePath: string): Bot
     TextAreaComponent,
     BotResponseComponent,
     UserMessageComponent,
-    InputAreaComponent
+    InputAreaComponent,
+    ImageLoadedDirective
   ],
   imports: [
     HttpClientModule,
@@ -47,7 +50,8 @@ export function botServiceFactory(httpClient: HttpClient, basePath: string): Bot
     BrowserAnimationsModule,
     MaterialModule,
     FormsModule,
-    MarkdownModule.forRoot({ loader: HttpClient })
+    MarkdownModule.forRoot({loader: HttpClient}),
+    FlexLayoutModule
   ],
   providers: [
     {

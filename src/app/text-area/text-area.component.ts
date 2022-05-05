@@ -1,27 +1,31 @@
-import {Component, ElementRef, OnDestroy, OnInit, ViewChild, AfterViewChecked} from '@angular/core';
+import {AfterViewChecked, Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {BotResponse, UserMessage} from "../modules/api";
-import {MessageService} from "../shared/message.service";
+import {MessageService} from "../shared/services/message.service";
 import {Subscription} from "rxjs";
-import {MESSAGE_TYPE} from "../shared/app-enums.model";
+import {MESSAGE_TYPE} from "../shared/models/app-enums.model";
+import {ImageService} from "./services/image.service";
 
 @Component({
   selector: 'app-text-area',
   templateUrl: './text-area.component.html',
   styleUrls: ['./text-area.component.scss']
 })
-export class TextAreaComponent implements OnInit, OnDestroy, AfterViewChecked {
+export class TextAreaComponent implements OnInit, OnDestroy, AfterViewChecked  {
   @ViewChild('messageList') private myScrollContainer: ElementRef;
   messages: (BotResponse | UserMessage)[] = [];
   private messageSubscription: Subscription = new Subscription();
   MESSAGE_TYPE_ENUM = MESSAGE_TYPE;
-  constructor(private messageService: MessageService) { }
+  constructor(private messageService: MessageService,
+              private imageService: ImageService) { }
 
   ngOnInit(): void {
     this.messages = this.messageService.getMessages();
      this.messageSubscription = this.messageService.listChanged.subscribe((messageList) => {
       this.messages = messageList;
     });
-     this.scrollToBottom();
+     this.imageService.imageLoaded.subscribe(() => {
+       this.scrollToBottom();
+     });
   }
 
   ngAfterViewChecked() {

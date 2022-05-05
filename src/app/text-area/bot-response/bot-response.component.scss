@@ -12,12 +12,12 @@ button {
   display: flex;
   flex-direction: column;
   padding: 0.5rem 1rem;
-  max-width: 80%;
+  max-width: 60vw;
 }
 
 .message img {
   width: 100%;
-  height: auto;
+  max-height: 50vh;
 }
 
 .message p {
@@ -61,3 +61,10 @@ p.from-bot::after {
   width: 10px;
 }
 
+// Use if device is in portrait mode
+@media (orientation: landscape) and (max-width: 768px) {
+  .message img {
+    width: auto;
+    max-height: 50vw;
+  }
+}

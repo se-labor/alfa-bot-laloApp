@@ -1,8 +1,9 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {BotButton, BotResponse} from "../../modules/api";
-import {BOT_RESPONSE_TYPE} from "../../shared/app-enums.model";
-import {MessageService} from "../../shared/message.service";
-import {UserService} from "../../shared/user.service";
+import {BOT_RESPONSE_TYPE} from "../../shared/models/app-enums.model";
+import {MessageService} from "../../shared/services/message.service";
+import {UserService} from "../../shared/services/user.service";
+import {ImageService} from "../services/image.service";
 
 @Component({
   selector: 'app-bot-response',
@@ -12,7 +13,9 @@ import {UserService} from "../../shared/user.service";
 export class BotResponseComponent implements OnInit {
   @Input() botResponse: BotResponse = {message: '', imageUrl: '', buttons: []};
   BOT_RESPONSE_TYPE_ENUM = BOT_RESPONSE_TYPE;
-  constructor(private messageService: MessageService, private userService: UserService) { }
+  constructor(private messageService: MessageService,
+              private userService: UserService,
+              private imageService: ImageService) { }
 
   ngOnInit(): void {
   }
@@ -35,5 +38,9 @@ export class BotResponseComponent implements OnInit {
 
   onButtonClick(button: BotButton) {
     this.messageService.processUserMessage({identifier: this.userService.getUUID(), content: button.title});
+  }
+
+  onImageLoad() {
+    this.imageService.onImageLoad();
   }
 }

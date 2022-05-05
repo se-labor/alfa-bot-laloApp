@@ -14,8 +14,7 @@ const materialImports = [
   MatFormFieldModule,
   MatInputModule,
   MatIconModule,
-  MatListModule
-];
+  MatListModule];
 
 @NgModule({
   imports: [materialImports],

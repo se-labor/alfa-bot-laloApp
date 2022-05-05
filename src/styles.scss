@@ -1,14 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
-
 html, body { height: 100%; }
-body { margin: 0; font-family: "SemikolonPlus", Roboto, "Helvetica Neue", sans-serif; }
-
-@font-face {
-  font-family: "SemikolonPlus";
-  src: local("SemikolonPlus"), url("assets/fonts/SemikolonPlus.ttf") format("ttf");
+body {
+  margin: 0;
+  font-family: "SemikolonPlus", "Roboto", "Helvetica Neue", sans-serif;
 }
-
-// Override Material-UI's default mat-input styles
-
-
-

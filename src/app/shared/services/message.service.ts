@@ -1,9 +1,9 @@
 import {Injectable} from '@angular/core';
-import {BotResponse, BotService, UserMessage} from "../modules/api";
+import {BotResponse, BotService, UserMessage} from "../../modules/api";
 import {Subject} from "rxjs";
 import {first} from "rxjs/operators";
-import {IndexedBotResponse} from "./indexed-bot-response.model";
-import {IndexedUserMessage} from "./indexed-user-message.model";
+import {IndexedBotResponse} from "../models/indexed-bot-response.model";
+import {IndexedUserMessage} from "../models/indexed-user-message.model";
 import {UserService} from "./user.service";
 
 @Injectable({

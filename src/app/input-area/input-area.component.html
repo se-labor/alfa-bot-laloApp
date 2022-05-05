@@ -1,9 +1,9 @@
 <form #f="ngForm" (ngSubmit)="onSubmit(f)" class="input-area alfa-input-area-form" autocomplete="off">
-  <mat-form-field floatLabel="always" appearance="outline" hideRequiredMarker>
-    <mat-label>Gib eine Nachricht ein...</mat-label>
-    <input type="text" name="message" ngModel matInput spellcheck="false">
-  </mat-form-field>
-  <div class="alfa-input-area-buttons">
+  <div class="alfa-input-area-div" fxLayoutAlign="start center" fxLayoutGap="8px">
+    <mat-form-field fxFlex="grow" floatLabel="always" appearance="outline" hideRequiredMarker>
+      <mat-label>Gib eine Nachricht ein...</mat-label>
+      <input type="text" name="message" ngModel matInput spellcheck="false">
+    </mat-form-field>
     <button mat-flat-button (click)="onVoiceInput()"><mat-icon>mic</mat-icon></button>
     <button mat-flat-button type="submit"><mat-icon>send</mat-icon></button>
   </div>

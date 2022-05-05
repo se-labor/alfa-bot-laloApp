@@ -14,7 +14,7 @@
     </ng-template>
 
     <ng-template ngSwitchCase="{{BOT_RESPONSE_TYPE_ENUM.IMAGE}}">
-      <img [src]="botResponse.imageUrl">
+      <img (loaded)="onImageLoad()" [src]="botResponse.imageUrl">
     </ng-template>
   </p>
 </div>

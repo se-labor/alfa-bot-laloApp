@@ -1,5 +1,7 @@
 .navbar {
   justify-content: space-between;
+  padding-top: env(safe-area-inset-top);
+  border-bottom: 1px solid #2baefe;
 }
 
 span {

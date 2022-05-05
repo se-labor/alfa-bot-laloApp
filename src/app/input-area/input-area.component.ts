@@ -1,7 +1,8 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {NgForm} from "@angular/forms";
-import {MessageService} from "../shared/message.service";
-import {UserService} from "../shared/user.service";
+import {MessageService} from "../shared/services/message.service";
+import {UserService} from "../shared/services/user.service";
+import {SpeechToTextService} from "./services/speech-to-text.service";
 
 @Component({
   selector: 'app-input-area',
@@ -11,9 +12,13 @@ import {UserService} from "../shared/user.service";
 })
 export class InputAreaComponent implements OnInit {
 
-  constructor(private messageService: MessageService, private userService: UserService) { }
+  private voiceInputActive: boolean = false;
+  constructor(private messageService: MessageService,
+              private userService: UserService,
+              private speechRecognitionService: SpeechToTextService) { }
 
   ngOnInit(): void {
+    this.speechRecognitionService.init();
   }
 
   onSubmit(form: NgForm) {
@@ -21,7 +26,5 @@ export class InputAreaComponent implements OnInit {
     form.reset();
   }
 
-  onVoiceInput() {
-
-  }
+  onVoiceInput() {}
 }

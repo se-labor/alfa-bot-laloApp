@@ -1,41 +1,21 @@
-// For mobile devices only
-@media only screen and (max-width: 868px) {
-  .alfa-input-area-form mat-form-field {
-    margin: 0.5rem;
-    height: 60px;
-    width: calc(100% - 180px);
-  }
-
-  .alfa-input-area-buttons {
-    position: absolute;
-    right: 0;
-    display: inline-block;
-  }
+.mat-form-field-wrapper {
+  padding: 8px;
 }
 
-.alfa-input-area-form mat-form-field {
-  margin: 0.5rem;
-  height: 60px;
-  width: calc(100% - 180px);
-  max-width: 868px;
+.alfa-input-area-div {
+  max-width: 768px !important;
 }
-
-.alfa-input-area-buttons {
-  display: inline-block;
-}
-
 
 .alfa-input-area-form button {
-  margin: 0.5rem;
   background: #f8ab41;
   color: white;
-  float: right;
 }
 
 .alfa-input-area-form  {
   background: #f8ab41;
-  display: flex;
-  align-items: center;
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+  border-top: 1px solid #f5912a;
 }
 
 .alfa-input-area-form label.mat-form-field-label{
@@ -51,6 +31,15 @@
 .alfa-input-area-form input.mat-input-element {
   /*change color of text*/
   color: white !important;
+  caret-color: white !important;
 }
+@media only screen and (max-width: 768px) {
+  .alfa-input-area-form {
+    padding-bottom: 0.4rem;
+    padding-left: 0.3rem;
+    padding-right: 0.1rem;
+  }
+}
+
 
 
