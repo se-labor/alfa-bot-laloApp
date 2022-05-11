@@ -12,7 +12,7 @@ import {ImageService} from "../services/image.service";
 })
 export class BotResponseComponent implements OnInit {
   @Input() botResponse: BotResponse = {message: '', imageUrl: '', buttons: []};
-  BOT_RESPONSE_TYPE_ENUM = BOT_RESPONSE_TYPE;
+  public BOT_RESPONSE_TYPE_ENUM = BOT_RESPONSE_TYPE;
   constructor(private messageService: MessageService,
               private userService: UserService,
               private imageService: ImageService) { }

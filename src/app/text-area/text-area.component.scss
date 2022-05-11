@@ -22,15 +22,15 @@ div {
   display: flex;
 }
 
-.botResponse {
+.bot-response {
   direction: ltr;
 }
 
-.userMessage {
+.user-message {
   direction: rtl;
 }
 
-.messageList {
+.message-list {
   overflow: hidden;
   overflow-y: auto;
   position: absolute;

@@ -1,8 +1,8 @@
-<div #messageList class="messageList" fxFlexFill>
+<div #messageList class="message-list">
   <ol class="chat">
     <li *ngFor="let message of messages"
         [ngSwitch]="determineMessageType(message)"
-        [ngClass]="determineMessageType(message)===MESSAGE_TYPE_ENUM.USER?'userMessage':'botResponse'">
+        [ngClass]="determineMessageType(message)===MESSAGE_TYPE_ENUM.USER?'user-message':'bot-response'">
       <ng-template ngSwitchCase="{{MESSAGE_TYPE_ENUM.BOT}}">
         <app-bot-response [botResponse]="$any(message)"></app-bot-response>
       </ng-template>
