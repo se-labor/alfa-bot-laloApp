@@ -17,7 +17,7 @@ export class BotResponseComponent implements OnInit {
               private userService: UserService,
               private imageService: ImageService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
   }
 
   determineType(botResponse: BotResponse): string {
@@ -37,7 +37,7 @@ export class BotResponseComponent implements OnInit {
   }
 
   onButtonClick(button: BotButton) {
-    this.messageService.processUserMessage({identifier: this.userService.getUUID(), content: button.title});
+    this.messageService.sendMessage({identifier: this.userService.getUUID(), content: button.title});
   }
 
   onImageLoad() {

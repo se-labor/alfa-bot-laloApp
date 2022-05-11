@@ -12,17 +12,16 @@ import {SpeechToTextService} from "./services/speech-to-text.service";
 })
 export class InputAreaComponent implements OnInit {
 
-  private voiceInputActive: boolean = false;
   constructor(private messageService: MessageService,
               private userService: UserService,
               private speechRecognitionService: SpeechToTextService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.speechRecognitionService.init();
   }
 
   onSubmit(form: NgForm) {
-    this.messageService.processUserMessage({identifier: this.userService.getUUID(), content: form.value.message});
+    this.messageService.sendMessage({identifier: this.userService.getUUID(), content: form.value.message});
     form.reset();
   }
 

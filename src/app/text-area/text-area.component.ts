@@ -12,13 +12,13 @@ import {ImageService} from "./services/image.service";
 })
 export class TextAreaComponent implements OnInit, OnDestroy, AfterViewChecked  {
   @ViewChild('messageList') private myScrollContainer: ElementRef;
-  private messages: (BotResponse | UserMessage)[] = [];
-  private messageSubscription: Subscription = new Subscription();
+  public messages: (BotResponse | UserMessage)[] = [];
   public MESSAGE_TYPE_ENUM = MESSAGE_TYPE;
+  private messageSubscription: Subscription;
   constructor(private messageService: MessageService,
-              private imageService: ImageService) { }
+              private imageService: ImageService) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.messages = this.messageService.getMessages();
      this.messageSubscription = this.messageService.listChanged.subscribe((messageList) => {
       this.messages = messageList;
@@ -32,10 +32,8 @@ export class TextAreaComponent implements OnInit, OnDestroy, AfterViewChecked  {
     this.scrollToBottom();
   }
 
-  scrollToBottom(): void {
-    try {
-      this.myScrollContainer.nativeElement.scrollTop = this.myScrollContainer.nativeElement.scrollHeight;
-    } catch(err) { }
+  scrollToBottom() {
+    this.myScrollContainer.nativeElement.scrollTop = this.myScrollContainer.nativeElement.scrollHeight;
   }
 
   determineMessageType(message: BotResponse | UserMessage): string {
@@ -46,7 +44,7 @@ export class TextAreaComponent implements OnInit, OnDestroy, AfterViewChecked  {
     }
   }
 
-  ngOnDestroy(): void {
+  ngOnDestroy() {
     this.messageSubscription.unsubscribe();
   }
 }

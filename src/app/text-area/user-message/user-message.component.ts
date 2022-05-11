@@ -10,7 +10,7 @@ export class UserMessageComponent implements OnInit {
   @Input() userMessage: UserMessage = {identifier: '', content: ''};
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit() {
   }
 }
 

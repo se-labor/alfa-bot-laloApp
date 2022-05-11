@@ -15,13 +15,19 @@ chrome-profiler-events*.json
 
 # IDEs and editors
 /.idea
-/android/.idea
 .project
 .classpath
 .c9/
 *.launch
 .settings/
 *.sublime-workspace
+
+# IDE - XCode
+/ios/App/App.xcodeproj
+/ios/App/App.xcworkspace
+
+#IDE - Android Studio
+/android/.idea
 
 # IDE - VSCode
 .vscode/*
