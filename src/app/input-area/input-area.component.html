@@ -1,10 +1,10 @@
-<form #f="ngForm" (ngSubmit)="onSubmit(f)" class="input-area alfa-input-area-form" autocomplete="off">
+<form #form="ngForm" (ngSubmit)="onSubmit(form)" class="input-area alfa-input-area-form" autocomplete="off">
   <div class="alfa-input-area-div" fxLayoutAlign="start center" fxLayoutGap="8px">
     <mat-form-field fxFlex="grow" floatLabel="always" appearance="outline" hideRequiredMarker>
       <mat-label>Gib eine Nachricht ein...</mat-label>
-      <input type="text" name="message" ngModel matInput spellcheck="false">
+      <input type="text" name="message" ngModel matInput spellcheck="false" required>
     </mat-form-field>
-    <button mat-flat-button type="submit"><mat-icon>send</mat-icon></button>
+    <button [disabled]="form.invalid" mat-flat-button type="submit"><mat-icon>send</mat-icon></button>
   </div>
 </form>
 

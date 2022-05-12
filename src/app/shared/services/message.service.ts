@@ -23,9 +23,12 @@ export class MessageService{
   }
 
   public sendMessage(message: UserMessage) {
-    this.messageQueue.push(message);
     if (this.messageQueue.length === 0) {
+      this.messageQueue.push(message);
       this.processNextUserMessage();
+    }
+    else {
+      this.messageQueue.push(message);
     }
   }
 
