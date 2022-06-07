@@ -1,11 +1,3 @@
-
-button {
-  margin-left: 5px;
-  margin-bottom: 5px;
-  background-color: #f8ab41;
-  color: white;
-}
-
 .message {
   background-color: white;
   border-radius: 0.25rem;
@@ -20,14 +12,17 @@ button {
   max-height: 50vh;
 }
 
-.message p {
+.message-without-speaker{
   border-radius: 1.15rem;
-  line-height: 1.25;
-  position: relative;
   padding: 0.5rem .875rem;
-  word-wrap: break-word;
-  height: fit-content;
-  width: fit-content;
+}
+
+.message-with-speaker{
+  border-top-left-radius: 1.15rem;
+  border-bottom-left-radius: 1.15rem;
+  padding-left: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-top: 0.5rem;
 }
 
 .message p::before,
@@ -38,22 +33,27 @@ button {
   position: absolute;
 }
 
-p.from-bot {
+.message p {
   align-items: flex-start;
   background-color: #42c3fe;
   color: white;
   margin-top: 0;
   margin-bottom: 0;
+  word-wrap: break-word;
+  height: fit-content;
+  width: fit-content;
+  position: relative;
+  line-height: 1.25;
 }
 
-p.from-bot:before {
+.message p:before {
   border-bottom-right-radius: 0.8rem 0.7rem;
   border-left: 1rem solid #42c3fe;
   left: -0.35rem;
   transform: translate(0, -0.1rem);
 }
 
-p.from-bot::after {
+.message p::after {
   background-color: white;
   border-bottom-right-radius: 0.5rem;
   left: 20px;
@@ -61,7 +61,19 @@ p.from-bot::after {
   width: 10px;
 }
 
-// Use if device is in portrait mode
+
+button.selector-button {
+  margin-left: 5px;
+  margin-bottom: 5px;
+  background-color: #f8ab41;
+  color: white;
+}
+
+button.speaker-button {
+  border-radius: 0 0.5rem 0.5rem 0;
+}
+
+// Use if device is in landscape mode
 @media (orientation: landscape) and (max-width: 768px) {
   .message img {
     width: auto;

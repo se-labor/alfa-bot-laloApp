@@ -1,22 +1,25 @@
-<div class="message" [ngSwitch]="determineType(this.botResponse)">
-  <p class="from-bot">
-    <ng-template ngSwitchCase="{{BOT_RESPONSE_TYPE_ENUM.TEXT}}">
-      <markdown [data]="this.botResponse.message"></markdown>
-    </ng-template>
+<div class="message" [ngSwitch]="responseType">
+  <div fxLayout="row">
+    <p [ngClass]="responseType !== BOT_RESPONSE_TYPE_ENUM.IMAGE?'message-with-speaker':'message-without-speaker'">
+      <ng-template ngSwitchCase="{{BOT_RESPONSE_TYPE_ENUM.TEXT}}">
+        <markdown [data]="botResponse.message"></markdown>
+      </ng-template>
 
-    <ng-template ngSwitchCase="{{BOT_RESPONSE_TYPE_ENUM.BUTTONS}}">
-      <button mat-raised-button *ngFor="let button of botResponse.buttons" (click)="onButtonClick(button)">{{button.title}}</button>
-    </ng-template>
+      <ng-template ngSwitchCase="{{BOT_RESPONSE_TYPE_ENUM.BUTTONS}}">
+        <button class="selector-button" mat-raised-button *ngFor="let button of botResponse.buttons" (click)="onButtonClick(button)">{{button.title}}</button>
+      </ng-template>
 
-    <ng-template ngSwitchCase="{{BOT_RESPONSE_TYPE_ENUM.BUTTONS_AND_TEXT}}">
-      <markdown [data]="this.botResponse.message"></markdown>
-      <button mat-raised-button *ngFor="let button of botResponse.buttons" (click)="onButtonClick(button)">{{button.title}}</button>
-    </ng-template>
+      <ng-template ngSwitchCase="{{BOT_RESPONSE_TYPE_ENUM.BUTTONS_AND_TEXT}}">
+        <markdown [data]="botResponse.message"></markdown>
+        <button class="selector-button" mat-raised-button *ngFor="let button of botResponse.buttons" (click)="onButtonClick(button)">{{button.title}}</button>
+      </ng-template>
 
-    <ng-template ngSwitchCase="{{BOT_RESPONSE_TYPE_ENUM.IMAGE}}">
-      <img (loaded)="onImageLoad()" [src]="botResponse.imageUrl">
-    </ng-template>
-  </p>
+      <ng-template ngSwitchCase="{{BOT_RESPONSE_TYPE_ENUM.IMAGE}}">
+        <img (loaded)="onImageLoad()" [src]="botResponse.imageUrl">
+      </ng-template>
+    </p>
+    <button class="speaker-button" *ngIf="showVoiceOutputButton" color="accent" (click)="onVoiceOutputRequested()" mat-flat-button><mat-icon>volume_up</mat-icon></button>
+  </div>
 </div>
 
 

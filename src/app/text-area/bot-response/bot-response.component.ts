@@ -4,6 +4,7 @@ import {BOT_RESPONSE_TYPE} from "../../shared/models/app-enums.model";
 import {MessageService} from "../../shared/services/message.service";
 import {UserService} from "../../shared/services/user.service";
 import {ImageService} from "../services/image.service";
+import {TextToSpeechService} from "../../shared/services/text-to-speech.service";
 
 @Component({
   selector: 'app-bot-response',
@@ -13,11 +14,18 @@ import {ImageService} from "../services/image.service";
 export class BotResponseComponent implements OnInit {
   @Input() botResponse: BotResponse = {message: '', imageUrl: '', buttons: []};
   public BOT_RESPONSE_TYPE_ENUM = BOT_RESPONSE_TYPE;
+  public responseType;
+  public showVoiceOutputButton;
+  public responseTypeString: String;
   constructor(private messageService: MessageService,
               private userService: UserService,
-              private imageService: ImageService) { }
+              private imageService: ImageService,
+              private textToSpeechService: TextToSpeechService) { }
 
   ngOnInit() {
+    this.responseType = this.determineType(this.botResponse);
+    this.responseTypeString = this.responseType.toString();
+    this.showVoiceOutputButton =this.responseType !== BOT_RESPONSE_TYPE.IMAGE
   }
 
   determineType(botResponse: BotResponse): string {
@@ -42,5 +50,20 @@ export class BotResponseComponent implements OnInit {
 
   onImageLoad() {
     this.imageService.onImageLoad();
+  }
+
+  onVoiceOutputRequested() {
+    if (this.textToSpeechService.synth.speaking) {
+      this.textToSpeechService.synth.cancel();
+      return;
+    }
+    if (this.responseType === BOT_RESPONSE_TYPE.TEXT || this.responseType === BOT_RESPONSE_TYPE.BUTTONS_AND_TEXT) {
+      this.textToSpeechService.speak(this.botResponse.message);
+    }
+    if (this.responseType === BOT_RESPONSE_TYPE.BUTTONS || this.responseType === BOT_RESPONSE_TYPE.BUTTONS_AND_TEXT) {
+      for (let button of this.botResponse.buttons) {
+        this.textToSpeechService.speak(button.title);
+      }
+    }
   }
 }
