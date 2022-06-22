@@ -45,7 +45,9 @@ export class TextAreaComponent implements OnInit, OnDestroy, AfterViewChecked  {
   }
 
   ngOnDestroy() {
-    this.messageSubscription.unsubscribe();
+    if(this.messageSubscription) {
+      this.messageSubscription.unsubscribe();
+    }
   }
 }
 
