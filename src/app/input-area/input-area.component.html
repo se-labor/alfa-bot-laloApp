@@ -4,7 +4,7 @@
       <mat-label>Gib eine Nachricht ein...</mat-label>
       <input type="text" name="message" ngModel matInput spellcheck="false" required>
     </mat-form-field>
-    <button [disabled]="form.invalid" mat-flat-button type="submit"><mat-icon>send</mat-icon></button>
+    <button aria-label="send" [disabled]="form.invalid" mat-flat-button type="submit"><mat-icon>send</mat-icon></button>
   </div>
 </form>
 

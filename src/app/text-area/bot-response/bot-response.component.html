@@ -15,10 +15,10 @@
       </ng-template>
 
       <ng-template ngSwitchCase="{{BOT_RESPONSE_TYPE_ENUM.IMAGE}}">
-        <img (loaded)="onImageLoad()" [src]="botResponse.imageUrl">
+        <img alt="image" loadedEmitter (loaded)="onImageLoad()" [src]="botResponse.imageUrl">
       </ng-template>
     </p>
-    <button class="speaker-button" *ngIf="showVoiceOutputButton" color="accent" (click)="onVoiceOutputRequested()" mat-flat-button><mat-icon>volume_up</mat-icon></button>
+    <button aria-label="speak message" class="speaker-button" *ngIf="showVoiceOutputButton" color="accent" (click)="onVoiceOutputRequested()" mat-flat-button><mat-icon>volume_up</mat-icon></button>
   </div>
 </div>
 

@@ -1,7 +1,7 @@
 import {Directive, ElementRef, EventEmitter, HostListener, Output} from '@angular/core';
 
 @Directive({
-  selector: 'img[loaded]'
+  selector: '[loadedEmitter]'
 })
 export class ImageLoadedDirective {
   @Output() loaded = new EventEmitter();
@@ -13,7 +13,7 @@ export class ImageLoadedDirective {
 
   constructor(private elRef: ElementRef<HTMLImageElement>) {
     if (this.elRef.nativeElement.complete) {
-      this.loaded.emit();
+      this.onLoad();
     }
   }
 }
