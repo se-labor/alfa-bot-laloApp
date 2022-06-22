@@ -2,6 +2,9 @@ import {ComponentFixture, TestBed} from '@angular/core/testing';
 import { HttpClientTestingModule} from '@angular/common/http/testing';
 import {BotResponseComponent} from './bot-response.component';
 import {DebugElement} from "@angular/core";
+import {MarkdownModule} from "ngx-markdown";
+import {HttpClient} from "@angular/common/http";
+import {MatIconModule} from "@angular/material/icon";
 
 describe('BotMessageComponent', () => {
   let component: BotResponseComponent;
@@ -10,8 +13,12 @@ describe('BotMessageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule],
-      declarations: [ BotResponseComponent]
+      declarations: [ BotResponseComponent],
+      imports: [
+        HttpClientTestingModule,
+        MarkdownModule.forRoot({loader: HttpClient}),
+        MatIconModule
+      ]
     })
     .compileComponents();
   });

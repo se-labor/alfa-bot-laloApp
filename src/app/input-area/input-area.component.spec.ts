@@ -1,12 +1,14 @@
-import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
 import {InputAreaComponent} from './input-area.component';
 import {DebugElement} from "@angular/core";
 import {By} from "@angular/platform-browser";
 import {MessageService} from "../shared/services/message.service";
-import {HttpClient, HttpHandler} from "@angular/common/http";
 import {UserService} from "../shared/services/user.service";
 import {FormsModule} from "@angular/forms";
+import {MaterialModule} from "../modules/material/material.module";
+import {HttpClientTestingModule} from "@angular/common/http/testing";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 describe('InputAreaComponent', () => {
   let component: InputAreaComponent;
@@ -20,8 +22,13 @@ describe('InputAreaComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ InputAreaComponent ],
-      providers: [ MessageService, UserService, HttpClient, HttpHandler],
-      imports: [FormsModule]
+      providers: [ MessageService, UserService],
+      imports: [
+        MaterialModule,
+        FormsModule,
+        HttpClientTestingModule,
+        BrowserAnimationsModule
+      ]
     })
     .compileComponents();
   });
@@ -51,16 +58,16 @@ describe('InputAreaComponent', () => {
     expect(component.onSubmit).toHaveBeenCalled();
   });
 
-  it('should reset the form after the onSubmit Method is called', () => {
+  it('should reset the form after the onSubmit Method is called', waitForAsync(() => {
     const input = de.query(By.css('input'));
-    input.nativeElement.textContent = 'text';
+    input.nativeElement.value = 'text';
     let form = fixture.debugElement.query(By.css('form'));
     form.triggerEventHandler('submit', null);
     fixture.whenStable().then(() => {
       fixture.detectChanges();
-      expect(input.nativeElement.textContent).toBe('');
+      expect(input.nativeElement.value).toBe('');
     });
-  });
+  }));
 
   it('should be invalid while empty', () => {
     const input = de.query(By.css('input'));
