@@ -51,17 +51,15 @@ describe('InputAreaComponent', () => {
     expect(component.onSubmit).toHaveBeenCalled();
   });
 
-  xit('should reset the form after the onSubmit Method is called', () => {
+  it('should reset the form after the onSubmit Method is called', () => {
     const input = de.query(By.css('input'));
-    input.nativeElement.ngContent = 'text';
-    input.nativeElement.dispatchEvent(new Event('input'));
-    fixture.detectChanges();
-   /* const button = de.query(By.css('button')).nativeElement;
-    button.click();*/
-    const form = de.query(By.css('form')).nativeElement
-    form.submit();
-    fixture.detectChanges();
-    expect(input.nativeElement.value).toBeFalsy();
+    input.nativeElement.textContent = 'text';
+    let form = fixture.debugElement.query(By.css('form'));
+    form.triggerEventHandler('submit', null);
+    fixture.whenStable().then(() => {
+      fixture.detectChanges();
+      expect(input.nativeElement.textContent).toBe('');
+    });
   });
 
   it('should be invalid while empty', () => {
