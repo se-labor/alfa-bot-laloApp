@@ -51,6 +51,10 @@ describe('InputAreaComponent', () => {
     expect(component).toBeTruthy();
   });
 
+  it('should render the mat-label', () => {
+    expect(de.query(By.css('mat-label'))).toBeTruthy();
+  });
+
   it('should call the onSubmit Method', () => {
     spyOn(component, 'onSubmit');
     const button = de.query(By.css('button')).nativeElement;

@@ -13,7 +13,7 @@ import {TextToSpeechService} from "../../shared/services/text-to-speech.service"
 })
 export class BotResponseComponent implements OnInit {
   @Input() botResponse: BotResponse = {message: '', imageUrl: '', buttons: []};
-  public BOT_RESPONSE_TYPE_ENUM = BOT_RESPONSE_TYPE;
+  public BOT_RESPONSE_TYPE_ENUM = BOT_RESPONSE_TYPE;  // Needs to be redefined to be accessible in template
   public responseType;
   public showVoiceOutputButton;
   public responseTypeString: String;

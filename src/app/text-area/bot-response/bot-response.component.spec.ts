@@ -1,5 +1,5 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
-import { HttpClientTestingModule} from '@angular/common/http/testing';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {BotResponseComponent} from './bot-response.component';
 import {DebugElement} from "@angular/core";
 import {MarkdownModule} from "ngx-markdown";

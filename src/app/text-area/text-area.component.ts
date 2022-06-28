@@ -13,7 +13,7 @@ import {ImageService} from "./services/image.service";
 export class TextAreaComponent implements OnInit, OnDestroy, AfterViewChecked  {
   @ViewChild('messageList') private myScrollContainer: ElementRef;
   public messages: (BotResponse | UserMessage)[] = [];
-  public MESSAGE_TYPE_ENUM = MESSAGE_TYPE;
+  public MESSAGE_TYPE_ENUM = MESSAGE_TYPE; // Needs to be redefined to be accessible in template
   private messageSubscription: Subscription;
   constructor(private messageService: MessageService,
               private imageService: ImageService) {}

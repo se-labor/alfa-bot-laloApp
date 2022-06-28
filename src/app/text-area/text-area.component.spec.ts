@@ -38,4 +38,10 @@ describe('TextAreaComponent', () => {
       'content': ''
     })).toBe('user');
   });
-})
+
+  it('should call "scrollToBottom()" after view is checked', () => {
+    spyOn(component, 'scrollToBottom').and.callThrough();
+    fixture.detectChanges();
+    expect(component.scrollToBottom).toHaveBeenCalled();
+  });
+});
