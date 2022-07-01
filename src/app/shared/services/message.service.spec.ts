@@ -11,9 +11,16 @@ describe('MessageService', () => {
       imports: [HttpClientTestingModule]
     });
     service = TestBed.inject(MessageService);
+
   });
 
   it('should be created', () => {
     expect(service).toBeTruthy();
+  });
+
+  it('should add user message send to the message list', () => {
+    service.sendMessage({identifier: '00000000-0000-0000-0000-000000000000', content: 'testMessage'});
+    expect(service.getMessages()).toContain(
+      {identifier: '00000000-0000-0000-0000-000000000000', content: 'testMessage'});
   });
 });

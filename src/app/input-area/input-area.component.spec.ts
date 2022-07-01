@@ -77,13 +77,13 @@ describe('InputAreaComponent', () => {
     const input = de.query(By.css('input'));
     fixture.detectChanges();
     expect(input.nativeElement.valid).toBeFalsy();
-  })
+  });
 
-  it('should be valid with while not empty', () => {
+  it('should be valid while not empty', () => {
     const input = de.query(By.css('input'));
     input.nativeElement.textContent = 'TestString'
     fixture.detectChanges();
     expect(input).toBeTruthy();
-  })
+  });
 
 });

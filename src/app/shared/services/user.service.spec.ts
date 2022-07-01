@@ -13,4 +13,8 @@ describe('UserService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+  it('should return the created UUID when "getUUID()" is called', () => {
+    expect(service.getUUID()).toBeTruthy();
+  });
 });
