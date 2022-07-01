@@ -2,7 +2,9 @@ import {fakeAsync, TestBed, tick} from '@angular/core/testing';
 
 import {MessageService} from './message.service';
 import {HttpClientTestingModule} from "@angular/common/http/testing";
-import {BotService} from "../../modules/api";
+import {BotResponse, BotService, UserMessage} from "../../modules/api";
+import {Observable, Observer} from "rxjs";
+import {HttpContext} from "@angular/common/http";
 
 
 describe('MessageService', () => {
@@ -16,7 +18,7 @@ describe('MessageService', () => {
     });
     service = TestBed.inject(MessageService);
 
-/*    mockBotService = TestBed.inject(BotService);
+    mockBotService = TestBed.inject(BotService);
     const responseObserver = function (observer: Observer<BotResponse[]>) {
       observer.next([{
         'message': '',
@@ -25,7 +27,17 @@ describe('MessageService', () => {
       observer.complete();
     };
     const responseObservable = new Observable(responseObserver);
-    spyOn(mockBotService, 'sendUserMessage').and.returnValue(responseObservable);*/
+    //spyOn(mockBotService, 'sendUserMessage').and.returnValue(responseObservable);
+    spyOn(mockBotService,'sendUserMessage').and.callFake(
+      function (
+        userMessage: UserMessage,
+        observe?: any,
+        reportProgress?: any,
+        options?: any): Observable<any> {
+          return responseObservable;
+      }
+    );
+
   });
 
   it('should be created', () => {
@@ -38,7 +50,7 @@ describe('MessageService', () => {
       {identifier: '00000000-0000-0000-0000-000000000000', content: 'testMessage'});
   });
 
-  xit('should add the bot responses to the message list', fakeAsync(() => {
+  it('should add the bot responses to the message list', fakeAsync(() => {
     service.sendMessage({identifier: '00000000-0000-0000-0000-000000000000', content: 'testMessage'});
     tick(300);
     expect(service.getMessages().length).toBeGreaterThanOrEqual(2);
