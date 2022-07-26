@@ -1,6 +1,7 @@
-.navbar {
+mat-toolbar {
   justify-content: space-between;
-  padding-top: env(safe-area-inset-top);
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   border-bottom: 1px solid #2baefe;
 }
 

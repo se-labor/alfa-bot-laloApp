@@ -1,9 +1,10 @@
 .mat-form-field-wrapper {
-  padding: 8px;
+  padding: 1rem;
 }
 
 .alfa-input-area-div {
   max-width: 768px !important;
+  padding-right: env(safe-area-inset-right);
 }
 
 .alfa-input-area-form button {
@@ -14,7 +15,7 @@
 .alfa-input-area-form  {
   background: #f8ab41;
   padding-left: env(safe-area-inset-left);
-  padding-right: env(safe-area-inset-right);
+  padding-bottom: env(safe-area-inset-bottom);
   border-top: 1px solid #f5912a;
 }
 
@@ -32,13 +33,6 @@
   /*change color of text*/
   color: white !important;
   caret-color: white !important;
-}
-@media only screen and (max-width: 768px) {
-  .alfa-input-area-form {
-    padding-bottom: 0.4rem;
-    padding-left: 0.3rem;
-    padding-right: 0.1rem;
-  }
 }
 
 

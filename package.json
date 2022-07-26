@@ -6,6 +6,7 @@
     "config": "ts-node set-env.ts",
     "start": "npm run config -- --environment=dev && ng serve",
     "build": "npm run config -- --environment=prod && ng build",
+    "build-mobile": "npm run build && npx cap sync",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
@@ -27,6 +28,7 @@
     "@capacitor/ios": "^3.4.3",
     "ajv": "^6.9.1",
     "ngx-markdown": "^12.1.0",
+    "protractor": "^7.0.0",
     "rxjs": "~6.6.0",
     "ts-node": "^10.7.0",
     "tslib": "^2.3.0",
