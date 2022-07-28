@@ -1,6 +1,6 @@
 mat-toolbar {
   justify-content: space-between;
-  padding-top: 1rem;
+  padding-top: calc(env(safe-area-inset-top) + 1rem);
   padding-bottom: 1rem;
   border-bottom: 1px solid #2baefe;
 }

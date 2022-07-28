@@ -6,7 +6,7 @@
       </ng-template>
 
       <ng-template ngSwitchCase="{{BOT_RESPONSE_TYPE_ENUM.BUTTONS}}">
-        <button class="selector-button" mat-raised-button *ngFor="let button of botResponse.buttons" (click)="onButtonClick(button)">{{button.title}}</button>
+          <button class="selector-button" mat-raised-button *ngFor="let button of botResponse.buttons" (click)="onButtonClick(button)">{{button.title}}</button>
       </ng-template>
 
       <ng-template ngSwitchCase="{{BOT_RESPONSE_TYPE_ENUM.BUTTONS_AND_TEXT}}">

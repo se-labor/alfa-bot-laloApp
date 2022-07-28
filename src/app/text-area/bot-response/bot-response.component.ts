@@ -45,7 +45,6 @@ export class BotResponseComponent implements OnInit {
   }
 
   onButtonClick(button: BotButton) {
-    console.log(this.BOT_RESPONSE_TYPE_ENUM);
     this.messageService.sendMessage({identifier: this.userService.getUUID(), content: button.title});
   }
 
