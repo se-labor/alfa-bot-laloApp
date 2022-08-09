@@ -63,17 +63,22 @@
 button.selector-button {
   margin-left: 5px;
   margin-bottom: 5px;
-  border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
+  border-radius: 0.5rem 0 0 0.5rem;
   background-color: #f8ab41;
   color: white;
+  box-shadow: none;
 }
 
 button.speaker-button-for-button {
   border-radius: 0 0.5rem 0.5rem 0;
+  background-color: #f8ab41;
+  margin-bottom: 5px;
+  box-shadow: none;
 }
 
 button.speaker-button {
   border-radius: 0 0.5rem 0.5rem 0;
+  box-shadow: none;
 }
 
 // Use if device is in landscape mode

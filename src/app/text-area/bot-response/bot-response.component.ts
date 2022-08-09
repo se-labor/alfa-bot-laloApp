@@ -52,18 +52,11 @@ export class BotResponseComponent implements OnInit {
     this.imageService.onImageLoad();
   }
 
-  onVoiceOutputRequested() {
+  speak(text: string) {
     if (this.textToSpeechService.synth.speaking) {
       this.textToSpeechService.synth.cancel();
       return;
     }
-    if (this.responseType === BOT_RESPONSE_TYPE.TEXT || this.responseType === BOT_RESPONSE_TYPE.BUTTONS_AND_TEXT) {
-      this.textToSpeechService.speak(this.botResponse.message);
-    }
-    if (this.responseType === BOT_RESPONSE_TYPE.BUTTONS || this.responseType === BOT_RESPONSE_TYPE.BUTTONS_AND_TEXT) {
-      for (let button of this.botResponse.buttons) {
-        this.textToSpeechService.speak(button.title);
-      }
-    }
+    this.textToSpeechService.speak(text);
   }
 }

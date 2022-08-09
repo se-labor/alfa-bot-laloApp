@@ -6,19 +6,25 @@
       </ng-template>
 
       <ng-template ngSwitchCase="{{BOT_RESPONSE_TYPE_ENUM.BUTTONS}}">
-          <button class="selector-button" mat-raised-button *ngFor="let button of botResponse.buttons" (click)="onButtonClick(button)">{{button.title}}</button>
+        <div *ngFor="let button of botResponse.buttons" fxLayout="row">
+          <button class="selector-button" mat-raised-button  (click)="onButtonClick(button)">{{button.title}}</button>
+          <button class="speaker-button-for-button" mat-raised-button (click)="speak(button.title)"><mat-icon>volume_up</mat-icon></button>
+        </div>
       </ng-template>
 
       <ng-template ngSwitchCase="{{BOT_RESPONSE_TYPE_ENUM.BUTTONS_AND_TEXT}}">
         <markdown [data]="botResponse.message"></markdown>
-        <button class="selector-button" mat-raised-button *ngFor="let button of botResponse.buttons" (click)="onButtonClick(button)">{{button.title}}</button>
+        <div *ngFor="let button of botResponse.buttons" fxLayout="row">
+          <button class="selector-button" mat-raised-button  (click)="onButtonClick(button)">{{button.title}}</button>
+          <button class="speaker-button-for-button" mat-raised-button (click)="speak(button.title)"><mat-icon>volume_up</mat-icon></button>
+        </div>
       </ng-template>
 
       <ng-template ngSwitchCase="{{BOT_RESPONSE_TYPE_ENUM.IMAGE}}">
         <img alt="image" loadedEmitter (loaded)="onImageLoad()" [src]="botResponse.imageUrl">
       </ng-template>
     </p>
-    <button aria-label="speak message" class="speaker-button" *ngIf="showVoiceOutputButton" color="accent" (click)="onVoiceOutputRequested()" mat-flat-button><mat-icon>volume_up</mat-icon></button>
+    <button aria-label="speak message" class="speaker-button" *ngIf="showVoiceOutputButton" color="accent" (click)="speak(botResponse.message)" mat-flat-button><mat-icon>volume_up</mat-icon></button>
   </div>
 </div>
 
