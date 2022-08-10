@@ -81,6 +81,10 @@ button.speaker-button {
   box-shadow: none;
 }
 
+mat-icon {
+  color: white;
+}
+
 // Use if device is in landscape mode
 @media (orientation: landscape) and (max-width: 768px) {
   .message img {
