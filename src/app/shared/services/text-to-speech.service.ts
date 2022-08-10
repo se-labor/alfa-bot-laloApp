@@ -11,7 +11,7 @@ export class TextToSpeechService {
     // Declare variable for filtering text
     let filteredText: string = text;
     // Remove Links from filteredText
-    const rExp: RegExp = new RegExp("\\(https?:\\/\\/(www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z\\d()]{1,6}\\b([-a-zA-Z\\d!@:%_\\+.~#?&\\/\\/=])+\\)");
+    const rExp: RegExp = new RegExp("\\(https?:\\/\\/(www\\.)?[\u00F0-\u02AF-a-zA-Z0-9@:%._+~#=]{1,256}\\.[a-zA-Z\\d()]{1,6}\\b([\u00F0-\u02AF-a-zA-Z\\d!@:%_+.~#?&\\/=])+\\)");
     while (rExp.test(filteredText)) {
       filteredText = filteredText.replace(rExp, "");
     }
