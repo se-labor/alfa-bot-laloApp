@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {BotConfigService} from "../shared/services/bot-config.service";
 
 @Component({
   selector: 'app-menue',
@@ -6,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./menue.component.scss']
 })
 export class MenueComponent implements OnInit {
-  public chatBots: { name: string, url: string, imageUrl: string}[] = [
-    { name: 'Lalo', url: 'https://alfabot.se-labor.de/alfabotapi', imageUrl: 'http://localhost:4200/favicon.ico' }
-  ]
-  constructor() { }
+
+  public chatBots = [];
+
+  constructor(private botConfigService: BotConfigService) {
+    this.chatBots = botConfigService.chatBots;
+  }
 
   ngOnInit(): void {
   }
