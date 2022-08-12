@@ -1,10 +1,10 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {BotButton, BotResponse} from "../../modules/api";
-import {BOT_RESPONSE_TYPE} from "../../shared/models/app-enums.model";
-import {MessageService} from "../../shared/services/message.service";
-import {UserService} from "../../shared/services/user.service";
+import {BotButton, BotResponse} from "../../../modules/api";
+import {BOT_RESPONSE_TYPE} from "../../app-enums.model";
+import {MessageService} from "../../message.service";
+import {UserService} from "../../../shared/services/user.service";
 import {ImageService} from "../services/image.service";
-import {TextToSpeechService} from "../../shared/services/text-to-speech.service";
+import {TextToSpeechService} from "../../../shared/services/text-to-speech.service";
 
 @Component({
   selector: 'app-bot-response',

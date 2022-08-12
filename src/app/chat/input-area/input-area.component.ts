@@ -1,7 +1,7 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {NgForm} from "@angular/forms";
-import {MessageService} from "../shared/services/message.service";
-import {UserService} from "../shared/services/user.service";
+import {MessageService} from "../message.service";
+import {UserService} from "../../shared/services/user.service";
 
 @Component({
   selector: 'app-input-area',

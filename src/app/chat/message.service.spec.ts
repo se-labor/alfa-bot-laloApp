@@ -2,9 +2,8 @@ import {fakeAsync, TestBed, tick} from '@angular/core/testing';
 
 import {MessageService} from './message.service';
 import {HttpClientTestingModule} from "@angular/common/http/testing";
-import {BotResponse, BotService, UserMessage} from "../../modules/api";
+import {BotResponse, BotService, UserMessage} from "../modules/api";
 import {Observable, Observer} from "rxjs";
-import {HttpContext} from "@angular/common/http";
 
 
 describe('MessageService', () => {
@@ -27,7 +26,6 @@ describe('MessageService', () => {
       observer.complete();
     };
     const responseObservable = new Observable(responseObserver);
-    //spyOn(mockBotService, 'sendUserMessage').and.returnValue(responseObservable);
     spyOn(mockBotService,'sendUserMessage').and.callFake(
       function (
         userMessage: UserMessage,

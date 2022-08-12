@@ -4,11 +4,11 @@ import {BrowserModule} from '@angular/platform-browser';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {HeaderComponent} from './header/header.component';
-import {TextAreaComponent} from './text-area/text-area.component';
-import {BotResponseComponent} from './text-area/bot-response/bot-response.component';
-import {UserMessageComponent} from './text-area/user-message/user-message.component';
-import {InputAreaComponent} from './input-area/input-area.component';
+import {HeaderComponent} from './chat/header/header.component';
+import {TextAreaComponent} from './chat/text-area/text-area.component';
+import {BotResponseComponent} from './chat/text-area/bot-response/bot-response.component';
+import {UserMessageComponent} from './chat/text-area/user-message/user-message.component';
+import {InputAreaComponent} from './chat/input-area/input-area.component';
 import {ApiModule, BotService, Configuration} from "./modules/api";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {MaterialModule} from "./modules/material/material.module";
@@ -16,7 +16,10 @@ import {FormsModule} from "@angular/forms";
 import {environment} from "../environments/environment";
 import {MarkdownModule} from "ngx-markdown";
 import {FlexLayoutModule} from "@angular/flex-layout";
-import {ImageLoadedDirective} from './text-area/bot-response/image-loaded.directive';
+import {ImageLoadedDirective} from './chat/text-area/bot-response/image-loaded.directive';
+import {MenueComponent} from './menue/menue.component';
+import {ChatComponent} from './chat/chat.component';
+import {MenueHeaderComponent} from "./menue/menue-header/menue-header.component";
 
 export function apiConfigFactory(): Configuration {
   return new Configuration({
@@ -35,12 +38,15 @@ export function botServiceFactory(httpClient: HttpClient, basePath: string): Bot
 @NgModule({
   declarations: [
     AppComponent,
+    ChatComponent,
     HeaderComponent,
     TextAreaComponent,
     BotResponseComponent,
     UserMessageComponent,
     InputAreaComponent,
-    ImageLoadedDirective
+    ImageLoadedDirective,
+    MenueComponent,
+    MenueHeaderComponent,
   ],
   imports: [
     HttpClientModule,
@@ -61,4 +67,4 @@ export function botServiceFactory(httpClient: HttpClient, basePath: string): Bot
     },],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

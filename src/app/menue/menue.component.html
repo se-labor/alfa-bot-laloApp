@@ -1,0 +1,12 @@
+<app-menue-header></app-menue-header>
+<div fxFlexFill>
+  <ul>
+    <li *ngFor="let bot of chatBots" >
+      <div fxLayout="row" fxFlexAlign="center">
+        <h1>{{bot.name}}</h1>
+        <img src="{{bot.imageUrl}}">
+        <button mat-flat-button color="accent" routerLink="/chat/lalo"><mat-icon>arrow_forward_ios</mat-icon></button>
+      </div>
+    </li>
+  </ul>
+</div>

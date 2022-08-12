@@ -1,7 +1,7 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {TextAreaComponent} from './text-area.component';
-import {MessageService} from "../shared/services/message.service";
+import {MessageService} from "../message.service";
 import {ImageService} from "./services/image.service";
 import {MarkdownModule} from "ngx-markdown";
 import {MatIconModule} from "@angular/material/icon";

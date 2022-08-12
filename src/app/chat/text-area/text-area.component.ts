@@ -1,8 +1,8 @@
 import {AfterViewChecked, Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
-import {BotResponse, UserMessage} from "../modules/api";
-import {MessageService} from "../shared/services/message.service";
+import {BotResponse, UserMessage} from "../../modules/api";
+import {MessageService} from "../message.service";
 import {Subscription} from "rxjs";
-import {MESSAGE_TYPE} from "../shared/models/app-enums.model";
+import {MESSAGE_TYPE} from "../app-enums.model";
 import {ImageService} from "./services/image.service";
 
 @Component({

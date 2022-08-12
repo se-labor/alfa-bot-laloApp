@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
-import {BotResponse, BotService, UserMessage} from "../../modules/api";
+import {BotResponse, BotService, UserMessage} from "../modules/api";
 import {Subject} from "rxjs";
 import {first} from "rxjs/operators";
-import {UserService} from "./user.service";
+import {UserService} from "../shared/services/user.service";
 
 @Injectable({
   providedIn: 'root'

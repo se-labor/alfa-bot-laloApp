@@ -3,10 +3,10 @@ import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 import {InputAreaComponent} from './input-area.component';
 import {DebugElement} from "@angular/core";
 import {By} from "@angular/platform-browser";
-import {MessageService} from "../shared/services/message.service";
-import {UserService} from "../shared/services/user.service";
+import {MessageService} from "../message.service";
+import {UserService} from "../../shared/services/user.service";
 import {FormsModule} from "@angular/forms";
-import {MaterialModule} from "../modules/material/material.module";
+import {MaterialModule} from "../../modules/material/material.module";
 import {HttpClientTestingModule} from "@angular/common/http/testing";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 

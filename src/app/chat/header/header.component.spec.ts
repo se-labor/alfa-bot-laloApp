@@ -3,7 +3,7 @@ import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {HeaderComponent} from './header.component';
 import {DebugElement} from "@angular/core";
 import {By} from "@angular/platform-browser";
-import {MaterialModule} from "../modules/material/material.module";
+import {MaterialModule} from "../../modules/material/material.module";
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent;

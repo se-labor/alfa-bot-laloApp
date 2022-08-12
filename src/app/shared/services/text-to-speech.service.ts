@@ -10,8 +10,9 @@ export class TextToSpeechService {
   speak(text: string) {
     // Declare variable for filtering text
     let filteredText: string = text;
-    // Remove Links from filteredText
+    // Matches valid links, which are surrounded by brackets. Also includes matching of special german characters.
     const rExp: RegExp = new RegExp("\\(https?:\\/\\/(www\\.)?[\u00F0-\u02AF-a-zA-Z0-9@:%._+~#=]{1,256}\\.[a-zA-Z\\d()]{1,6}\\b([\u00F0-\u02AF-a-zA-Z\\d!@:%_+.~#?&\\/=])+\\)");
+    // Removes link occurrences from the text, till there are none left
     while (rExp.test(filteredText)) {
       filteredText = filteredText.replace(rExp, "");
     }
