@@ -23,15 +23,15 @@
   padding: 0.5rem;
 }
 
-.message p::before,
-.message p::after {
+.message span::before,
+.message span::after {
   bottom: -0.1rem;
   content: "";
   height: 1rem;
   position: absolute;
 }
 
-.message p {
+.message span {
   align-items: flex-start;
   background-color: #42c3fe;
   color: white;
@@ -44,14 +44,14 @@
   line-height: 1.25;
 }
 
-.message p:before {
+.message span:before {
   border-bottom-right-radius: 0.8rem 0.7rem;
   border-left: 1rem solid #42c3fe;
   left: -0.35rem;
   transform: translate(0, -0.1rem);
 }
 
-.message p::after {
+.message span::after {
   background-color: white;
   border-bottom-right-radius: 0.5rem;
   left: 20px;

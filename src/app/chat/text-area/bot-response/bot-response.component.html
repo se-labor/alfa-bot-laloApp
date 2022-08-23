@@ -1,29 +1,29 @@
 <div class="message" [ngSwitch]="responseType">
   <div fxLayout="row">
-    <p [ngClass]="responseType !== BOT_RESPONSE_TYPE_ENUM.IMAGE?'message-with-speaker':'message-without-speaker'">
+    <span [ngClass]="responseType !== BOT_RESPONSE_TYPE_ENUM.IMAGE?'message-with-speaker':'message-without-speaker'">
       <ng-template ngSwitchCase="{{BOT_RESPONSE_TYPE_ENUM.TEXT}}">
         <markdown [data]="botResponse.message"></markdown>
       </ng-template>
 
       <ng-template ngSwitchCase="{{BOT_RESPONSE_TYPE_ENUM.BUTTONS}}">
         <div *ngFor="let button of botResponse.buttons" fxLayout="row">
-          <button class="selector-button" mat-raised-button  (click)="onButtonClick(button)">{{button.title}}</button>
-          <button class="speaker-button-for-button" mat-raised-button (click)="speak(button.title)"><mat-icon>volume_up</mat-icon></button>
+          <button class="selector-button" mat-raised-button [disabled]="responseButtonsDisabled" (click)="onButtonClick(button)">{{button.title}}</button>
+          <button class="speaker-button-for-button" mat-raised-button [disabled]="responseButtonsDisabled" (click)="speak(button.title)"><mat-icon [ngStyle]="{'color':responseButtonsDisabled? 'lightgray' : 'white' }">volume_up</mat-icon></button>
         </div>
       </ng-template>
 
       <ng-template ngSwitchCase="{{BOT_RESPONSE_TYPE_ENUM.BUTTONS_AND_TEXT}}">
         <markdown [data]="botResponse.message"></markdown>
         <div *ngFor="let button of botResponse.buttons" fxLayout="row">
-          <button class="selector-button" mat-raised-button  (click)="onButtonClick(button)">{{button.title}}</button>
-          <button class="speaker-button-for-button" mat-raised-button (click)="speak(button.title)"><mat-icon>volume_up</mat-icon></button>
+          <button class="selector-button" mat-raised-button [disabled]="responseButtonsDisabled" (click)="onButtonClick(button)">{{button.title}}</button>
+          <button class="speaker-button-for-button" mat-raised-button [disabled]="responseButtonsDisabled" (click)="speak(button.title)"><mat-icon [ngStyle]="{'color':responseButtonsDisabled? 'lightgray' : 'white' }">volume_up</mat-icon></button>
         </div>
       </ng-template>
 
       <ng-template ngSwitchCase="{{BOT_RESPONSE_TYPE_ENUM.IMAGE}}">
         <img alt="image" loadedEmitter (loaded)="onImageLoad()" [src]="botResponse.imageUrl">
       </ng-template>
-    </p>
+    </span>
     <button aria-label="speak message" class="speaker-button" *ngIf="showVoiceOutputButton" color="accent" (click)="speak(botResponse.message)" mat-flat-button><mat-icon>volume_up</mat-icon></button>
   </div>
 </div>
