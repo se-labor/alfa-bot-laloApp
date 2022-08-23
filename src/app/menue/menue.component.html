@@ -1,10 +1,12 @@
 <app-menue-header></app-menue-header>
-<div fxFlexFill>
-  <ul>
-    <li *ngFor="let bot of chatBots">
-      <div fxLayout="row" fxLayoutAlign="space-between">
-        <h1>{{bot.name}}</h1>
-        <img src="{{bot.imageUrl}}">
+<div class="container" fxFlexFill>
+  <ul fxLayout="column">
+    <li *ngFor="let bot of chatBots" fxFlexAlign="center">
+      <div fxLayout="row">
+        <div fxLayout="column">
+          <h1>{{bot.name}}</h1>
+          <img src="{{bot.imageUrl}}">
+        </div>
         <button mat-flat-button color="accent" [routerLink]="['/chat/', bot.id]"><mat-icon>arrow_forward_ios</mat-icon></button>
       </div>
     </li>
