@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
+import {ChatBot} from "../chat-bot.model";
 
 @Injectable({
   providedIn: 'root'
 })
 export class BotConfigService {
 
-  public chatBots: {id:string, name: string, imageUrl: string, apiUrl: string, apiKey: string}[] = window['env']['BOT_CONFIG'];
+  public chatBots: ChatBot[] = window['env']['BOT_CONFIG'];
 
   constructor() {
 

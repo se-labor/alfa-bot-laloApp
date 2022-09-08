@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {BotService} from "../modules/api";
 import {BotConfigService} from "../shared/services/bot-config.service";
-import {ActivatedRoute, RouterLink} from "@angular/router";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-chat',
@@ -16,7 +16,6 @@ export class ChatComponent implements OnInit {
     let chatBot = botConfigService.chatBots.find(bot => bot.id === botId );
     this.botService.configuration.basePath = chatBot.apiUrl;
     this.botService.configuration.credentials['Authorization'] = chatBot.apiKey;
-
   }
 
   ngOnInit(): void {

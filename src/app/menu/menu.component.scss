@@ -1,0 +1,42 @@
+img {
+  max-width: 70vw;
+  border-top-left-radius: 1.5rem;
+  border-top-right-radius: 1.5rem;
+}
+
+div.container{
+  background-color: #F1F2F2;
+}
+
+mat-card {
+  margin: 1rem;
+  padding: 0.25rem;
+  border-radius: 1.5rem;
+  background-color: #96bee4;
+  cursor: pointer;
+}
+
+mat-card-title {
+  padding: 1rem;
+  margin-bottom: 0;
+}
+
+mat-card-content {
+  margin: 0;
+}
+
+mat-card.bot-selection {
+  padding: 0;
+}
+
+.material-symbols-outlined{
+  color: #1C5475;
+  font-size: 48px;
+}
+
+.speaker-button {
+  background-color: transparent;
+  border-radius: 1.5rem;
+  padding: 1rem;
+}
+

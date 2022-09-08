@@ -7,6 +7,15 @@ export class TextToSpeechService {
   public synth = window.speechSynthesis;
   constructor() {}
 
+  // Start speaking the text, if the speechSynthesis is not already speaking, else stop it
+  toggleSpeaking(text: string) {
+    if (this.synth.speaking) {
+      this.synth.cancel();
+    } else {
+      this.speak(text);
+    }
+  }
+
   speak(text: string) {
     // Declare variable for filtering text
     let filteredText: string = text;

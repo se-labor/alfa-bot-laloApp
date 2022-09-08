@@ -8,7 +8,7 @@
       <ng-template ngSwitchCase="{{BOT_RESPONSE_TYPE_ENUM.BUTTONS}}">
         <div *ngFor="let button of botResponse.buttons" fxLayout="row">
           <button class="selector-button" mat-raised-button [disabled]="responseButtonsDisabled" (click)="onButtonClick(button)">{{button.title}}</button>
-          <button class="speaker-button-for-button" mat-raised-button [disabled]="responseButtonsDisabled" (click)="speak(button.title)"><mat-icon [ngStyle]="{'color':responseButtonsDisabled? 'lightgray' : 'white' }">volume_up</mat-icon></button>
+          <button class="speaker-button-for-button" mat-raised-button [disabled]="responseButtonsDisabled" (click)="textToSpeechService.toggleSpeaking(button.title)"><mat-icon [ngStyle]="{'color':responseButtonsDisabled? 'lightgray' : 'white' }">volume_up</mat-icon></button>
         </div>
       </ng-template>
 
@@ -16,7 +16,7 @@
         <markdown [data]="botResponse.message"></markdown>
         <div *ngFor="let button of botResponse.buttons" fxLayout="row">
           <button class="selector-button" mat-raised-button [disabled]="responseButtonsDisabled" (click)="onButtonClick(button)">{{button.title}}</button>
-          <button class="speaker-button-for-button" mat-raised-button [disabled]="responseButtonsDisabled" (click)="speak(button.title)"><mat-icon [ngStyle]="{'color':responseButtonsDisabled? 'lightgray' : 'white' }">volume_up</mat-icon></button>
+          <button class="speaker-button-for-button" mat-raised-button [disabled]="responseButtonsDisabled" (click)="textToSpeechService.toggleSpeaking(button.title)"><mat-icon [ngStyle]="{'color':responseButtonsDisabled? 'lightgray' : 'white' }">volume_up</mat-icon></button>
         </div>
       </ng-template>
 
@@ -24,7 +24,7 @@
         <img alt="image" loadedEmitter (loaded)="onImageLoad()" [src]="botResponse.imageUrl">
       </ng-template>
     </span>
-    <button aria-label="speak message" class="speaker-button" *ngIf="showVoiceOutputButton" color="accent" (click)="speak(botResponse.message)" mat-flat-button><mat-icon>volume_up</mat-icon></button>
+    <button aria-label="speak message" class="speaker-button" *ngIf="showVoiceOutputButton" color="accent" (click)="textToSpeechService.toggleSpeaking(botResponse.message)" mat-flat-button><mat-icon>volume_up</mat-icon></button>
   </div>
 </div>
 

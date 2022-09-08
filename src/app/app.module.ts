@@ -17,9 +17,11 @@ import {environment} from "../environments/environment";
 import {MarkdownModule} from "ngx-markdown";
 import {FlexLayoutModule} from "@angular/flex-layout";
 import {ImageLoadedDirective} from './chat/text-area/bot-response/image-loaded.directive';
-import {MenueComponent} from './menue/menue.component';
+import {MenuComponent} from './menu/menu.component';
 import {ChatComponent} from './chat/chat.component';
-import {MenueHeaderComponent} from "./menue/menue-header/menue-header.component";
+import {MenuHeaderComponent} from "./menu/menu-header/menu-header.component";
+import { SettingsComponent } from './menu/sub-menus/settings/settings.component';
+import { InfoComponent } from './menu/sub-menus/info/info.component';
 
 export function apiConfigFactory(): Configuration {
 
@@ -50,8 +52,10 @@ export function botServiceFactory(httpClient: HttpClient, basePath: string): Bot
     UserMessageComponent,
     InputAreaComponent,
     ImageLoadedDirective,
-    MenueComponent,
-    MenueHeaderComponent,
+    MenuComponent,
+    MenuHeaderComponent,
+    SettingsComponent,
+    InfoComponent,
   ],
   imports: [
     HttpClientModule,

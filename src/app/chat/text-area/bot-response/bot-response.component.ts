@@ -18,10 +18,11 @@ export class BotResponseComponent implements OnInit {
   public showVoiceOutputButton;
   public responseTypeString: String;
   public responseButtonsDisabled: boolean = false;
+
   constructor(private messageService: MessageService,
               private userService: UserService,
               private imageService: ImageService,
-              private textToSpeechService: TextToSpeechService) { }
+              public textToSpeechService: TextToSpeechService) { }
 
   ngOnInit() {
     this.responseType = this.determineType(this.botResponse);
@@ -52,13 +53,5 @@ export class BotResponseComponent implements OnInit {
 
   onImageLoad() {
     this.imageService.onImageLoad();
-  }
-
-  speak(text: string) {
-    if (this.textToSpeechService.synth.speaking) {
-      this.textToSpeechService.synth.cancel();
-      return;
-    }
-    this.textToSpeechService.speak(text);
   }
 }
