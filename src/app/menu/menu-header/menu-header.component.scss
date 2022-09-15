@@ -1,5 +1,5 @@
-mat-toolbar {
+div {
   padding-top: calc(env(safe-area-inset-top) + 1rem);
   padding-bottom: 1rem;
-  border-bottom: 1px solid #2baefe;
+  background: #F1F2F2 !important;
 }

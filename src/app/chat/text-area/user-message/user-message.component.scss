@@ -1,12 +1,12 @@
 mat-card {
-  background-color: #ffa017;
+  background-color: #A1D2C3;
   z-index: 2;
   border-radius: 9px;
-  color: white;
+  color: #000000;
 }
 
 .message {
-  background-color: #fff;
+  background-color: #F1F2F2;
   border-radius: 0.25rem;
   display: flex;
   flex-direction: column;
@@ -32,19 +32,19 @@ mat-card {
 
 p.from-user {
   align-self: flex-end;
-  background-color: #f8ab41;
-  color: #fff;
+  background-color: #A1D2C3;
+  color: #000000;
 }
 
 p.from-user::before {
   border-bottom-left-radius: 0.8rem 0.7rem;
-  border-right: 1rem solid #f8ab41;
+  border-right: 1rem solid #A1D2C3;
   right: -0.35rem;
   transform: translate(0, -0.1rem);
 }
 
 p.from-user::after {
-  background-color: #fff;
+  background-color: #F1F2F2;
   border-bottom-left-radius: 0.5rem;
   right: -40px;
   transform:translate(-30px, -2px);

@@ -4,7 +4,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {HeaderComponent} from './chat/header/header.component';
+import {HeaderComponent} from './shared/header/header.component';
 import {TextAreaComponent} from './chat/text-area/text-area.component';
 import {BotResponseComponent} from './chat/text-area/bot-response/bot-response.component';
 import {UserMessageComponent} from './chat/text-area/user-message/user-message.component';

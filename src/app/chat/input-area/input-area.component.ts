@@ -17,7 +17,9 @@ export class InputAreaComponent implements OnInit {
   ngOnInit() {}
 
   onSubmit(form: NgForm) {
-    this.messageService.sendMessage({identifier: this.userService.getUUID(), content: form.value.message});
-    form.reset();
+    if (form.value.message) {
+      this.messageService.sendMessage({identifier: this.userService.getUUID(), content: form.value.message});
+      form.reset();
+    }
   }
 }

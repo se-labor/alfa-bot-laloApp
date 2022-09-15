@@ -1,32 +1,31 @@
 /**
 * Generated theme by Material Theme Generator
 * https://materialtheme.arcsine.dev
-* Fork at: https://materialtheme.arcsine.dev/?c=YHBhbGV0dGU$YHByaW1hcnk$YF48I2Y4YWI0MSIsIj9lcjwjZmRlNmM2IiwiO2VyPCNmNTkxMmF$LCIlPmBePCM0MmMzZmUiLCI~ZXI8I2M2ZWRmZiIsIjtlcjwjMmJhZWZlfiwid2Fybj5gXjwjZmYwMDAwIiwiP2VyPCNmZmIzYjMiLCI7ZXI8I2ZmMDAwMH4sIj9UZXh0PCMwMDAwMDAiLCI~PTwjZmFmYWZhIiwiO1RleHQ8I2ZmZmZmZiIsIjs9PCMyYzJjMmN$LCJmb250cz5bYEA8KC00fixgQDwoLTN$LGBAPCgtMn4sYEA8KC0xfixgQDxoZWFkbGluZX4sYEA8dGl0bGV$LGBAPHN1YiktMn4sYEA8c3ViKS0xfixgQDxib2R5LTJ$LGBAPGJvZHktMX4sYEA8YnV0dG9ufixgQDxjYXB0aW9ufixgQDxpbnB1dCIsInNpemU$bnVsbH1dLCJpY29uczxTaGFycCIsIj9uZXNzPnRydWUsInZlcnNpb24$MTJ9
+* Fork at: https://materialtheme.arcsine.dev/?c=YHBhbGV0dGU$YHByaW1hcnk$YF48IzFjNDU3NSIsIj9lcjwjYmJjN2Q2IiwiO2VyPCMxMTJlNTh$LCIlPmBePCM5NmJlZTQiLCI~ZXI8I2UwZWNmNyIsIjtlcjwjNzlhN2Q5fiwid2Fybj5gXjwjZmYwMDAwIiwiP2VyPCNmZmIzYjMiLCI7ZXI8I2ZmMDAwMH4sIj9UZXh0PCMwMDAwMDAiLCI~PTwjZmZmZmZmIiwiO1RleHQ8I2ZmZmZmZiIsIjs9PCMyYzJjMmN$LCJmb250cz5bYEA8KC00fixgQDwoLTN$LGBAPCgtMn4sYEA8KC0xfixgQDxoZWFkbGluZX4sYEA8dGl0bGV$LGBAPHN1YiktMn4sYEA8c3ViKS0xfixgQDxib2R5LTJ$LGBAPGJvZHktMX4sYEA8YnV0dG9ufixgQDxjYXB0aW9ufixgQDxpbnB1dCIsInNpemU$bnVsbH1dLCJpY29uczxPdXRsaW5lZCIsIj9uZXNzPnRydWUsInZlcnNpb24$MTJ9
 */
 
-@use '../../node_modules/@angular/material/index' as mat;
+@use '~@angular/material' as mat;
 
 // Include the common styles for Angular Material. We include this here so that you only
 // have to load a single css file for Angular Material in your app.
 
 // Fonts
-@import 'https://fonts.googleapis.com/icon?family=Material+Icons+Sharp';
-
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
 
 $fontConfig: (
-  display-4: mat.define-typography-level(112px, 112px, 300, "SemikolonPlus", -0.0134em),
-  display-3: mat.define-typography-level(56px, 56px, 400, "SemikolonPlus", -0.0089em),
-  display-2: mat.define-typography-level(45px, 48px, 400, "SemikolonPlus", 0.0000em),
-  display-1: mat.define-typography-level(34px, 40px, 400, "SemikolonPlus", 0.0074em),
-  headline: mat.define-typography-level(24px, 32px, 400, "SemikolonPlus", 0.0000em),
-  title: mat.define-typography-level(20px, 32px, 500, "SemikolonPlus", 0.0075em),
-  subheading-2: mat.define-typography-level(16px, 28px, 400, "SemikolonPlus", 0.0094em),
-  subheading-1: mat.define-typography-level(15px, 24px, 500, "SemikolonPlus", 0.0067em),
-  body-2: mat.define-typography-level(14px, 24px, 500, "SemikolonPlus", 0.0179em),
-  body-1: mat.define-typography-level(14px, 20px, 400, "SemikolonPlus", 0.0179em),
-  button: mat.define-typography-level(14px, 14px, 500, "SemikolonPlus", 0.0893em),
-  caption: mat.define-typography-level(12px, 20px, 400, "SemikolonPlus", 0.0333em),
-  input: mat.define-typography-level(inherit, 1.125, 400, "SemikolonPlus", 1.5px)
+  display-4: mat.define-typography-level(112px, 112px, 300, 'Roboto', -0.0134em),
+  display-3: mat.define-typography-level(56px, 56px, 400, 'Roboto', -0.0089em),
+  display-2: mat.define-typography-level(45px, 48px, 400, 'Roboto', 0.0000em),
+  display-1: mat.define-typography-level(34px, 40px, 400, 'Roboto', 0.0074em),
+  headline: mat.define-typography-level(24px, 32px, 400, 'Roboto', 0.0000em),
+  title: mat.define-typography-level(20px, 32px, 500, 'Roboto', 0.0075em),
+  subheading-2: mat.define-typography-level(16px, 28px, 400, 'Roboto', 0.0094em),
+  subheading-1: mat.define-typography-level(15px, 24px, 500, 'Roboto', 0.0067em),
+  body-2: mat.define-typography-level(14px, 24px, 500, 'Roboto', 0.0179em),
+  body-1: mat.define-typography-level(14px, 20px, 400, 'Roboto', 0.0179em),
+  button: mat.define-typography-level(14px, 14px, 500, 'Roboto', 0.0893em),
+  caption: mat.define-typography-level(12px, 20px, 400, 'Roboto', 0.0333em),
+  input: mat.define-typography-level(inherit, 1.125, 400, 'Roboto', 1.5px)
 );
 
 // Foreground Elements
@@ -87,7 +86,7 @@ $mat-dark-theme-foreground: (
 
 // Background config
 // Light bg
-$light-background:    #fafafa;
+$light-background:    #ffffff;
 $light-bg-darker-5:   darken($light-background, 5%);
 $light-bg-darker-10:  darken($light-background, 10%);
 $light-bg-darker-20:  darken($light-background, 20%);
@@ -121,8 +120,8 @@ $dark-bg-lighter-5:   lighten($dark-background, 5%);
 $dark-bg-lighter-10:  lighten($dark-background, 10%);
 $dark-bg-lighter-20:  lighten($dark-background, 20%);
 $dark-bg-lighter-30:  lighten($dark-background, 30%);
-$light-bg-alpha-4:    rgba(#fafafa, 0.04);
-$light-bg-alpha-12:   rgba(#fafafa, 0.12);
+$light-bg-alpha-4:    rgba(#ffffff, 0.04);
+$light-bg-alpha-12:   rgba(#ffffff, 0.12);
 
 // Background palette for dark themes.
 $mat-dark-theme-background: (
@@ -149,40 +148,40 @@ $mat-dark-theme-background: (
 // Theme Config
 
 body {
-  --primary-color: #f8ab41;
-  --primary-lighter-color: #fde6c6;
-  --primary-darker-color: #f5912a;
-  --text-primary-color: #{$dark-primary-text};
+  --primary-color: #1c4575;
+  --primary-lighter-color: #bbc7d6;
+  --primary-darker-color: #112e58;
+  --text-primary-color: #{$light-primary-text};
   --text-primary-lighter-color: #{$dark-primary-text};
-  --text-primary-darker-color: #{$dark-primary-text};
+  --text-primary-darker-color: #{$light-primary-text};
 }
 $mat-primary: (
-  main: #f8ab41,
-  lighter: #fde6c6,
-  darker: #f5912a,
-  200: #f8ab41, // For slide toggle,
+  main: #1c4575,
+  lighter: #bbc7d6,
+  darker: #112e58,
+  200: #1c4575, // For slide toggle,
   contrast : (
-    main: $dark-primary-text,
+    main: $light-primary-text,
     lighter: $dark-primary-text,
-    darker: $dark-primary-text,
+    darker: $light-primary-text,
   )
 );
 $theme-primary: mat.define-palette($mat-primary, main, lighter, darker);
 
 
 body {
-  --accent-color: #42c3fe;
-  --accent-lighter-color: #c6edff;
-  --accent-darker-color: #2baefe;
+  --accent-color: #96bee4;
+  --accent-lighter-color: #e0ecf7;
+  --accent-darker-color: #79a7d9;
   --text-accent-color: #{$dark-primary-text};
   --text-accent-lighter-color: #{$dark-primary-text};
   --text-accent-darker-color: #{$dark-primary-text};
 }
 $mat-accent: (
-  main: #42c3fe,
-  lighter: #c6edff,
-  darker: #2baefe,
-  200: #42c3fe, // For slide toggle,
+  main: #96bee4,
+  lighter: #e0ecf7,
+  darker: #79a7d9,
+  200: #96bee4, // For slide toggle,
   contrast : (
     main: $dark-primary-text,
     lighter: $dark-primary-text,
@@ -255,8 +254,8 @@ $altTheme: (
 
 .material-icons {
   font-size: 24px;
-  font-family: 'Material Icons Sharp', 'Material Icons', sans-serif;
+  font-family: 'Material Icons Outlined', 'Material Icons', sans-serif;
   .mat-badge-content {
-    font-family: "SemikolonPlus", sans-serif;
+    font-family: 'Roboto', sans-serif;
   }
 }

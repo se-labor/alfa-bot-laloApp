@@ -1,0 +1,28 @@
+mat-toolbar {
+  padding-top: calc(env(safe-area-inset-top) + 2.5rem);
+  padding-bottom: 2.5rem;
+  color: #FFFFFF;
+  background: #FFFFFF;
+}
+
+mat-toolbar-row {
+  padding: 0;
+}
+
+
+button {
+  color: #1C5475;
+  position: absolute;
+  left: 0;
+}
+
+span.nav-element {
+  color: #1C5475;
+  font-size: xxx-large;
+}
+
+span.title {
+  font-size: xxx-large;
+  color: #000000;
+}
+

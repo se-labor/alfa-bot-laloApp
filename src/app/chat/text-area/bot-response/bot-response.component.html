@@ -1,22 +1,28 @@
 <div class="message" [ngSwitch]="responseType">
   <div fxLayout="row">
-    <span [ngClass]="responseType !== BOT_RESPONSE_TYPE_ENUM.IMAGE?'message-with-speaker':'message-without-speaker'">
+    <span class="message-inner message-style">
       <ng-template ngSwitchCase="{{BOT_RESPONSE_TYPE_ENUM.TEXT}}">
-        <markdown [data]="botResponse.message"></markdown>
+        <div fxLayout="row">
+          <markdown [data]="botResponse.message"></markdown>
+          <button aria-label="speak message" class="speaker-button" *ngIf="showVoiceOutputButton" (click)="textToSpeechService.toggleSpeaking(botResponse.message)" mat-flat-button><span class="material-symbols-outlined">text_to_speech</span></button>
+        </div>
       </ng-template>
 
       <ng-template ngSwitchCase="{{BOT_RESPONSE_TYPE_ENUM.BUTTONS}}">
         <div *ngFor="let button of botResponse.buttons" fxLayout="row">
-          <button class="selector-button" mat-raised-button [disabled]="responseButtonsDisabled" (click)="onButtonClick(button)">{{button.title}}</button>
-          <button class="speaker-button-for-button" mat-raised-button [disabled]="responseButtonsDisabled" (click)="textToSpeechService.toggleSpeaking(button.title)"><mat-icon [ngStyle]="{'color':responseButtonsDisabled? 'lightgray' : 'white' }">volume_up</mat-icon></button>
+          <button class="selector-button" mat-raised-button [disabled]="responseButtonDisabled.get(button)" (click)="onButtonClick(button)">{{button.title}}</button>
+          <button class="speaker-button-for-button" mat-raised-button [disabled]="responseButtonDisabled.get(button)" (click)="textToSpeechService.toggleSpeaking(button.title)"><span class="material-symbols-outlined" [ngStyle]="{'color':responseButtonDisabled.get(button)? 'lightgray' : 'black' }">text_to_speech</span></button>
         </div>
       </ng-template>
 
       <ng-template ngSwitchCase="{{BOT_RESPONSE_TYPE_ENUM.BUTTONS_AND_TEXT}}">
-        <markdown [data]="botResponse.message"></markdown>
+        <div fxLayout="row">
+          <markdown [data]="botResponse.message"></markdown>
+          <button aria-label="speak message" class="speaker-button" *ngIf="showVoiceOutputButton" (click)="textToSpeechService.toggleSpeaking(botResponse.message)" mat-flat-button><span class="material-symbols-outlined">text_to_speech</span></button>
+        </div>
         <div *ngFor="let button of botResponse.buttons" fxLayout="row">
-          <button class="selector-button" mat-raised-button [disabled]="responseButtonsDisabled" (click)="onButtonClick(button)">{{button.title}}</button>
-          <button class="speaker-button-for-button" mat-raised-button [disabled]="responseButtonsDisabled" (click)="textToSpeechService.toggleSpeaking(button.title)"><mat-icon [ngStyle]="{'color':responseButtonsDisabled? 'lightgray' : 'white' }">volume_up</mat-icon></button>
+          <button class="selector-button" mat-raised-button [disabled]="responseButtonDisabled.get(button)" (click)="onButtonClick(button)">{{button.title}}</button>
+          <button class="speaker-button-for-button" mat-raised-button [disabled]="responseButtonDisabled.get(button)" (click)="textToSpeechService.toggleSpeaking(button.title)"><span class="material-symbols-outlined" [ngClass]="responseButtonDisabled.get(button)? 'disabled' : ''">text_to_speech</span></button>
         </div>
       </ng-template>
 
@@ -24,7 +30,6 @@
         <img alt="image" loadedEmitter (loaded)="onImageLoad()" [src]="botResponse.imageUrl">
       </ng-template>
     </span>
-    <button aria-label="speak message" class="speaker-button" *ngIf="showVoiceOutputButton" color="accent" (click)="textToSpeechService.toggleSpeaking(botResponse.message)" mat-flat-button><mat-icon>volume_up</mat-icon></button>
   </div>
 </div>
 

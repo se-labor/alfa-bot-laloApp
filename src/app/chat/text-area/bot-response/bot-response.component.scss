@@ -1,5 +1,5 @@
 .message {
-  background-color: white;
+  background-color: #F1F2F2;
   border-radius: 0.25rem;
   display: flex;
   flex-direction: column;
@@ -12,29 +12,23 @@
   max-height: 50vh;
 }
 
-.message-without-speaker{
+.message-inner{
   border-radius: 1.15rem;
   padding: 0.5rem .875rem;
 }
 
-.message-with-speaker{
-  border-top-left-radius: 1.15rem;
-  border-bottom-left-radius: 1.15rem;
-  padding: 0.5rem;
-}
-
-.message span::before,
-.message span::after {
+.message span.message-style::before,
+.message span.message-style::after {
   bottom: -0.1rem;
   content: "";
   height: 1rem;
   position: absolute;
 }
 
-.message span {
+.message span.message-style {
   align-items: flex-start;
-  background-color: #42c3fe;
-  color: white;
+  background-color: #FFFFFF;
+  color: #000000;
   margin-top: 0;
   margin-bottom: 0;
   word-wrap: break-word;
@@ -44,15 +38,15 @@
   line-height: 1.25;
 }
 
-.message span:before {
+.message span.message-style:before {
   border-bottom-right-radius: 0.8rem 0.7rem;
-  border-left: 1rem solid #42c3fe;
+  border-left: 1rem solid #FFFFFF;
   left: -0.35rem;
   transform: translate(0, -0.1rem);
 }
 
-.message span::after {
-  background-color: white;
+.message span.message-style::after {
+  background-color: #F1F2F2;
   border-bottom-right-radius: 0.5rem;
   left: 20px;
   transform: translate(-30px, -2px);
@@ -64,26 +58,50 @@ button.selector-button {
   margin-left: 5px;
   margin-bottom: 5px;
   border-radius: 0.5rem 0 0 0.5rem;
-  background-color: #f8ab41;
-  color: white;
+  background-color: #96bee4;
+  color: #000000;
   box-shadow: none;
+}
+
+button.selector-button[disabled] {
+  background-color: #E7F0F8;
+}
+
+button.speaker-button{
+  box-shadow: none;
+  background: #96bee4;
+  border-radius: 24px;
+  height: 48px;
+  width: 48px;
+  min-width: 48px;
+  padding: 0;
+  margin: 0.5rem;
 }
 
 button.speaker-button-for-button {
   border-radius: 0 0.5rem 0.5rem 0;
-  background-color: #f8ab41;
+  background-color: #96bee4;
   margin-bottom: 5px;
   box-shadow: none;
 }
 
-button.speaker-button {
-  border-radius: 0 0.5rem 0.5rem 0;
-  box-shadow: none;
+button.speaker-button-for-button[disabled] {
+  background-color: #E7F0F8;
 }
 
-mat-icon {
-  color: white;
+.material-symbols-outlined{
+  color: #000000;
+  background-color: #96bee4;
+  padding: 0;
+  height: 24px;
+  width: 24px;
 }
+
+.material-symbols-outlined.disabled{
+  background-color: #E7F0F8;
+  color: #73787D;
+}
+
 
 // Use if device is in landscape mode
 @media (orientation: landscape) and (max-width: 768px) {
