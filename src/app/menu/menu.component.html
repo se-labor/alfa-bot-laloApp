@@ -1,5 +1,5 @@
 <app-menu-header></app-menu-header>
-<div class="container" fxFlexFill>
+<div class="container">
   <div fxLayout="row" fxLayoutAlign="center" >
     <button mat-button disableRipple (click)="activatePreviousChatBot()"><span class="material-symbols-outlined">arrow_back_ios</span></button>
     <mat-card class="bot-selection" [routerLink]="['/chat/', activeChatBot.id]">

@@ -1,5 +1,9 @@
 div {
   padding-top: calc(env(safe-area-inset-top) + 1rem);
-  padding-bottom: 1rem;
   background: #F1F2F2 !important;
+}
+
+img {
+  max-width: 15vw;
+  max-height: 15vh;
 }

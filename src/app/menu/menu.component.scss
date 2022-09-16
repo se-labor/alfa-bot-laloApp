@@ -1,11 +1,14 @@
 img {
-  max-width: 70vw;
   border-top-left-radius: 1.5rem;
   border-top-right-radius: 1.5rem;
+  max-width: 100%;
 }
-
+app-menu-header {
+  height: 24vh;
+}
 div.container{
   background-color: #F1F2F2;
+  height: 76vh;
 }
 
 mat-card {
@@ -14,6 +17,9 @@ mat-card {
   border-radius: 1.5rem;
   background-color: #96bee4;
   cursor: pointer;
+  width: 41.65vw;
+  max-width:648px;
+  max-height: 50vh;
 }
 
 mat-card-title {
@@ -31,7 +37,8 @@ mat-card.bot-selection {
 
 .material-symbols-outlined{
   color: #1C5475;
-  font-size: 48px;
+  font-size: xxx-large;
+  align-content: center;
 }
 
 .speaker-button {
@@ -40,3 +47,7 @@ mat-card.bot-selection {
   padding: 1rem;
 }
 
+button {
+  background-color: transparent;
+  padding: 0;
+}
