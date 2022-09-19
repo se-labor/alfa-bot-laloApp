@@ -17,7 +17,7 @@ export class BotResponseComponent implements OnInit {
   public responseType;
   public showVoiceOutputButton;
   public responseTypeString: String;
-  public responseButtonDisabled= new Map<BotButton, boolean>();
+  public responseButtonsDisabled: boolean;
 
   constructor(private messageService: MessageService,
               private userService: UserService,
@@ -28,9 +28,6 @@ export class BotResponseComponent implements OnInit {
     this.responseType = this.determineType(this.botResponse);
     this.responseTypeString = this.responseType.toString();
     this.showVoiceOutputButton =this.responseType !== BOT_RESPONSE_TYPE.IMAGE;
-    this.botResponse.buttons.forEach(button => {
-      this.responseButtonDisabled.set(button, false);
-    });
   }
 
   determineType(botResponse: BotResponse): string {
@@ -51,7 +48,7 @@ export class BotResponseComponent implements OnInit {
 
   onButtonClick(button: BotButton) {
     this.messageService.sendMessage({identifier: this.userService.getUUID(), content: button.title});
-    this.responseButtonDisabled.set(button, true);
+    this.responseButtonsDisabled = true;
   }
 
   onImageLoad() {

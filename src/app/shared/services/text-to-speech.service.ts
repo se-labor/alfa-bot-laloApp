@@ -1,11 +1,18 @@
 import {Injectable} from '@angular/core';
+import {SettingService} from "./setting.service";
 
 @Injectable({
   providedIn: 'root'
 })
 export class TextToSpeechService {
   public synth = window.speechSynthesis;
-  constructor() {}
+  public pitch: number = 0.8;  // Set the pitch of the speech;
+  public playBackSpeed: number = this.settingService.playbackSpeed; // Set the speed of the speech;
+  constructor(public settingService: SettingService) {
+    this.settingService.playbackSpeedChanged.subscribe((value: number) => {
+      this.playBackSpeed = value;
+    });
+  }
 
   // Start speaking the text, if the speechSynthesis is not already speaking, else stop it
   toggleSpeaking(text: string) {
@@ -33,8 +40,8 @@ export class TextToSpeechService {
     // Utter filteredText, if there is text left
     if (filteredText !== '') {
       const utterThis = new SpeechSynthesisUtterance(filteredText);
-      utterThis.pitch = 0.8;
-      utterThis.rate = 0.8;
+      utterThis.pitch = this.pitch;
+      utterThis.rate = this.playBackSpeed;
       utterThis.lang = "de-ger";
       this.synth.speak(utterThis);
     }

@@ -17,7 +17,7 @@ mat-card {
   border-radius: 1.5rem;
   background-color: #96bee4;
   cursor: pointer;
-  width: 41.65vw;
+  width: 45vw;
   max-width:648px;
   max-height: 50vh;
 }
@@ -36,7 +36,7 @@ mat-card.bot-selection {
 }
 
 .material-symbols-outlined{
-  color: #1C5475;
+  color: #000000;
   font-size: xxx-large;
   align-content: center;
 }
@@ -49,5 +49,20 @@ mat-card.bot-selection {
 
 button {
   background-color: transparent;
-  padding: 0;
+}
+
+
+div.title mat-card-title{
+  width: 30vw;
+}
+
+div.title div{
+  width: 15vw;
+  margin: 0;
+  text-align: right;
+  align-self: flex-end;
+}
+
+.material-symbols-outlined.not-inside-button{
+  padding: 1rem;
 }
