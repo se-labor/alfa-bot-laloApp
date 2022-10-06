@@ -13,7 +13,6 @@ import {ApiModule, BotService, Configuration} from "./modules/api";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {MaterialModule} from "./modules/material/material.module";
 import {FormsModule} from "@angular/forms";
-import {environment} from "../environments/environment";
 import {MarkdownModule} from "ngx-markdown";
 import {FlexLayoutModule} from "@angular/flex-layout";
 import {ImageLoadedDirective} from './chat/text-area/bot-response/image-loaded.directive';

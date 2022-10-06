@@ -3,10 +3,10 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "config": "ts-node set-env.ts",
-    "start": "npm run config -- --environment=dev && ng serve",
-    "build": "npm run config -- --environment=prod && ng build --baseHref=/alfabotclient/",
-    "build-mobile": "npm run build && npx cap sync",
+    "start": "ng serve",
+    "build": "ng build --configuration=production",
+    "build-mobile": "ng build --configuration=production && npx cap sync",
+    "build-web": "ng build --configuration=production --baseHref=/alfabotclient/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
@@ -30,7 +30,6 @@
     "ngx-markdown": "^12.1.0",
     "protractor": "^7.0.0",
     "rxjs": "~6.6.0",
-    "ts-node": "^10.7.0",
     "tslib": "^2.3.0",
     "uuid": "^8.3.2",
     "zone.js": "~0.11.4"

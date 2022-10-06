@@ -4,7 +4,7 @@ WORKDIR /usr/src/app
 COPY package.json package-lock.json ./
 RUN npm install
 COPY . .
-RUN npm run build
+RUN npm run build-web
 
 # web service
 FROM nginx:1.20.2-alpine
