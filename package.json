@@ -5,7 +5,7 @@
     "ng": "ng",
     "config": "ts-node set-env.ts",
     "start": "npm run config -- --environment=dev && ng serve",
-    "build": "npm run config -- --environment=prod && ng build",
+    "build": "npm run config -- --environment=prod && ng build --baseHref=/alfabotclient/",
     "build-mobile": "npm run build && npx cap sync",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"

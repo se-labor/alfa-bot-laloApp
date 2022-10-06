@@ -4,9 +4,10 @@ set -e
 # export APP_VERSION=$(cat version)
 # export APP_VERSION_TS=$(cat version_ts)
 
-if [ -z "${BOT_CONFIG}" ]
+if [ -n "${BOT_CONFIG}" ]
 then
-  export BOT_CONFIG="[]"
+  cd "/usr/share/nginx/html/$BASE_PATH"
+  envsubst < assets/env.template.jstmp > assets/env.js
 fi
 
-envsubst < /usr/share/nginx/html/assets/env.template.jstmp > /usr/share/nginx/html/assets/env.js && exec nginx -g 'daemon off;'
+exec nginx -g 'daemon off;'

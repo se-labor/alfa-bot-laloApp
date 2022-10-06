@@ -13,7 +13,16 @@ export class MessageService{
 
   public listChanged = new Subject<(UserMessage | BotResponse)[]>();
 
-  constructor(private botService: BotService, private userService: UserService) {
+  constructor(
+    private botService: BotService,
+    private userService: UserService
+  ) { }
+
+
+  init() {
+    // clear messages
+    this.messages.splice(0, this.messages.length);
+
     this.botService.getInitialBotMessage(this.userService.getUUID()).pipe(first()).subscribe(
       (responses: BotResponse[]) => {
         this.messages.push(...responses);

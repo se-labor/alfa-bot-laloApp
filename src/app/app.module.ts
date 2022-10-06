@@ -25,10 +25,6 @@ import { InfoComponent } from './menu/sub-menus/info/info.component';
 
 export function apiConfigFactory(): Configuration {
 
-  if (window['env'] !== undefined && window['env']['BOT_CONFIG'] !== undefined ) {
-    window['env']['BOT_CONFIG'].find(botConfig => botConfig.id == 'wahlenNrw2022').apiKey = environment.apiKey;
-  }
-
   return new Configuration({
     // Left undefined to use default Path defined in BotService
     basePath: '',
