@@ -1,20 +1,18 @@
 <app-menu-header></app-menu-header>
 <div class="container">
-  <div fxLayout="row" fxLayoutAlign="center" >
+  <div fxLayout="row" fxLayoutAlign="center">
     <button mat-button disableRipple (click)="activatePreviousChatBot()"><span class="material-symbols-outlined">arrow_back_ios</span></button>
     <mat-card class="bot-selection" [routerLink]="['/chat/', activeChatBot.id]">
       <mat-card-content><img src="{{activeChatBot.imageUrl}}"></mat-card-content>
-      <div class="title" fxLayout="row">
-        <mat-card-title fxLayoutAlign="end center">{{activeChatBot.name}}</mat-card-title>
-        <div>
+      <div class="title" fxLayout="row" fxLayoutAlign="space-between center">
+        <span class="material-symbols-outlined not-inside-button hide-icon">settings</span>
+        <mat-card-title>{{activeChatBot.name}}</mat-card-title>
           <button aria-label="speak message" class="speaker-button" color="accent" (click)="textToSpeechService.toggleSpeaking(activeChatBot.name); $event.stopPropagation()" mat-flat-button><span class="material-symbols-outlined">text_to_speech</span></button>
-        </div>
       </div>
     </mat-card>
     <button mat-button disableRipple (click)="activateNextChatBot()"><span class="material-symbols-outlined">arrow_forward_ios</span></button>
   </div>
-
-  <div fxLayout="column" fxLayoutAlign="end center">
+  <div fxLayout="column" fxLayoutAlign="end center" style="margin-top: 4rem">
     <mat-card routerLink="/settings">
       <div fxLayout="row" fxLayoutAlign="space-between center">
         <span class="material-symbols-outlined not-inside-button">settings</span>

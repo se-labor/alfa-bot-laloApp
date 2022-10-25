@@ -1,3 +1,21 @@
+@media all and (min-width: 100px)  {  mat-card-title  { font-size:0.6em;  } }
+@media all and (min-width: 200px)  {  mat-card-title  { font-size:0.8em;  } }
+@media all and (min-width: 300px)  {  mat-card-title  { font-size:1.0em;  } }
+@media all and (min-width: 400px)  {  mat-card-title  { font-size:1.2em;  } }
+@media all and (min-width: 500px)  {  mat-card-title  { font-size:1.4em;  } }
+@media all and (min-width: 600px)  {  mat-card-title  { font-size:1.6em;  } }
+@media all and (min-width: 700px)  {  mat-card-title  { font-size:1.8em;  } }
+@media all and (min-width: 800px)  {  mat-card-title  { font-size:2.0em;  } }
+
+@media all and (min-width: 100px)  { .material-symbols-outlined.not-inside-button, .material-symbols-outlined  { font-size:1.1em;  } }
+@media all and (min-width: 200px)  { .material-symbols-outlined.not-inside-button, .material-symbols-outlined  { font-size:1.2em;  } }
+@media all and (min-width: 300px)  { .material-symbols-outlined.not-inside-button, .material-symbols-outlined  { font-size:1.4em;  } }
+@media all and (min-width: 400px)  { .material-symbols-outlined.not-inside-button, .material-symbols-outlined  { font-size:1.6em;  } }
+@media all and (min-width: 500px)  { .material-symbols-outlined.not-inside-button, .material-symbols-outlined  { font-size:1.8em;  } }
+@media all and (min-width: 600px)  { .material-symbols-outlined.not-inside-button, .material-symbols-outlined  { font-size:2.2em;  } }
+@media all and (min-width: 700px)  { .material-symbols-outlined.not-inside-button, .material-symbols-outlined  { font-size:2.4em;  } }
+@media all and (min-width: 800px)  { .material-symbols-outlined.not-inside-button, .material-symbols-outlined  { font-size:2.6em;  } }
+
 img {
   border-top-left-radius: 1.5rem;
   border-top-right-radius: 1.5rem;
@@ -17,14 +35,15 @@ mat-card {
   border-radius: 1.5rem;
   background-color: #96bee4;
   cursor: pointer;
-  width: 45vw;
-  max-width:648px;
+  width: 60vw;
+  max-width:650px;
   max-height: 50vh;
 }
 
 mat-card-title {
-  padding: 1rem;
   margin-bottom: 0;
+  white-space: nowrap;
+  align-content: center;
 }
 
 mat-card-content {
@@ -37,32 +56,38 @@ mat-card.bot-selection {
 
 .material-symbols-outlined{
   color: #000000;
-  font-size: xxx-large;
   align-content: center;
 }
 
 .speaker-button {
   background-color: transparent;
   border-radius: 1.5rem;
-  padding: 1rem;
 }
 
 button {
   background-color: transparent;
+  min-width: 0;
+  align-content: center;
 }
 
 
 div.title mat-card-title{
-  width: 30vw;
+ // width: 30vw; TODO: div.title mat-card-title still needed?
 }
 
 div.title div{
   width: 15vw;
   margin: 0;
-  text-align: right;
+  justify-content: space-between;
+  text-align: center;
   align-self: flex-end;
 }
 
 .material-symbols-outlined.not-inside-button{
-  padding: 1rem;
+  padding: 0.5rem;
+  color: #000000
+}
+
+.hide-icon{
+  visibility: hidden;
 }
