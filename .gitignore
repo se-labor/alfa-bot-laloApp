@@ -4,6 +4,7 @@
 /dist
 /tmp
 /out-tsc
+/android/app/release
 # Only exists if Bazel was run
 /bazel-out
 
