@@ -1,4 +1,4 @@
-package eu.fhms.lalo;
+package de.fhms.alfabot.app;
 
 import com.getcapacitor.BridgeActivity;
 

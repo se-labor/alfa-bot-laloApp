@@ -1,9 +1,0 @@
-{
-	"appId": "eu.fhms.lalo",
-	"appName": "Lalo",
-	"webDir": "dist/alfabot",
-	"bundledWebRuntime": false,
-	"ios": {
-		"preferredContentMode": "mobile"
-	}
-}

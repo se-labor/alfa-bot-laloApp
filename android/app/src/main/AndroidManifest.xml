@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="eu.fhms.lalo">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="de.fhms.alfabot.app">
     <queries>
         <intent>
             <action android:name="android.intent.action.TTS_SERVICE" />
@@ -15,7 +15,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|smallestScreenSize|screenLayout|uiMode"
-            android:name="eu.fhms.lalo.MainActivity"
+            android:name="de.fhms.alfabot.app.MainActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBarLaunch"
             android:launchMode="singleTask"
