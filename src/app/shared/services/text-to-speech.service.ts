@@ -1,10 +1,12 @@
 import {Injectable} from '@angular/core';
 import {SettingService} from "./setting.service";
+import { TextToSpeech, TTSOptions } from "@capacitor-community/text-to-speech";
 
 @Injectable({
   providedIn: 'root'
 })
 export class TextToSpeechService {
+  public speaking: boolean;
   public synth = window.speechSynthesis;
   public pitch: number = 0.8;  // Set the pitch of the speech;
   public playBackSpeed: number = this.settingService.playbackSpeed; // Set the speed of the speech;
@@ -15,15 +17,17 @@ export class TextToSpeechService {
   }
 
   // Start speaking the text, if the speechSynthesis is not already speaking, else stop it
-  toggleSpeaking(text: string) {
-    if (this.synth.speaking) {
-      this.synth.cancel();
+  async toggleSpeaking(text: string) {
+    if (this.speaking){
+      this.speaking = false;
+      await TextToSpeech.stop();
     } else {
-      this.speak(text);
+      await this.speak(text)
     }
   }
 
-  speak(text: string) {
+  async speak(text: string) {
+    this.speaking = true;
     // Declare variable for filtering text
     let filteredText: string = text;
     // Matches valid links, which are surrounded by brackets. Also includes matching of special german characters.
@@ -39,11 +43,20 @@ export class TextToSpeechService {
     });
     // Utter filteredText, if there is text left
     if (filteredText !== '') {
-      const utterThis = new SpeechSynthesisUtterance(filteredText);
-      utterThis.pitch = this.pitch;
-      utterThis.rate = this.playBackSpeed;
-      utterThis.lang = "de-ger";
-      this.synth.speak(utterThis);
+      const options: TTSOptions = {
+        text: filteredText,
+        lang: 'de',
+        rate: this.playBackSpeed,
+        pitch: this.pitch,
+        volume: 1.0,
+        category: 'ambient'
+      };
+      try {
+        await TextToSpeech.speak(options);
+        this.speaking = false;
+      } catch (e) {
+        console.log(e);
+      }
     }
   }
 }

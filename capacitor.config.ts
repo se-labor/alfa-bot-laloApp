@@ -4,7 +4,10 @@ const config: CapacitorConfig = {
   appId: 'eu.fhms.lalo',
   appName: 'Lalo',
   webDir: 'dist/alfabot',
-  bundledWebRuntime: false
+  bundledWebRuntime: false,
+  ios: {
+    preferredContentMode: "mobile"
+  }
 };
 
 export default config;
