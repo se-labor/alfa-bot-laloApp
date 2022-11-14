@@ -2,7 +2,7 @@
 <div class="container">
   <div fxLayout="row" fxLayoutAlign="center">
     <button *ngIf="chatBots.length > 1" mat-button disableRipple (click)="activatePreviousChatBot()"><span class="material-symbols-outlined">arrow_back_ios</span></button>
-    <mat-card class="bot-selection" [routerLink]="['/chat/', activeChatBot.id]">
+    <mat-card *ngIf="activeChatBot" class="bot-selection" [routerLink]="['/chat/', activeChatBot.id]">
       <mat-card-content><img src="{{activeChatBot.imageUrl}}"></mat-card-content>
       <div class="title" fxLayout="row" fxLayoutAlign="space-between center">
         <span class="material-symbols-outlined not-inside-button hide-icon">settings</span>

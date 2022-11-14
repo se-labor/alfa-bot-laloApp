@@ -13,21 +13,29 @@ export class MenuComponent implements OnInit {
   public chatBots = [];
   public activeChatBot: ChatBot;
 
-  constructor(private botConfigService: BotConfigService,
-              public textToSpeechService: TextToSpeechService) {
+  constructor(
+    private botConfigService: BotConfigService,
+    public textToSpeechService: TextToSpeechService
+  ) {
     this.chatBots = botConfigService.chatBots;
-    this.activeChatBot = this.chatBots[0];
+    this.activeChatBot = this.chatBots[0] ?? null;
   }
 
   ngOnInit(): void {
   }
 
   activatePreviousChatBot() {
+    if (!this.activeChatBot) {
+      return
+    }
     const index = this.chatBots.indexOf(this.activeChatBot);
     this.activeChatBot = this.chatBots[(index - 1 + this.chatBots.length) % this.chatBots.length];
   }
 
   activateNextChatBot() {
+    if (!this.activeChatBot) {
+      return
+    }
     const index = this.chatBots.indexOf(this.activeChatBot);
     this.activeChatBot = this.chatBots[(index + 1) % this.chatBots.length];
   }

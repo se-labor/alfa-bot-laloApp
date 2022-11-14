@@ -32,8 +32,4 @@ describe('HeaderComponent', () => {
   it('should have a mat-toolbar', () => {
     expect(de.query(By.css('mat-toolbar')).nativeElement).toBeTruthy();
   });
-
-  it('should have a div containing the title', () => {
-    expect(de.query(By.css('div')).nativeElement.innerText).toBe(component.title);
-  });
 });

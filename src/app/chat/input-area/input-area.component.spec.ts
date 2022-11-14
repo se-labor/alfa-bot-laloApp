@@ -51,8 +51,8 @@ describe('InputAreaComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should render the mat-label', () => {
-    expect(de.query(By.css('mat-label'))).toBeTruthy();
+  it('should render the mat-form-field', () => {
+    expect(de.query(By.css('mat-form-field'))).toBeTruthy();
   });
 
   it('should call the onSubmit Method', () => {
@@ -64,7 +64,7 @@ describe('InputAreaComponent', () => {
 
   it('should reset the form after the onSubmit Method is called', waitForAsync(() => {
     const input = de.query(By.css('input'));
-    input.nativeElement.value = 'text';
+    input.nativeElement.value = 'InputAreaComponentTest';
     let form = fixture.debugElement.query(By.css('form'));
     form.triggerEventHandler('submit', null);
     fixture.whenStable().then(() => {
@@ -81,7 +81,7 @@ describe('InputAreaComponent', () => {
 
   it('should be valid while not empty', () => {
     const input = de.query(By.css('input'));
-    input.nativeElement.textContent = 'TestString'
+    input.nativeElement.textContent = 'InputAreaComponentTest'
     fixture.detectChanges();
     expect(input).toBeTruthy();
   });

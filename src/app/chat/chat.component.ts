@@ -22,7 +22,11 @@ export class ChatComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    let botId = this.activatedRoute.snapshot.url[1].path;
+    let botId = this.activatedRoute.snapshot.url[1]?.path;
+    if (!botId) {
+      return;
+    }
+
     this.chatBot = this.botConfigService.chatBots.find(bot => bot.id === botId );
 
     this.botService.configuration.basePath = this.chatBot.apiUrl;

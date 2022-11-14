@@ -6,12 +6,10 @@ import {ChatBot} from "../chat-bot.model";
 })
 export class BotConfigService {
 
-  public chatBots: ChatBot[] = window['env']['BOT_CONFIG'];
+  public readonly chatBots: ChatBot[];
 
   constructor() {
-
+    window['env'] = window['env'] || {};
+    this.chatBots = ('BOT_CONFIG' in window['env']) ? window['env']['BOT_CONFIG'] : [];
   }
-
-
-
 }
