@@ -9,7 +9,9 @@ export class SettingService {
   public fontSize: number = 24;
   public playbackSpeedChanged = new Subject();
   public fontSizeChanged = new Subject();
+
   constructor() {
+    document.body.style.fontSize = `${this.fontSize}px`;
     this.playbackSpeedChanged.subscribe((value: number) => {
       this.playbackSpeed = value;
     });
