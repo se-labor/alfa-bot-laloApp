@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {BotService} from "../modules/api";
 import {BotConfigService} from "../shared/services/bot-config.service";
 import {ActivatedRoute} from "@angular/router";
-import {ChatBot} from "../shared/chat-bot.model";
+import {ChatBot} from "../shared/models/chat-bot.model";
 import {MessageService} from "./message.service";
 
 @Component({

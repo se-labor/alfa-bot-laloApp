@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {Component, ViewEncapsulation} from '@angular/core';
 import {NgForm} from "@angular/forms";
 import {MessageService} from "../message.service";
 import {UserService} from "../../shared/services/user.service";
@@ -9,12 +9,10 @@ import {UserService} from "../../shared/services/user.service";
   styleUrls: ['./input-area.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class InputAreaComponent implements OnInit {
+export class InputAreaComponent{
 
   constructor(private messageService: MessageService,
               private userService: UserService) { }
-
-  ngOnInit() {}
 
   onSubmit(form: NgForm) {
     if (form.value.message) {

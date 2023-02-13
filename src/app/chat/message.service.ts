@@ -8,6 +8,7 @@ import {UserService} from "../shared/services/user.service";
   providedIn: 'root'
 })
 export class MessageService{
+
   private messages: (UserMessage | BotResponse)[] = [];
   private messageQueue: UserMessage[] = [];
 

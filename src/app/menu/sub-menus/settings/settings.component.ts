@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component} from '@angular/core';
 import {SettingService} from "../../../shared/services/setting.service";
 
 @Component({
@@ -6,12 +6,9 @@ import {SettingService} from "../../../shared/services/setting.service";
   templateUrl: './settings.component.html',
   styleUrls: ['./settings.component.scss']
 })
-export class SettingsComponent implements OnInit {
+export class SettingsComponent {
 
   constructor(public settingService: SettingService) { }
-
-  ngOnInit(): void {
-  }
 
   emitFontSizeChange(value: number) {
     this.settingService.fontSizeChanged.next(value);
