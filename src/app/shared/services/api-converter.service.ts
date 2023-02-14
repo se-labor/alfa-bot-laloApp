@@ -1,0 +1,46 @@
+import {Injectable} from '@angular/core';
+import {BotButton, BotService} from "../../modules/api";
+import {BotResponse} from "../../modules/api";
+import {UserMessage} from "../../modules/api";
+import {Message} from "../models/message.model";
+import {UserService} from "./user.service";
+
+@Injectable({
+  providedIn: 'root'
+})
+export class ApiConverterService {
+
+  constructor(private botService: BotService,private userService: UserService) { }
+
+  getMessageFrom(text: string = '', payload: string = '', imageUrl: string = '', buttons: Array<BotButton> = []): Message {
+    // For User Messages, the payload is the same as the text
+    if(text !== '' && payload === '') {
+      payload = text;
+    }
+    return new Message(this.userService.getUUID(), text, payload, imageUrl, buttons);
+  }
+
+  botResponseToMessage(botResponse: BotResponse): Message{
+    // Values can not be undefined, so we need to check if they are and set them to empty strings or empty arrays
+    let text = botResponse.message? botResponse.message : '';
+    let imageUrl = botResponse.imageUrl? botResponse.imageUrl : '';
+    let buttons = botResponse.buttons? botResponse.buttons : [];
+    return new Message(
+      this.userService.getUUID(),
+      text,
+      '',
+      imageUrl,
+      buttons);
+  };
+
+  messageToUserMessage(message: Message): UserMessage{
+      return {
+        identifier: message.identifier,
+        content: message.text
+      };
+  }
+
+  messageFromButton(button: BotButton) {
+    return this.getMessageFrom(button.title, button.payload);
+  }
+}

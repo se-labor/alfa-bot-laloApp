@@ -1,10 +1,12 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {BotButton, BotResponse} from "../../../modules/api";
+import {BotButton} from "../../../modules/api";
 import {BOT_RESPONSE_TYPE} from "../../../shared/models/app-enums.model";
 import {MessageService} from "../../message.service";
 import {UserService} from "../../../shared/services/user.service";
 import {ImageService} from "../services/image.service";
 import {TextToSpeechService} from "../../../shared/services/text-to-speech.service";
+import {Message} from "../../../shared/models/message.model";
+import {ApiConverterService} from "../../../shared/services/api-converter.service";
 
 @Component({
   selector: 'app-bot-response',
@@ -12,7 +14,7 @@ import {TextToSpeechService} from "../../../shared/services/text-to-speech.servi
   styleUrls: ['./bot-response.component.scss']
 })
 export class BotResponseComponent implements OnInit {
-  @Input() botResponse: BotResponse = {message: '', imageUrl: '', buttons: []};
+  @Input() message: Message;
   public BOT_RESPONSE_TYPE_ENUM = BOT_RESPONSE_TYPE;  // Needs to be redefined to be accessible in template
   public responseType;
   public showVoiceOutputButton;
@@ -22,32 +24,31 @@ export class BotResponseComponent implements OnInit {
   constructor(private messageService: MessageService,
               private userService: UserService,
               private imageService: ImageService,
+              private apiCoverterService: ApiConverterService,
               public textToSpeechService: TextToSpeechService) { }
 
   ngOnInit() {
-    this.responseType = this.determineType(this.botResponse);
+    this.responseType = this.determineType(this.message);
     this.responseTypeString = this.responseType.toString();
     this.showVoiceOutputButton =this.responseType !== BOT_RESPONSE_TYPE.IMAGE;
   }
 
-  determineType(botResponse: BotResponse): string {
-    if (botResponse.message !== '') {
-      if (botResponse.buttons.length > 0) {
+  determineType(message: Message): string {
+    if (message.buttons.length > 0) {
+      if (message.text !== '') {
         return this.BOT_RESPONSE_TYPE_ENUM.BUTTONS_AND_TEXT;
       } else {
-        return this.BOT_RESPONSE_TYPE_ENUM.TEXT;
+        return this.BOT_RESPONSE_TYPE_ENUM.BUTTONS;
       }
-    } else if (botResponse.imageUrl !== '') {
-      return BOT_RESPONSE_TYPE.IMAGE;
-    } else if (botResponse.buttons.length > 0) {
-      return BOT_RESPONSE_TYPE.BUTTONS;
-    } else {
-      return BOT_RESPONSE_TYPE.TEXT;
+    } else if (message.text !== '') {
+        return this.BOT_RESPONSE_TYPE_ENUM.TEXT;
+      } else {
+        return this.BOT_RESPONSE_TYPE_ENUM.IMAGE;
+      }
     }
-  }
 
   onButtonClick(button: BotButton) {
-    this.messageService.sendMessage({identifier: this.userService.getUUID(), content: button.title});
+    this.messageService.sendMessage(this.apiCoverterService.messageFromButton(button));
     this.responseButtonsDisabled = true;
   }
 

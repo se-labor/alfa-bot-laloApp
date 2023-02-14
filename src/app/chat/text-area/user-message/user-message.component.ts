@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {UserMessage} from "../../../modules/api";
+import {Message} from "../../../shared/models/message.model";
 
 @Component({
   selector: 'app-user-message',
@@ -7,7 +7,7 @@ import {UserMessage} from "../../../modules/api";
   styleUrls: ['./user-message.component.scss']
 })
 export class UserMessageComponent implements OnInit {
-  @Input() userMessage: UserMessage = {identifier: '', content: ''};
+  @Input() message: Message;
   constructor() { }
 
   ngOnInit() {

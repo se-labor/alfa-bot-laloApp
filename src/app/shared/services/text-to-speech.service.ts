@@ -8,7 +8,6 @@ import { TextToSpeech, TTSOptions } from "@capacitor-community/text-to-speech";
 export class TextToSpeechService {
 
   public speaking: boolean;
-  public synth = window.speechSynthesis;
   public pitch: number = 0.8;  // Set the pitch of the speech
   public playBackSpeed: number = this.settingService.playbackSpeed; // Set the speed of the speech
 

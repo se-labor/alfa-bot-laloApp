@@ -1,7 +1,7 @@
 import {Component, ViewEncapsulation} from '@angular/core';
 import {NgForm} from "@angular/forms";
 import {MessageService} from "../message.service";
-import {UserService} from "../../shared/services/user.service";
+import {ApiConverterService} from "../../shared/services/api-converter.service";
 
 @Component({
   selector: 'app-input-area',
@@ -12,11 +12,11 @@ import {UserService} from "../../shared/services/user.service";
 export class InputAreaComponent{
 
   constructor(private messageService: MessageService,
-              private userService: UserService) { }
+              private apiConverterService: ApiConverterService) { }
 
   onSubmit(form: NgForm) {
     if (form.value.message) {
-      this.messageService.sendMessage({identifier: this.userService.getUUID(), content: form.value.message});
+      this.messageService.sendMessage(this.apiConverterService.getMessageFrom(form.value.message));
       form.reset();
     }
   }

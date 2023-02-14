@@ -1,9 +1,9 @@
 import {AfterViewChecked, Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
-import {BotResponse, UserMessage} from "../../modules/api";
 import {MessageService} from "../message.service";
 import {Subscription} from "rxjs";
 import {MESSAGE_TYPE} from "../../shared/models/app-enums.model";
 import {ImageService} from "./services/image.service";
+import {Message} from "../../shared/models/message.model";
 
 @Component({
   selector: 'app-text-area',
@@ -12,7 +12,7 @@ import {ImageService} from "./services/image.service";
 })
 export class TextAreaComponent implements OnInit, OnDestroy, AfterViewChecked  {
   @ViewChild('messageList') private myScrollContainer: ElementRef;
-  public messages: (BotResponse | UserMessage)[] = [];
+  public messages: Message[] = [];
   public MESSAGE_TYPE_ENUM = MESSAGE_TYPE; // Needs to be redefined to be accessible in template
   private messageSubscription: Subscription;
   constructor(private messageService: MessageService,
@@ -36,8 +36,8 @@ export class TextAreaComponent implements OnInit, OnDestroy, AfterViewChecked  {
     this.myScrollContainer.nativeElement.scrollTop = this.myScrollContainer.nativeElement.scrollHeight;
   }
 
-  determineMessageType(message: BotResponse | UserMessage): string {
-    if ( "buttons" in message ) {
+  determineMessageType(message: Message): string {
+    if (message.payload === '') {
       return MESSAGE_TYPE.BOT;
     } else {
       return MESSAGE_TYPE.USER;

@@ -1,67 +1,74 @@
 import {Injectable} from '@angular/core';
-import {BotResponse, BotService, UserMessage} from "../modules/api";
+import {BotResponse, BotService} from "../modules/api";
 import {Subject} from "rxjs";
 import {first} from "rxjs/operators";
 import {UserService} from "../shared/services/user.service";
+import {ApiConverterService} from "../shared/services/api-converter.service";
+import {Message} from "../shared/models/message.model";
 
 @Injectable({
   providedIn: 'root'
 })
 export class MessageService{
 
-  private messages: (UserMessage | BotResponse)[] = [];
-  private messageQueue: UserMessage[] = [];
+  private messages: Message[] = [];
+  private messageQueue: Message[] = [];
 
-  public listChanged = new Subject<(UserMessage | BotResponse)[]>();
+  public listChanged = new Subject<Message>();
 
   constructor(
     private botService: BotService,
-    private userService: UserService
+    private userService: UserService,
+    private apiDataConverterService: ApiConverterService
   ) { }
-
 
   init() {
     // clear messages
     this.messages.splice(0, this.messages.length);
-
     this.botService.getInitialBotMessage(this.userService.getUUID()).pipe(first()).subscribe(
       (responses: BotResponse[]) => {
-        this.messages.push(...responses);
-        this.listChanged.next(this.messages.slice());
+        responses.forEach(response => {
+          let message = this.apiDataConverterService.botResponseToMessage(response);
+          this.messages.push(message);
+          this.listChanged.next(message);
+        });
       }
     );
   }
 
-  public sendMessage(message: UserMessage) {
+  public sendMessage(message: Message) {
     if (this.messageQueue.length === 0) {
-      this.processUserMessage(message);
+      this.processMessage(message);
     } else {
       this.messageQueue.push(message);
     }
   }
 
-  private processNextUserMessage() {
+  private processNextMessage() {
     if (this.messageQueue.length > 0) {
-      this.processUserMessage(this.messageQueue[0]);
+      this.processMessage(this.messageQueue[0]);
     }
   }
 
-  private processUserMessage(message: UserMessage) {
+  private processMessage(message: Message) {
     // Convert and safe User Message
     this.messages.push(message);
-    this.listChanged.next(this.messages.slice());
+    this.listChanged.next(message);
 
     // Safe all Bot Responses
-    this.botService.sendUserMessage(message).pipe(first()).subscribe(
+    this.botService.sendUserMessage(this.apiDataConverterService.messageToUserMessage(message)).pipe(first()).subscribe(
       (responses: BotResponse[]) => {
-        this.messages.push(...responses);
-        this.listChanged.next(this.messages.slice());
+        responses.forEach(response => {
+          let message = this.apiDataConverterService.botResponseToMessage(response);
+          this.messages.push(message);
+          this.listChanged.next(message);
+        });
         this.messageQueue.shift();
-        this.processNextUserMessage();
+        this.processNextMessage();
    });
   }
 
-  getMessages(): (UserMessage | BotResponse)[] {
+  getMessages(): Message[] {
     return this.messages.slice();
   }
 }

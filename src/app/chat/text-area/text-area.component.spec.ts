@@ -50,13 +50,18 @@ describe('TextAreaComponent', () => {
 
   it('should correctly determine the message type', () => {
     expect(component.determineMessageType({
-      'message': '',
-      'imageUrl': '',
-      'buttons': [{'payload': 'TestButtonPayload', 'title': 'TestButtonTitle'}]
+      identifier: '00000000-0000-0000-0000-000000000000',
+      text: '',
+      payload: '',
+      imageUrl: '',
+      buttons: [{'payload': 'TestButtonPayload', 'title': 'TestButtonTitle'}]
     })).toBe('bot');
     expect(component.determineMessageType({
-      'identifier': '',
-      'content': ''
+      identifier: '00000000-0000-0000-0000-000000000000',
+      text: '',
+      payload: '',
+      imageUrl: '',
+      buttons: [{'payload': 'TestButtonPayload', 'title': 'TestButtonTitle'}]
     })).toBe('user');
   });
 
@@ -73,8 +78,16 @@ describe('TextAreaComponent', () => {
 
   it('should replace message list with emitted lists', () => {
     mockMessageService.listChanged
-      .next([{'identifier': '00000000-0000-0000-0000-000000000000', 'content': 'TestUserMessage'}]);
+      .next([{identifier: '00000000-0000-0000-0000-000000000000',
+        text: 'TestUserMessage',
+        payload: 'TestPayload',
+        imageUrl: 'TestImageUrl',
+        buttons: []}]);
     expect(component.messages[0])
-      .toEqual({'identifier': '00000000-0000-0000-0000-000000000000', 'content': 'TestUserMessage'});
+      .toEqual({identifier: '00000000-0000-0000-0000-000000000000',
+        text: 'TestUserMessage',
+        payload: 'TestPayload',
+        imageUrl: 'TestImageUrl',
+        buttons: []});
   });
 });
