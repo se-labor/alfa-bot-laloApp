@@ -4,25 +4,25 @@
       <ng-template [ngSwitchCase]="BOT_RESPONSE_TYPE_ENUM.TEXT">
         <div fxLayout="row">
           <markdown [data]="message.text"></markdown>
-          <button aria-label="speak message" class="speaker-button" *ngIf="showVoiceOutputButton" (click)="textToSpeechService.toggleSpeaking(message.text)" mat-flat-button><span class="material-symbols-outlined">text_to_speech</span></button>
+          <button aria-label="speak message" class="speaker-button" *ngIf="showVoiceOutputButton" (click)="textToSpeechService.toggleSpeaking(message.text)" mat-flat-button><span class="material-symbols-outlined" fxLayoutAlign="center">text_to_speech</span></button>
         </div>
       </ng-template>
 
       <ng-template [ngSwitchCase]="BOT_RESPONSE_TYPE_ENUM.BUTTONS">
         <div *ngFor="let button of message.buttons" fxLayout="row">
           <button class="selector-button" mat-raised-button [disabled]="responseButtonsDisabled" (click)="onButtonClick(button)">{{button.title}}</button>
-          <button class="speaker-button-for-button" mat-raised-button [disabled]="responseButtonsDisabled" (click)="textToSpeechService.toggleSpeaking(button.title)"><span class="material-symbols-outlined" [ngStyle]="{'color':responseButtonsDisabled? 'lightgray' : 'black' }">text_to_speech</span></button>
+          <button class="speaker-button-for-button" mat-raised-button [disabled]="responseButtonsDisabled" (click)="textToSpeechService.toggleSpeaking(button.title)"><span class="material-symbols-outlined" fxLayoutAlign="center" [ngStyle]="{'color':responseButtonsDisabled? 'lightgray' : 'black' }">text_to_speech</span></button>
         </div>
       </ng-template>
 
       <ng-template [ngSwitchCase]="BOT_RESPONSE_TYPE_ENUM.BUTTONS_AND_TEXT">
         <div fxLayout="row">
           <markdown [data]="message.text"></markdown>
-          <button aria-label="speak message" class="speaker-button" *ngIf="showVoiceOutputButton" (click)="textToSpeechService.toggleSpeaking(message.text)" mat-flat-button><span class="material-symbols-outlined">text_to_speech</span></button>
+          <button aria-label="speak message" class="speaker-button" *ngIf="showVoiceOutputButton" (click)="textToSpeechService.toggleSpeaking(message.text)" mat-flat-button><span class="material-symbols-outlined" fxLayoutAlign="center">text_to_speech</span></button>
         </div>
         <div *ngFor="let button of message.buttons" fxLayout="row">
           <button class="selector-button" mat-raised-button [disabled]="responseButtonsDisabled" (click)="onButtonClick(button)">{{button.title}}</button>
-          <button class="speaker-button-for-button" mat-raised-button [disabled]="responseButtonsDisabled" (click)="textToSpeechService.toggleSpeaking(button.title)"><span class="material-symbols-outlined" [ngClass]="responseButtonsDisabled? 'disabled' : ''">text_to_speech</span></button>
+          <button class="speaker-button-for-button" mat-raised-button [disabled]="responseButtonsDisabled" (click)="textToSpeechService.toggleSpeaking(button.title)"><span class="material-symbols-outlined" fxLayoutAlign="center" [ngClass]="responseButtonsDisabled? 'disabled' : ''">text_to_speech</span></button>
         </div>
       </ng-template>
 

@@ -1,8 +1,8 @@
-@media all and (min-width: 100px)  {  mat-card-title  { font-size:0.6em;  } }
-@media all and (min-width: 200px)  {  mat-card-title  { font-size:0.8em;  } }
-@media all and (min-width: 300px)  {  mat-card-title  { font-size:1.0em;  } }
-@media all and (min-width: 400px)  {  mat-card-title  { font-size:1.2em;  } }
-@media all and (min-width: 500px)  {  mat-card-title  { font-size:1.4em;  } }
+@media all and (min-width: 100px)  {  mat-card-title  { font-size:0.5em;  } }
+@media all and (min-width: 200px)  {  mat-card-title  { font-size:0.7em;  } }
+@media all and (min-width: 300px)  {  mat-card-title  { font-size:0.9em;  } }
+@media all and (min-width: 400px)  {  mat-card-title  { font-size:1.1em;  } }
+@media all and (min-width: 500px)  {  mat-card-title  { font-size:1.3em;  } }
 @media all and (min-width: 600px)  {  mat-card-title  { font-size:1.6em;  } }
 @media all and (min-width: 700px)  {  mat-card-title  { font-size:1.8em;  } }
 @media all and (min-width: 800px)  {  mat-card-title  { font-size:2.0em;  } }
@@ -16,28 +16,31 @@
 @media all and (min-width: 700px)  { .material-symbols-outlined.not-inside-button, .material-symbols-outlined  { font-size:2.4em;  } }
 @media all and (min-width: 800px)  { .material-symbols-outlined.not-inside-button, .material-symbols-outlined  { font-size:2.6em;  } }
 
+@media all and (min-width: 300px)  { mat-card,  mat-card.sub-menu  { width: 85vw; max-width: 85vw; } }
+@media all and (min-width: 500px)  { mat-card,  mat-card.sub-menu  { width: 65vw; max-width: 65vw; } }
+@media all and (min-width: 900px)  { mat-card, mat-card.sub-menu  { width: 55vw; max-width: 55vw; } }
+@media all and (min-width: 1300px)  { mat-card, mat-card.sub-menu  { width: 45vw; max-width: 45vw; } }
+
+
 img {
-  border-top-left-radius: 1.5rem;
-  border-top-right-radius: 1.5rem;
+  border-top-left-radius: 1.5em;
+  border-top-right-radius: 1.5em;
+  max-height: 45vh;
   max-width: 100%;
 }
-app-menu-header {
-  height: 24vh;
-}
+
 div.container{
   background-color: #F1F2F2;
   height: 100vh;
 }
 
 mat-card {
-  margin: 1rem;
-  padding: 0.25rem;
-  border-radius: 1.5rem;
+  margin: 0.6em;
+  padding: 0.25em;
+  border-radius: 1.5em;
   background-color: #96bee4;
   cursor: pointer;
-  width: 60vw;
-  max-width:650px;
-  max-height: 50vh;
+  max-width: fit-content;
 }
 
 mat-card-title {
@@ -70,11 +73,6 @@ button {
   align-content: center;
 }
 
-
-div.title mat-card-title{
- // width: 30vw; TODO: div.title mat-card-title still needed?
-}
-
 div.title div{
   width: 15vw;
   margin: 0;
@@ -84,10 +82,14 @@ div.title div{
 }
 
 .material-symbols-outlined.not-inside-button{
-  padding: 0.5rem;
+  padding: 0.5em;
   color: #000000
 }
 
 .hide-icon{
   visibility: hidden;
+}
+
+div.fit-content {
+  width: fit-content;
 }

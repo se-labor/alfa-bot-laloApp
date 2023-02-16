@@ -7,7 +7,7 @@ import {Subject} from "rxjs";
 export class SettingService {
 
   public playbackSpeed: number = 0.8;
-  public fontSize: number = 24;
+  public fontSize: number = 18;
   public playbackSpeedChanged = new Subject();
   public fontSizeChanged = new Subject();
 
@@ -18,6 +18,7 @@ export class SettingService {
     });
     this.fontSizeChanged.subscribe((value: number) => {
       this.fontSize = value;
+      document.body.style.fontSize = `${this.fontSize}px`
     });
   }
 }

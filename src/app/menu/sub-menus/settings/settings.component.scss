@@ -1,3 +1,13 @@
+@media all and (min-width: 100px) { div.button-font-size  { font-size:0.4em; } }
+@media all and (min-width: 200px) { div.button-font-size  { font-size:0.5em; } }
+@media all and (min-width: 300px) { div.button-font-size  { font-size:0.6em; } }
+@media all and (min-width: 400px) { div.button-font-size  { font-size:0.7em; } }
+@media all and (min-width: 500px) { div.button-font-size  { font-size:0.8em; } }
+@media all and (min-width: 600px) { div.button-font-size  { font-size:0.9em; } }
+@media all and (min-width: 700px) { div.button-font-size  { font-size:1em; } }
+
+
+
 mat-slider {
   width: 40vw;
   margin: 1rem 4rem 4rem;
@@ -16,4 +26,8 @@ span.material-symbols-outlined {
 mat-label {
   font-size: xx-large;
   color: #1C5475;
+}
+
+div.text-font-size {
+  font-size: 1em;
 }

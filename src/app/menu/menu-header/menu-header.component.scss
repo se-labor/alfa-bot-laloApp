@@ -23,11 +23,11 @@ h1 {
 @media all and (min-width: 1700px) { h1  { font-size:4.6em;  } }
 
 div {
-  padding-top: calc(env(safe-area-inset-top) + 1rem);
+  padding-top: env(safe-area-inset-top);
   background: #F1F2F2 !important;
 }
 
 img {
-  max-width: 15vw;
-  max-height: 15vh;
+  max-width: 10vw;
+  max-height: 10vh;
 }
