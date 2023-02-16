@@ -78,11 +78,11 @@ describe('TextAreaComponent', () => {
 
   it('should replace message list with emitted lists', () => {
     mockMessageService.listChanged
-      .next([{identifier: '00000000-0000-0000-0000-000000000000',
+      .next({identifier: '00000000-0000-0000-0000-000000000000',
         text: 'TestUserMessage',
         payload: 'TestPayload',
         imageUrl: 'TestImageUrl',
-        buttons: []}]);
+        buttons: []});
     expect(component.messages[0])
       .toEqual({identifier: '00000000-0000-0000-0000-000000000000',
         text: 'TestUserMessage',

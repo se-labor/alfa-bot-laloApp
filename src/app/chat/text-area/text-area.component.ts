@@ -20,8 +20,8 @@ export class TextAreaComponent implements OnInit, OnDestroy, AfterViewChecked  {
 
   ngOnInit() {
     this.messages = this.messageService.getMessages();
-     this.messageSubscription = this.messageService.listChanged.subscribe((messageList) => {
-      this.messages = messageList;
+     this.messageSubscription = this.messageService.listChanged.subscribe((message) => {
+      this.messages.push(message);
     });
      this.imageService.imageLoaded.subscribe(() => {
        this.scrollToBottom();
