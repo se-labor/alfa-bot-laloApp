@@ -12,16 +12,16 @@
     </mat-card>
     <button *ngIf="chatBots.length > 1" mat-button disableRipple (click)="swapActiveChatBot(true)"><span class="material-symbols-outlined">arrow_forward_ios</span></button>
   </div>
-  <div fxLayout="column" fxLayoutAlign="end center" style="margin-top: 1em">
+  <div class="sub-menu" fxLayout="column" fxLayoutAlign="end center">
     <mat-card class="sub-menu" routerLink="/settings">
-      <div fxLayout="row" fxLayoutAlign="space-between center">
+      <div class="sub-title" fxLayout="row" fxLayoutAlign="space-between center">
         <span class="material-symbols-outlined not-inside-button">settings</span>
         <mat-card-title>Einstellungen</mat-card-title>
         <button aria-label="speak message" class="speaker-button" color="accent" (click)="textToSpeechService.toggleSpeaking('Einstellungen'); $event.stopPropagation()" mat-flat-button><span class="material-symbols-outlined">text_to_speech</span></button>
       </div>
     </mat-card>
     <mat-card class="sub-menu" routerLink="/info">
-      <div fxLayout="row" fxLayoutAlign="space-between center">
+      <div class="sub-title" fxLayout="row" fxLayoutAlign="space-between center">
         <span class="material-symbols-outlined not-inside-button">info</span>
         <mat-card-title>Über diese App</mat-card-title>
         <button aria-label="speak message" class="speaker-button" color="accent" (click)="textToSpeechService.toggleSpeaking('Über diese App'); $event.stopPropagation()" mat-flat-button><span class="material-symbols-outlined">text_to_speech</span></button>

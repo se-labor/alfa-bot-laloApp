@@ -16,7 +16,8 @@
 @media all and (min-width: 700px)  { .material-symbols-outlined.not-inside-button, .material-symbols-outlined  { font-size:2.4em;  } }
 @media all and (min-width: 800px)  { .material-symbols-outlined.not-inside-button, .material-symbols-outlined  { font-size:2.6em;  } }
 
-@media all and (min-width: 300px)  { mat-card,  mat-card.sub-menu  { width: 85vw; max-width: 85vw; } }
+@media all { mat-card,  mat-card.sub-menu  { width: 80vw; max-width: 80vw; } }
+@media all and (min-width: 400px)  { mat-card,  mat-card.sub-menu  { width: 75vw; max-width: 75vw; } }
 @media all and (min-width: 500px)  { mat-card,  mat-card.sub-menu  { width: 65vw; max-width: 65vw; } }
 @media all and (min-width: 900px)  { mat-card, mat-card.sub-menu  { width: 55vw; max-width: 55vw; } }
 @media all and (min-width: 1300px)  { mat-card, mat-card.sub-menu  { width: 45vw; max-width: 45vw; } }
@@ -35,7 +36,6 @@ div.container{
 }
 
 mat-card {
-  margin: 0.5em;
   padding: 0.25em;
   border-radius: 1.5em;
   background-color: #96bee4;
@@ -55,6 +55,7 @@ mat-card-content {
 
 mat-card.bot-selection {
   padding: 0;
+  margin-top: 5vh;
 }
 
 .material-symbols-outlined{
@@ -90,6 +91,23 @@ div.title div{
   visibility: hidden;
 }
 
-div.fit-content {
-  width: fit-content;
+div.sub-menu {
+  margin-top: 2vh
+}
+
+div.sub-title {
+  max-height: 10vh;
+  min-height: fit-content
+}
+
+div.title {
+  max-height: 7vh;
+  min-height: fit-content;
+}
+
+mat-card.sub-menu {
+  max-height: 10vh;
+  min-height: fit-content;
+  padding: 0;
+  margin: 1vh;
 }

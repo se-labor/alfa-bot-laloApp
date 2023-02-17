@@ -34,11 +34,11 @@ img {
 }
 
 h1 {
-  margin: 0.2em 0;
+  margin: 1vh;
   height: fit-content;
   width: available;
   word-wrap: break-word;
   white-space: normal;
   text-align: center;
-
+  max-height: 10vh;
 }
