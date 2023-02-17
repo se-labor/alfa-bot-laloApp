@@ -21,19 +21,10 @@ export class MenuComponent {
     this.activeChatBot = this.chatBots[0] ?? null;
   }
 
-  activatePreviousChatBot() {
-    if (!this.activeChatBot) {
-      return
-    }
-    const index = this.chatBots.indexOf(this.activeChatBot);
-    this.activeChatBot = this.chatBots[(index - 1 + this.chatBots.length) % this.chatBots.length];
-  }
+  swapActiveChatBot(next: boolean) {
+    if (!this.activeChatBot) {return;}
 
-  activateNextChatBot() {
-    if (!this.activeChatBot) {
-      return
-    }
     const index = this.chatBots.indexOf(this.activeChatBot);
-    this.activeChatBot = this.chatBots[(index + 1) % this.chatBots.length];
+    this.activeChatBot = this.chatBots[(index + (next ? 1 : -1) + this.chatBots.length) % this.chatBots.length];
   }
 }

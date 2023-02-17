@@ -1,7 +1,7 @@
 <div class="container" fxFlexFill>
   <app-menu-header></app-menu-header>
   <div fxLayout="row" fxLayoutAlign="center">
-    <button *ngIf="chatBots.length > 1" mat-button disableRipple (click)="activatePreviousChatBot()"><span class="material-symbols-outlined">arrow_back_ios</span></button>
+    <button *ngIf="chatBots.length > 1" mat-button disableRipple (click)="swapActiveChatBot(false)"><span class="material-symbols-outlined">arrow_back_ios</span></button>
     <mat-card *ngIf="activeChatBot" class="bot-selection" [routerLink]="['/chat/', activeChatBot.id]">
       <mat-card-content><img alt="" src="{{activeChatBot.imageUrl}}"></mat-card-content>
       <div class="title" fxLayout="row" fxLayoutAlign="space-between center">
@@ -10,7 +10,7 @@
         <button aria-label="speak message" class="speaker-button" color="accent" (click)="textToSpeechService.toggleSpeaking(activeChatBot.name); $event.stopPropagation()" mat-flat-button><span class="material-symbols-outlined">text_to_speech</span></button>
       </div>
     </mat-card>
-    <button *ngIf="chatBots.length > 1" mat-button disableRipple (click)="activateNextChatBot()"><span class="material-symbols-outlined">arrow_forward_ios</span></button>
+    <button *ngIf="chatBots.length > 1" mat-button disableRipple (click)="swapActiveChatBot(true)"><span class="material-symbols-outlined">arrow_forward_ios</span></button>
   </div>
   <div fxLayout="column" fxLayoutAlign="end center" style="margin-top: 1em">
     <mat-card class="sub-menu" routerLink="/settings">
