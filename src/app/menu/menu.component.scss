@@ -97,7 +97,8 @@ div.sub-menu {
 
 div.sub-title {
   max-height: 10vh;
-  min-height: fit-content
+  min-height: fit-content;
+  max-width: available;
 }
 
 div.title {

@@ -8,7 +8,7 @@ import { TextToSpeech, TTSOptions } from "@capacitor-community/text-to-speech";
 export class TextToSpeechService {
 
   public speaking: boolean;
-  public pitch: number = 0.8;  // Set the pitch of the speech
+  public pitch: number = 1;  // Set the pitch of the speech
   public playBackSpeed: number = this.settingService.playbackSpeed; // Set the speed of the speech
 
   constructor(public settingService: SettingService) {
@@ -19,13 +19,14 @@ export class TextToSpeechService {
 
   // Start speaking the text, if the speechSynthesis is not already speaking, else stop it
   async toggleSpeaking(text: string) {
-    if (this.speaking){
-      this.speaking = false;
-      await TextToSpeech.stop();
-    } else {
-      await this.speak(text)
-    }
+      if (this.speaking){
+        this.speaking = false;
+        await TextToSpeech.stop();
+      } else {
+        await this.speak(text)
+      }
   }
+
 
   async speak(text: string) {
     this.speaking = true;
@@ -53,9 +54,7 @@ export class TextToSpeechService {
       try {
         await TextToSpeech.speak(options);
         this.speaking = false;
-      } catch (e) {
-        console.log(e);
-      }
+      } catch (e) {}
     }
   }
 }

@@ -6,7 +6,7 @@ import {Subject} from "rxjs";
 })
 export class SettingService {
 
-  public playbackSpeed: number = 0.8;
+  public playbackSpeed: number = 0.9;
   public fontSize: number = 18;
   public playbackSpeedChanged = new Subject();
   public fontSizeChanged = new Subject();
