@@ -7,13 +7,13 @@ p {
   padding: 0;
   height: available;
   text-align: left;
+  font-size: clamp(0.8em, 2vw, 1.5rem);
 }
 
 div.info-text {
   align-content: center;
   margin-left: 10vw;
   margin-right: 10vw;
-  font-size: 1em;
   width: 80vw;
 }
 
