@@ -2,12 +2,8 @@ h1 {
   white-space: nowrap;
 }
 // media queries for h1
-@media all and (min-width: 50px)   { h1  { font-size:0.7em;  } }
-@media all and (min-width: 170px)   { h1  { font-size:0.8em;  } }
-@media all and (min-width: 200px)   { h1  { font-size:0.9em;  } }
-@media all and (min-width: 240px)  { h1  { font-size:1.1em;  } }
-@media all and (min-width: 260px)  { h1  { font-size:1.2em;  } }
-@media all and (min-width: 300px)  { h1  { font-size:1.4em;  } }
+@media all { h1  { font-size:1em;  } }
+@media all and (min-width: 320px)  { h1  { font-size:1.4em;  } }
 @media all and (min-width: 400px)  { h1  { font-size:1.6em;  } }
 @media all and (min-width: 500px)  { h1  { font-size:1.8em;  } }
 @media all and (min-width: 600px)  { h1  { font-size:2.2em;  } }

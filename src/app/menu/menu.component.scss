@@ -1,15 +1,13 @@
-@media all and (min-width: 100px)  {  mat-card-title  { font-size:0.5em;  } }
-@media all and (min-width: 200px)  {  mat-card-title  { font-size:0.7em;  } }
-@media all and (min-width: 300px)  {  mat-card-title  { font-size:0.9em;  } }
+@media all {  mat-card-title  { font-size:0.5em;  } }
+@media all and (min-width: 320px)  {  mat-card-title  { font-size:0.9em;  } }
 @media all and (min-width: 400px)  {  mat-card-title  { font-size:1.1em;  } }
 @media all and (min-width: 500px)  {  mat-card-title  { font-size:1.3em;  } }
 @media all and (min-width: 600px)  {  mat-card-title  { font-size:1.6em;  } }
 @media all and (min-width: 700px)  {  mat-card-title  { font-size:1.8em;  } }
 @media all and (min-width: 800px)  {  mat-card-title  { font-size:2.0em;  } }
 
-@media all and (min-width: 100px)  { .material-symbols-outlined.not-inside-button, .material-symbols-outlined  { font-size:1.1em;  } }
-@media all and (min-width: 200px)  { .material-symbols-outlined.not-inside-button, .material-symbols-outlined  { font-size:1.2em;  } }
-@media all and (min-width: 300px)  { .material-symbols-outlined.not-inside-button, .material-symbols-outlined  { font-size:1.4em;  } }
+@media all { .material-symbols-outlined.not-inside-button, .material-symbols-outlined  { font-size:1.1em;  } }
+@media all and (min-width: 320px)  { .material-symbols-outlined.not-inside-button, .material-symbols-outlined  { font-size:1.4em;  } }
 @media all and (min-width: 400px)  { .material-symbols-outlined.not-inside-button, .material-symbols-outlined  { font-size:1.6em;  } }
 @media all and (min-width: 500px)  { .material-symbols-outlined.not-inside-button, .material-symbols-outlined  { font-size:1.8em;  } }
 @media all and (min-width: 600px)  { .material-symbols-outlined.not-inside-button, .material-symbols-outlined  { font-size:2.2em;  } }
@@ -17,7 +15,7 @@
 @media all and (min-width: 800px)  { .material-symbols-outlined.not-inside-button, .material-symbols-outlined  { font-size:2.6em;  } }
 
 @media all { mat-card,  mat-card.sub-menu  { width: 80vw; max-width: 80vw; } }
-@media all and (min-width: 400px)  { mat-card,  mat-card.sub-menu  { width: 75vw; max-width: 75vw; } }
+@media all and (min-width: 320px)  { mat-card,  mat-card.sub-menu  { width: 75vw; max-width: 75vw; } }
 @media all and (min-width: 500px)  { mat-card,  mat-card.sub-menu  { width: 65vw; max-width: 65vw; } }
 @media all and (min-width: 900px)  { mat-card, mat-card.sub-menu  { width: 55vw; max-width: 55vw; } }
 @media all and (min-width: 1300px)  { mat-card, mat-card.sub-menu  { width: 45vw; max-width: 45vw; } }

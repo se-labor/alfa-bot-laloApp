@@ -17,6 +17,10 @@ div.info-text {
   width: 80vw;
 }
 
+div.logos {
+  margin-bottom: env(save-area-inset-bottom, 1rem)
+}
+
 img.single-logo {
   max-width: 50vw;
   max-height: 15vh;
