@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {BotButton, BotService} from "../../modules/api";
+import {BotButton} from "../../modules/api";
 import {BotResponse} from "../../modules/api";
 import {UserMessage} from "../../modules/api";
 import {Message} from "../models/message.model";
@@ -10,9 +10,9 @@ import {UserService} from "./user.service";
 })
 export class ApiConverterService {
 
-  constructor(private botService: BotService,private userService: UserService) { }
+  constructor(private userService: UserService) { }
 
-  getMessageFrom(text: string = '', payload: string = '', imageUrl: string = '', buttons: Array<BotButton> = []): Message {
+  getUserMessageFrom(text: string = '', payload: string = '', imageUrl: string = '', buttons: Array<BotButton> = []): Message {
     // For User Messages, the payload is the same as the text
     if(text !== '' && payload === '') {
       payload = text;
@@ -41,6 +41,6 @@ export class ApiConverterService {
   }
 
   messageFromButton(button: BotButton) {
-    return this.getMessageFrom(button.title, button.payload);
+    return this.getUserMessageFrom(button.title, button.payload);
   }
 }

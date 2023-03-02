@@ -27,9 +27,7 @@ export class TextToSpeechService {
       }
   }
 
-
-  async speak(text: string) {
-    this.speaking = true;
+  async filterText(text: string) {
     let filteredText: string = text;
     // Matches valid links, which are surrounded by brackets. Also includes matching of special german characters.
     const rExp: RegExp = new RegExp("\\(https?:\\/\\/(www\\.)?[\u00F0-\u02AF-a-zA-Z0-9@:%._+~#=]{1,256}\\.[a-zA-Z\\d()]{1,6}\\b([\u00F0-\u02AF-a-zA-Z\\d!@:%_+.~#?&\\/=])+\\)");
@@ -40,6 +38,13 @@ export class TextToSpeechService {
     symbolsToReplace.forEach((symbolToReplace) => {
       filteredText =  filteredText.split(symbolToReplace).join("");
     });
+    return filteredText;
+  }
+
+
+  async speak(text: string) {
+    this.speaking = true;
+    const filteredText = await this.filterText(text);
     if (filteredText !== '') {
       const options: TTSOptions = {
         text: filteredText,

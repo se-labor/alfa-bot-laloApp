@@ -13,4 +13,8 @@ describe('TextToSpeechService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+  //TODO: replace text with actual text and activate test
+  xit('should return filtered text when "filterText()" is called', () => {
+    expect(service.filterText('testText')).toMatch('testText');
+  });
 });

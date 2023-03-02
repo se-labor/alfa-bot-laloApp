@@ -22,8 +22,12 @@ export class MenuComponent {
   }
 
   swapActiveChatBot(next: boolean) {
-    if (!this.activeChatBot) {return;}
-
+    if (!this.activeChatBot) {
+      if(this.chatBots.length > 0) {
+        this.activeChatBot = this.chatBots[0];
+      }
+      return;
+    }
     const index = this.chatBots.indexOf(this.activeChatBot);
     this.activeChatBot = this.chatBots[(index + (next ? 1 : -1) + this.chatBots.length) % this.chatBots.length];
   }

@@ -29,15 +29,20 @@ describe('UserMessageComponent', () => {
 
   it('should render the message',  () => {
     expect(testHostDe.query(By.css('p')).nativeElement.textContent.replace(/[^a-z0-9]/gmi, ""))
-      .toBe('TestString'); // Find out why there are weird spaces in queried String
+      .toBe('testMessage'); // Find out why there are weird spaces in queried String
   });
 });
 
 @Component({
   selector: 'test-host-component',
-  template: '<app-user-message [userMessage]="this.testUserMessage"></app-user-message>'
+  template: '<app-user-message [message]="this.testUserMessage"></app-user-message>'
 })
 class TestHostComponent {
-  public testUserMessage = {"identifier":"d0db5fae-e24c-452c-943a-aa87cb2731e7", "content":"TestString"};
+  public testUserMessage = {
+    identifier: '00000000-0000-0000-0000-000000000000',
+    text: 'testMessage',
+    payload: 'testPayload',
+    imageUrl:'',
+    buttons: [] };
   @ViewChild(UserMessageComponent) userMessageComponent: UserMessageComponent;
 }

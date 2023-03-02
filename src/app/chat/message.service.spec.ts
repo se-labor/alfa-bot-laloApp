@@ -43,13 +43,28 @@ describe('MessageService', () => {
   });
 
   it('should add user message send to the message list', () => {
-    service.sendMessage({identifier: '00000000-0000-0000-0000-000000000000', content: 'testMessage'});
+    service.sendMessage({
+      identifier: '00000000-0000-0000-0000-000000000000',
+      text: 'testMessage',
+      payload: 'testPayload',
+      imageUrl:'',
+      buttons: [] });
     expect(service.getMessages()).toContain(
-      {identifier: '00000000-0000-0000-0000-000000000000', content: 'testMessage'});
+      {
+        identifier: '00000000-0000-0000-0000-000000000000',
+        text: 'testMessage',
+        payload: 'testPayload',
+        imageUrl:'',
+        buttons: [] });
   });
 
   it('should add the bot responses to the message list', fakeAsync(() => {
-    service.sendMessage({identifier: '00000000-0000-0000-0000-000000000000', content: 'testMessage'});
+    service.sendMessage({
+      identifier: '00000000-0000-0000-0000-000000000000',
+      text: 'testMessage',
+      payload: 'testPayload',
+      imageUrl:'',
+      buttons: [] });
     tick(300);
     expect(service.getMessages().length).toBeGreaterThanOrEqual(2);
   }));

@@ -39,7 +39,7 @@ describe('InputAreaComponent', () => {
     de = fixture.debugElement;
 
     mockMessageService = TestBed.inject(MessageService);
-    spy = spyOn(mockMessageService, 'sendMessage').and.returnValue();
+    spy = spyOn(mockMessageService, 'sendMessage');
 
     mockUserService = TestBed.inject(UserService)
     spyOn(mockUserService, 'getUUID').and.returnValue('28f7cd1c-8a1f-4be4-8a8b-5bc38f0d7ac7');

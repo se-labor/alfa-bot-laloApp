@@ -6,7 +6,7 @@ import {MarkdownModule} from "ngx-markdown";
 import {HttpClient} from "@angular/common/http";
 import {MatIconModule} from "@angular/material/icon";
 
-describe('BotMessageComponent', () => {
+describe('BotResponseComponent', () => {
   let component: BotResponseComponent;
   let fixture: ComponentFixture<BotResponseComponent>;
   let de: DebugElement;
@@ -26,6 +26,12 @@ describe('BotMessageComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(BotResponseComponent);
     component = fixture.componentInstance;
+    component.message = {
+      identifier: '00000000-0000-0000-0000-000000000000',
+      text: 'testMessage',
+      payload: 'testPayload',
+      imageUrl:'',
+      buttons: [] };
     de = fixture.debugElement;
     fixture.detectChanges();
   });
@@ -43,7 +49,7 @@ describe('BotMessageComponent', () => {
     expect(component.BOT_RESPONSE_TYPE_ENUM.BUTTONS_AND_TEXT).toBe("buttons_and_text");
   });
 
-  xit('should correctly determine the message type', () => {
+  it('should correctly determine the message type', () => {
     expect(component.determineType({
       identifier: '00000000-0000-0000-0000-000000000000',
       text: 'TestText',

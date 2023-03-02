@@ -16,7 +16,7 @@ export class InputAreaComponent{
 
   onSubmit(form: NgForm) {
     if (form.value.message) {
-      this.messageService.sendMessage(this.apiConverterService.getMessageFrom(form.value.message));
+      this.messageService.sendMessage(this.apiConverterService.getUserMessageFrom(form.value.message));
       form.reset();
     }
   }

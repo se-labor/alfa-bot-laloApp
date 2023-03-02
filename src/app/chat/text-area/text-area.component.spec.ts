@@ -31,15 +31,15 @@ describe('TextAreaComponent', () => {
     component = fixture.componentInstance;
 
     mockMessageService = TestBed.inject(MessageService);
-    spyOn(mockMessageService, 'getMessages').and.returnValue([{
-      'message': 'testText',
-      'imageUrl': '',
-      'buttons': []
-    }, {
-      'message': 'testText2',
-      'imageUrl': '',
-      'buttons': [{title: 'testButton', payload: 'testButton'}]
-    }]);
+    spyOn(mockMessageService, 'getMessages').and.returnValue([{identifier: '00000000-0000-0000-0000-000000000000',
+      text: 'TestUserMessage',
+      payload: 'TestPayload',
+      imageUrl: 'TestImageUrl',
+      buttons: []}, {identifier: '00000000-0000-0000-0000-000000000000',
+      text: 'TestUserMessage2',
+      payload: 'TestPayload2',
+      imageUrl: 'TestImageUrl2',
+      buttons: []}]);
 
     fixture.detectChanges();
   });
@@ -51,17 +51,17 @@ describe('TextAreaComponent', () => {
   it('should correctly determine the message type', () => {
     expect(component.determineMessageType({
       identifier: '00000000-0000-0000-0000-000000000000',
-      text: '',
+      text: 'testText',
       payload: '',
       imageUrl: '',
       buttons: [{'payload': 'TestButtonPayload', 'title': 'TestButtonTitle'}]
     })).toBe('bot');
     expect(component.determineMessageType({
       identifier: '00000000-0000-0000-0000-000000000000',
-      text: '',
-      payload: '',
+      text: 'testText',
+      payload: 'testPayload',
       imageUrl: '',
-      buttons: [{'payload': 'TestButtonPayload', 'title': 'TestButtonTitle'}]
+      buttons: []
     })).toBe('user');
   });
 

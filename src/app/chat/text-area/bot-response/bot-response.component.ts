@@ -24,7 +24,7 @@ export class BotResponseComponent implements OnInit {
   constructor(private messageService: MessageService,
               private userService: UserService,
               private imageService: ImageService,
-              private apiCoverterService: ApiConverterService,
+              private apiConverterService: ApiConverterService,
               public textToSpeechService: TextToSpeechService) { }
 
   ngOnInit() {
@@ -48,7 +48,7 @@ export class BotResponseComponent implements OnInit {
     }
 
   onButtonClick(button: BotButton) {
-    this.messageService.sendMessage(this.apiCoverterService.messageFromButton(button));
+    this.messageService.sendMessage(this.apiConverterService.messageFromButton(button));
     this.responseButtonsDisabled = true;
   }
 
