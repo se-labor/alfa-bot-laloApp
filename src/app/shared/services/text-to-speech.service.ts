@@ -1,33 +1,32 @@
 import {Injectable} from '@angular/core';
 import {SettingService} from "./setting.service";
-import { TextToSpeech, TTSOptions } from "@capacitor-community/text-to-speech";
 
 @Injectable({
   providedIn: 'root'
 })
 export class TextToSpeechService {
 
-  public speaking: boolean;
-  public pitch: number = 1;  // Set the pitch of the speech
-  public playBackSpeed: number = this.settingService.playbackSpeed; // Set the speed of the speech
+  public synth = window.speechSynthesis; // Get the speechSynthesis object
+  public utterThis = new SpeechSynthesisUtterance(""); // Create a new utterance object
 
   constructor(public settingService: SettingService) {
+    this.utterThis.rate = this.settingService.playbackSpeed;
+    this.utterThis.lang = 'de-DE';
     this.settingService.playbackSpeedChanged.subscribe((value: number) => {
-      this.playBackSpeed = value;
+      this.utterThis.rate = value;
     });
   }
 
   // Start speaking the text, if the speechSynthesis is not already speaking, else stop it
   async toggleSpeaking(text: string) {
-      if (this.speaking){
-        this.speaking = false;
-        await TextToSpeech.stop();
+      if (this.synth.speaking){
+        this.synth.cancel();
       } else {
-        await this.speak(text)
+        this.speak(text)
       }
   }
 
-  async filterText(text: string) {
+  filterText(text: string) {
     let filteredText: string = text;
     // Matches valid links, which are surrounded by brackets. Also includes matching of special german characters.
     const rExp: RegExp = new RegExp("\\(https?:\\/\\/(www\\.)?[\u00F0-\u02AF-a-zA-Z0-9@:%._+~#=]{1,256}\\.[a-zA-Z\\d()]{1,6}\\b([\u00F0-\u02AF-a-zA-Z\\d!@:%_+.~#?&\\/=])+\\)");
@@ -42,22 +41,11 @@ export class TextToSpeechService {
   }
 
 
-  async speak(text: string) {
-    this.speaking = true;
-    const filteredText = await this.filterText(text);
+  speak(text: string) {
+    const filteredText = this.filterText(text);
     if (filteredText !== '') {
-      const options: TTSOptions = {
-        text: filteredText,
-        lang: 'de-DE',
-        rate: this.playBackSpeed,
-        pitch: this.pitch,
-        volume: 1.0,
-        category: 'ambient'
-      };
-      try {
-        await TextToSpeech.speak(options);
-        this.speaking = false;
-      } catch (e) {}
+      this.utterThis.text = filteredText; // Change the text of the utterance object to avoid creating a new one
+      this.synth.speak(this.utterThis);
     }
   }
 }
