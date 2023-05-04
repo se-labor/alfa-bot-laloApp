@@ -49,4 +49,5 @@ testem.log
 Thumbs.db
 
 # Environment File
+/src/assets/env.js
 .env

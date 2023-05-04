@@ -56,16 +56,29 @@ export class MessageService{
     this.listChanged.next(message);
 
     // Safe all Bot Responses
-    this.botService.sendUserMessage(this.apiDataConverterService.messageToUserMessage(message)).pipe(first()).subscribe(
-      (responses: BotResponse[]) => {
-        responses.forEach(response => {
-          let message = this.apiDataConverterService.botResponseToMessage(response);
-          this.messages.push(message);
-          this.listChanged.next(message);
+    if(message.text != message.payload){
+      this.botService.sendUserMessage(this.apiDataConverterService.buttonToUserMessage(message)).pipe(first()).subscribe(
+        (responses: BotResponse[]) => {
+          responses.forEach(response => {
+            let message = this.apiDataConverterService.botResponseToMessage(response);
+            this.messages.push(message);
+            this.listChanged.next(message);
+          });
+          this.messageQueue.shift();
+          this.processNextMessage();
+       });
+    } else {
+      this.botService.sendUserMessage(this.apiDataConverterService.messageToUserMessage(message)).pipe(first()).subscribe(
+        (responses: BotResponse[]) => {
+          responses.forEach(response => {
+            let message = this.apiDataConverterService.botResponseToMessage(response);
+            this.messages.push(message);
+            this.listChanged.next(message);
+          });
+          this.messageQueue.shift();
+          this.processNextMessage();
         });
-        this.messageQueue.shift();
-        this.processNextMessage();
-   });
+    }
   }
 
   getMessages(): Message[] {

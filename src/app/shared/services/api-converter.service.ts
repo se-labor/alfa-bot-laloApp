@@ -40,6 +40,13 @@ export class ApiConverterService {
       };
   }
 
+  buttonToUserMessage(message: Message): UserMessage{
+    return {
+      identifier: message.identifier,
+      content: message.payload
+    };
+  }
+
   messageFromButton(button: BotButton) {
     return this.getUserMessageFrom(button.title, button.payload);
   }
