@@ -1,27 +1,15 @@
-@media all { mat-card,  mat-card.sub-menu  { width: 80vw; max-width: 80vw; } }
-@media all and (min-width: 500px)  { mat-card,  mat-card.sub-menu  { width: 65vw; max-width: 65vw; } }
-@media all and (min-width: 800px)  { mat-card, mat-card.sub-menu  { width: 60vw; max-width: 60vw; } }
-@media all and (min-width: 900px)  { mat-card, mat-card.sub-menu  { width: 55vw; max-width: 55vw; } }
-@media all and (min-width: 1300px)  { mat-card, mat-card.sub-menu  { width: 45vw; max-width: 45vw; } }
+@media all {mat-card, .navigation-wrapper  { width: 80vw; max-width: 80vw; } }
+@media all and (min-width: 500px)  {mat-card, .navigation-wrapper  {width: 65vw; max-width: 65vw; } }
+@media all and (min-width: 800px)  {mat-card, .navigation-wrapper  {width: 60vw; max-width: 60vw; } }
+@media all and (min-width: 900px)  {mat-card, .navigation-wrapper  {width: 55vw; max-width: 55vw; } }
+@media all and (min-width: 1300px)  {mat-card, .navigation-wrapper  {width: 45vw; max-width: 45vw; } }
 
 
 div.container{
   background-color: #F1F2F2;
-  height: available;
-}
-
-div.title {
-  max-height: 7vh;
-  min-height: fit-content;
-}
-
-div.title div{
-  width: 15vw;
-  margin: 0;
-  justify-content: space-between;
-  text-align: center;
-  align-self: flex-end;
-  max-width: available;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
 }
 
 div.sub-menu {
@@ -31,7 +19,6 @@ div.sub-menu {
 div.sub-title {
   max-height: 10vh;
   min-height: fit-content;
-  max-width: available;
 }
 
 mat-card {
@@ -39,14 +26,6 @@ mat-card {
   border-radius: 1.5em;
   background-color: #96bee4;
   cursor: pointer;
-  max-width: fit-content;
-}
-
-img {
-  border-top-left-radius: 1.5em;
-  border-top-right-radius: 1.5em;
-  max-height: 40vh;
-  max-width: 100%;
 }
 
 mat-card.sub-menu {
@@ -66,11 +45,6 @@ mat-card-content {
   margin: 0;
 }
 
-mat-card.bot-selection {
-  padding: 0;
-  margin-top: 5vh;
-}
-
 .material-symbols-outlined{
   color: #000000;
   align-content: center;
@@ -88,12 +62,63 @@ mat-card.bot-selection {
   font-size: inherit;
 }
 
-button {
-  background-color: transparent;
-  min-width: 0;
-  align-content: center;
+.navigation-wrapper {
+  position: relative;
+  border-radius: 1em;
 }
 
-.hide-icon{
-  visibility: hidden;
+.navigation-wrapper img {
+  border-radius: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 50px;
+  color: #fff;
+  font-weight: 500;
+}
+.dots {
+  display: flex;
+  padding: 10px 0;
+  justify-content: center;
+}
+
+.dot {
+  border: none;
+  width: 10px;
+  height: 10px;
+  background: #c5c5c5;
+  border-radius: 50%;
+  margin: 0 5px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.dot:focus {
+  outline: none;
+}
+
+.dot.active {
+  background: #000;
+}
+
+.arrow {
+  width: fit-content;
+  height: fit-content;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.arrow--left {
+  left: -1.5em;
+}
+
+.arrow--right {
+  left: auto;
+  right: -1.5em;
+}
+
+app-menu-header {
+
 }

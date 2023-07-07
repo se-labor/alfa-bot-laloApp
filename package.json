@@ -32,6 +32,7 @@
     "@capacitor/core": "~4.4.0",
     "@capacitor/ios": "~4.4.0",
     "ajv": "^6.12.6",
+    "keen-slider": "^6.8.6",
     "ngx-markdown": "15.1.2",
     "rxjs": "~6.6.0",
     "tslib": "^2.3.0",
