@@ -18,12 +18,25 @@ button {
 
 span.nav-element {
   color: #1C5475;
-  font-size: clamp(2.5rem, 6vw, 3.5rem);
+  font-size: clamp(3em, 6vw, 3.5em);
 }
 
 span.title {
   color: #000000;
-  font-size: clamp(1.5rem, 5vw, 3rem);
+  font-size: clamp(1.5em, 5vw, 3em);
+}
 
+div.nav-element {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+div {
+  padding-right: env(safe-area-inset-right);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 

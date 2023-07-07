@@ -1,4 +1,4 @@
-import {Component, ViewEncapsulation} from '@angular/core';
+import {Component} from '@angular/core';
 import {NgForm} from "@angular/forms";
 import {MessageService} from "../message.service";
 import {ApiConverterService} from "../../shared/services/api-converter.service";
@@ -6,8 +6,7 @@ import {ApiConverterService} from "../../shared/services/api-converter.service";
 @Component({
   selector: 'app-input-area',
   templateUrl: './input-area.component.html',
-  styleUrls: ['./input-area.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  styleUrls: ['./input-area.component.scss']
 })
 export class InputAreaComponent{
 

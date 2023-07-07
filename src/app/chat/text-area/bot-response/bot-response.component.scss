@@ -1,12 +1,4 @@
-@media all and (min-width: 100px) { button.speaker-button, button.speaker-button-for-button, button.selector-button  { font-size:0.4em; line-height: 1.6em;  } }
-@media all and (min-width: 200px) { button.speaker-button, button.speaker-button-for-button, button.selector-button  { font-size:0.5em; line-height: 2em; } }
-@media all and (min-width: 300px) { button.speaker-button, button.speaker-button-for-button, button.selector-button  { font-size:0.6em; line-height: 2.4em; } }
-@media all and (min-width: 400px) { button.speaker-button, button.speaker-button-for-button, button.selector-button  { font-size:0.7em; line-height: 2.8em; } }
-@media all and (min-width: 500px) { button.speaker-button, button.speaker-button-for-button, button.selector-button  { font-size:0.8em; line-height: 3.2em; } }
-@media all and (min-width: 600px) { button.speaker-button, button.speaker-button-for-button, button.selector-button  { font-size:0.9em; line-height: 3.6em; } }
-@media all and (min-width: 700px) { button.speaker-button, button.speaker-button-for-button, button.selector-button  { font-size:1em; line-height: 4em; } }
-// Adjust Line Height ratio for non mobile devices from 4 to 2
-@media all and (min-width: 1300px) { button.speaker-button, button.speaker-button-for-button, button.selector-button  { font-size:1em; line-height: 2em; } }
+
 
 
 
@@ -65,6 +57,11 @@
   width: 0.625em;
 }
 
+button {
+  font-size: clamp(0.6em, 2vw, 1.2em);
+  line-height: clamp(1.2em, 4vw, 2.4em);
+}
+
 
 button.selector-button {
   margin-left: 0.25em;
@@ -72,10 +69,12 @@ button.selector-button {
   border-radius: 0.5em 0 0 0.5em;
   background-color: #96bee4;
   padding-right: 0;
+  padding-left: 0.5em;
   color: #000000;
   box-shadow: none;
   height: fit-content;
   width: fit-content;
+  text-align: left;
 }
 
 button.selector-button[disabled] {
@@ -99,6 +98,8 @@ button.speaker-button-for-button {
   background-color: #96bee4;
   margin-bottom: 0.25em;
   box-shadow: none;
+  height: inherit;
+  padding: 0;
 }
 
 button.speaker-button-for-button[disabled] {
@@ -124,4 +125,7 @@ button.speaker-button-for-button[disabled] {
     width: auto;
     max-height: 50vw;
   }
+}
+markdown {
+  font-size: clamp(0.6em, 2vw, 1.2em);
 }
