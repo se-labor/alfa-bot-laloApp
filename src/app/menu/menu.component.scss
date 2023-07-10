@@ -44,17 +44,22 @@ mat-card-title {
 mat-card-content {
   margin: 0;
 }
-
-.material-symbols-outlined{
+.material-symbols-outlined {
   color: #000000;
-  align-content: center;
   font-size: clamp(1.1em, 5vw, 2em);
+}
+.material-symbols-outlined.inside-button {
+  align-content: center;
 }
 
 .material-symbols-outlined.not-inside-button{
   padding: 0.5em;
-  color: #000000
 }
+
+.title .material-symbols-outlined {
+  font-size: 1em;
+}
+
 
 .speaker-button {
   background-color: transparent;
@@ -75,6 +80,8 @@ mat-card-content {
   font-size: 50px;
   color: #fff;
   font-weight: 500;
+  cursor: pointer;
+  overflow: hidden;
 }
 .dots {
   display: flex;
@@ -119,6 +126,11 @@ mat-card-content {
   right: -1.5em;
 }
 
-app-menu-header {
-
+.title {
+  display: flex;
+  font-size: clamp(2em, 5vw, 3em);
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0.5em;
 }

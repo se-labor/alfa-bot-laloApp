@@ -22,7 +22,7 @@ export class TextToSpeechService {
       if (this.synth.speaking){
         this.synth.cancel();
       } else {
-        this.speak(text)
+        this.speak(text);
       }
   }
 

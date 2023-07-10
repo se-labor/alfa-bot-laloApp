@@ -1,5 +1,9 @@
 <div class="container" fxFlexFill fxLayout="column" fxLayoutAlign="start center">
   <app-menu-header></app-menu-header>
+  <div class="title">
+    <span>{{chatBots[this.currentSlide].name}}</span>
+    <button aria-label="speak message" class="speaker-button" color="accent" (click)="textToSpeechService.toggleSpeaking(chatBots[this.currentSlide].name);" mat-flat-button><span class="material-symbols-outlined">text_to_speech</span></button>
+  </div>
   <div class="navigation-wrapper" fxLayoutAlign="end center" fxFlexAlign="center center">
     <div class="keen-slider keen-slider--vertical" #sliderRef >
         <img *ngFor="let bot of chatBots" class="keen-slider__slide" alt="" src="{{bot.imageUrl}}" [routerLink]="['/chat/', bot.id]">
@@ -22,14 +26,14 @@
       <div class="sub-title" fxLayout="row" fxLayoutAlign="space-between center">
         <span class="material-symbols-outlined not-inside-button">settings</span>
         <mat-card-title>Einstellungen</mat-card-title>
-        <button aria-label="speak message" class="speaker-button" color="accent" (click)="textToSpeechService.toggleSpeaking('Einstellungen'); $event.stopPropagation()" mat-flat-button><span class="material-symbols-outlined">text_to_speech</span></button>
+        <button aria-label="speak message" class="speaker-button" color="accent" (click)="textToSpeechService.toggleSpeaking('Einstellungen'); $event.stopPropagation()" mat-flat-button><span class="material-symbols-outlined inside-button">text_to_speech</span></button>
       </div>
     </mat-card>
     <mat-card class="sub-menu" routerLink="/info">
       <div class="sub-title" fxLayout="row" fxLayoutAlign="space-between center">
         <span class="material-symbols-outlined not-inside-button">info</span>
         <mat-card-title>Über diese App</mat-card-title>
-        <button aria-label="speak message" class="speaker-button" color="accent" (click)="textToSpeechService.toggleSpeaking('Über diese App'); $event.stopPropagation()" mat-flat-button><span class="material-symbols-outlined">text_to_speech</span></button>
+        <button aria-label="speak message" class="speaker-button" color="accent" (click)="textToSpeechService.toggleSpeaking('Über diese App'); $event.stopPropagation()" mat-flat-button><span class="material-symbols-outlined inside-button">text_to_speech</span></button>
       </div>
     </mat-card>
   </div>
