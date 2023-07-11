@@ -7,7 +7,7 @@ import {MatToolbarModule} from "@angular/material/toolbar";
 import {InputAreaComponent} from "./chat/input-area/input-area.component";
 import {HttpClientTestingModule} from "@angular/common/http/testing";
 import {NgForm} from "@angular/forms";
-import {MatLegacyFormFieldModule as MatFormFieldModule} from "@angular/material/legacy-form-field";
+import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatIconModule} from "@angular/material/icon";
 
 describe('AppComponent', () => {

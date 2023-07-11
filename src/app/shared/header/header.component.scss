@@ -1,14 +1,17 @@
 mat-toolbar {
   padding-top: calc(env(safe-area-inset-top) + 2.5rem);
+  padding-right: env(safe-area-inset-right);
   padding-bottom: 2.5rem;
-  color: #FFFFFF;
-  background: #FFFFFF;
+  background: #FFFFFF !important;
+  display: flex;
+  flex-direction:row;
+  justify-content: center;
+  max-height: fit-content !important;
 }
 
 mat-toolbar-row {
   padding: 0;
 }
-
 
 button {
   color: #1C5475;
@@ -33,10 +36,6 @@ div.nav-element {
   align-items: center;
 }
 div {
-  padding-right: env(safe-area-inset-right);
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+
 }
 

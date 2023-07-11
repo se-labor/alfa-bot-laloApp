@@ -75,6 +75,7 @@ button.selector-button {
   height: fit-content;
   width: fit-content;
   text-align: left;
+  margin-right: 0;
 }
 
 button.selector-button[disabled] {
@@ -100,6 +101,7 @@ button.speaker-button-for-button {
   box-shadow: none;
   height: inherit;
   padding: 0;
+  margin-left: 0;
 }
 
 button.speaker-button-for-button[disabled] {

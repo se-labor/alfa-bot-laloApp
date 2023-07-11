@@ -1,8 +1,8 @@
-@media all {mat-card, .navigation-wrapper  { width: 80vw; max-width: 80vw; } }
-@media all and (min-width: 500px)  {mat-card, .navigation-wrapper  {width: 65vw; max-width: 65vw; } }
-@media all and (min-width: 800px)  {mat-card, .navigation-wrapper  {width: 60vw; max-width: 60vw; } }
-@media all and (min-width: 900px)  {mat-card, .navigation-wrapper  {width: 55vw; max-width: 55vw; } }
-@media all and (min-width: 1300px)  {mat-card, .navigation-wrapper  {width: 45vw; max-width: 45vw; } }
+@media all { mat-card, .navigation-wrapper  { width: 85vw; max-width: 85vw; } }
+@media all and (min-width: 500px)  { mat-card, .navigation-wrapper  {width: 65vw; max-width: 65vw; } }
+@media all and (min-width: 800px)  { mat-card, .navigation-wrapper  {width: 60vw; max-width: 60vw; } }
+@media all and (min-width: 900px)  { mat-card, .navigation-wrapper  {width: 55vw; max-width: 55vw; } }
+@media all and (min-width: 1300px)  { mat-card, .navigation-wrapper  {width: 45vw; max-width: 45vw; } }
 
 
 div.container{
@@ -12,26 +12,47 @@ div.container{
   align-content: center;
 }
 
-div.sub-menu {
-  margin-top: 2vh
+// Header
+app-menu-header {
+  margin-bottom: 5vh;
 }
 
-div.sub-title {
-  max-height: 10vh;
-  min-height: fit-content;
+//Title for Bot
+.title {
+  display: flex;
+  font-size: clamp(2em, 5vw, 3em);
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  max-height: 8vh;
+  text-align: center;
+}
+
+.title button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: inherit;
+  margin: 0.25vh 0.25vw 0.25vh 0.25vw;
+  width: fit-content;
+  height: fit-content;
+  max-height: fit-content;
+}
+
+
+div.sub-menu {
+  max-height: 25vh;
 }
 
 mat-card {
-  padding: 0.25em;
   border-radius: 1.5em;
   background-color: #96bee4;
   cursor: pointer;
-}
-
-mat-card.sub-menu {
   min-height: fit-content;
-  padding: 0.5em 0.25em 0.25em;
-  margin: 1vh;
+  padding: 0.5em 0.25em 0.25em 0.25em;
+  margin-bottom: 1vh;
+  max-height: 10vh;
+  height: fit-content;
 }
 
 mat-card-title {
@@ -41,36 +62,36 @@ mat-card-title {
   font-size: clamp(1em, 6vw, 2.6em);
 }
 
-mat-card-content {
-  margin: 0;
-}
-.material-symbols-outlined {
-  color: #000000;
-  font-size: clamp(1.1em, 5vw, 2em);
-}
-.material-symbols-outlined.inside-button {
-  align-content: center;
+.mdc-icon-button{
+  font-size: inherit !important;
 }
 
-.material-symbols-outlined.not-inside-button{
-  padding: 0.5em;
+mat-icon {
+  font-size: clamp(1.1em, 5vw, 2em) !important;
+  width: fit-content !important;
+}
+
+mat-icon.not-inside-button {
+  padding: 0.5em!important;
 }
 
 .title .material-symbols-outlined {
   font-size: 1em;
 }
 
-
 .speaker-button {
-  background-color: transparent;
-  border-radius: 1.5rem;
-  font-size: inherit;
+  background: transparent !important;
+  margin: 0;
+  height: fit-content;
+  width: fit-content;
+  color: black;
 }
 
 .navigation-wrapper {
   position: relative;
   border-radius: 1em;
 }
+
 
 .navigation-wrapper img {
   border-radius: 1em;
@@ -81,12 +102,13 @@ mat-card-content {
   color: #fff;
   font-weight: 500;
   cursor: pointer;
-  overflow: hidden;
 }
+
 .dots {
   display: flex;
   padding: 10px 0;
   justify-content: center;
+  max-height: 2vh;
 }
 
 .dot {
@@ -126,11 +148,10 @@ mat-card-content {
   right: -1.5em;
 }
 
-.title {
-  display: flex;
-  font-size: clamp(2em, 5vw, 3em);
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  margin-top: 0.5em;
+
+
+.keen-slider__slide {
+  min-width: 100% !important;
+  max-width: 100% !important;
 }
+

@@ -21,7 +21,6 @@ import {ChatComponent} from './chat/chat.component';
 import {MenuHeaderComponent} from "./menu/menu-header/menu-header.component";
 import { SettingsComponent } from './menu/sub-menus/settings/settings.component';
 import { InfoComponent } from './menu/sub-menus/info/info.component';
-import {NgOptimizedImage} from "@angular/common";
 
 export function apiConfigFactory(): Configuration {
 
@@ -62,8 +61,7 @@ export function botServiceFactory(httpClient: HttpClient, basePath: string): Bot
     MaterialModule,
     FormsModule,
     MarkdownModule.forRoot({loader: HttpClient}),
-    FlexLayoutModule,
-    NgOptimizedImage
+    FlexLayoutModule
   ],
   providers: [
     {
