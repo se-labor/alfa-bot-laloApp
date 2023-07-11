@@ -21,6 +21,7 @@ import {ChatComponent} from './chat/chat.component';
 import {MenuHeaderComponent} from "./menu/menu-header/menu-header.component";
 import { SettingsComponent } from './menu/sub-menus/settings/settings.component';
 import { InfoComponent } from './menu/sub-menus/info/info.component';
+import {SwiperComponent} from "./menu/swiper/swiper.component";
 
 export function apiConfigFactory(): Configuration {
 
@@ -50,7 +51,7 @@ export function botServiceFactory(httpClient: HttpClient, basePath: string): Bot
     MenuComponent,
     MenuHeaderComponent,
     SettingsComponent,
-    InfoComponent,
+    InfoComponent
   ],
   imports: [
     HttpClientModule,
@@ -61,7 +62,8 @@ export function botServiceFactory(httpClient: HttpClient, basePath: string): Bot
     MaterialModule,
     FormsModule,
     MarkdownModule.forRoot({loader: HttpClient}),
-    FlexLayoutModule
+    FlexLayoutModule,
+    SwiperComponent
   ],
   providers: [
     {

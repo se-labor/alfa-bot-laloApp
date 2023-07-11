@@ -151,7 +151,13 @@ mat-icon.not-inside-button {
 
 
 .keen-slider__slide {
-  min-width: 100% !important;
+  min-width: calc(100% - 0.05px) !important; // Prevent Overlap
   max-width: 100% !important;
+}
+
+app-swiper {
+  width: 100%;
+  height: 40vh;
+  margin: 3em;
 }
 

@@ -2,28 +2,11 @@
   <app-menu-header></app-menu-header>
 
   <div class="title">
-    <span>{{chatBots[this.currentSlide].name}}</span>
-    <button aria-label="speak message" class="speaker-button" color="accent" (click)="textToSpeechService.toggleSpeaking(chatBots[this.currentSlide].name);" mat-flat-button><span class="material-symbols-outlined">text_to_speech</span></button>
+    <span>test</span>
+    <button aria-label="speak message" class="speaker-button" color="accent" (click)="textToSpeechService.toggleSpeaking('1');" mat-flat-button><span class="material-symbols-outlined">text_to_speech</span></button>
   </div>
 
-  <div class="navigation-wrapper" fxLayoutAlign="end center" fxFlexAlign="center center">
-    <div class="keen-slider keen-slider--vertical" #sliderRef >
-        <img *ngFor="let bot of chatBots" class="keen-slider__slide" alt="" src="{{bot.imageUrl}}" [routerLink]="['/chat/', bot.id]">
-      <span>hallo</span>
-    </div>
-    <mat-icon class="material-symbols-outlined arrow arrow--left"
-              (click)="slider.prev()">arrow_back_ios</mat-icon>
-    <mat-icon class="material-symbols-outlined arrow arrow--right"
-              (click)="slider.next()">arrow_forward_ios</mat-icon>
-  </div>
-
-  <div class="dots">
-    <button
-      (click)="slider.moveToIdx(i)"
-      *ngFor="let slide of dotHelper; let i = index"
-      [class]="'dot ' + (i === currentSlide ? 'active' : '')"
-    ></button>
-  </div>
+  <app-swiper #swiper [chatBots]="chatBots"></app-swiper>
 
   <div class="sub-menu" fxLayout="column" fxLayoutAlign="end center">
     <mat-card appearance="outlined" routerLink="/settings" fxLayout="row" fxLayoutAlign="space-between center">
