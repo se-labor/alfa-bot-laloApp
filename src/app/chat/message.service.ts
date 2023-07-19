@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {BotResponse, BotService} from "../modules/api";
+import {BotResponse, BotService, UserMessage} from "../modules/api";
 import {Subject} from "rxjs";
 import {first} from "rxjs/operators";
 import {UserService} from "../shared/services/user.service";
@@ -42,6 +42,19 @@ export class MessageService {
     } else {
       this.messageQueue.push(message);
     }
+  }
+
+  public getResponsesFor(message: string) {
+    let userMessage: UserMessage = {identifier: this.userService.getUUID(), content: message};
+    // Safe all Bot Responses
+    this.botService.sendUserMessage(userMessage).pipe(first()).subscribe(
+      (responses: BotResponse[]) => {
+        responses.forEach(response => {
+          let message = this.apiDataConverterService.botResponseToMessage(response);
+          this.messages.push(message);
+          this.listChanged.next(message);
+        });
+      });
   }
 
   getMessages(): Message[] {
