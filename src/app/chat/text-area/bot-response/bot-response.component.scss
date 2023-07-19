@@ -66,13 +66,24 @@ button.selector-button {
   border-radius: 0.5em 0 0 0.5em;
   background-color: #96bee4;
   padding-right: 0;
-  padding-left: 0.5em;
+  padding-left: 1em;
   color: #000000;
   box-shadow: none;
-  height: fit-content;
   width: fit-content;
   text-align: left;
+  word-break: normal;
+  overflow-wrap: normal;
   margin-right: 0;
+  max-width: 50%;
+  min-height: 100% !important;
+}
+
+.bot-button {
+  padding: 0.1rem !important;
+}
+
+.mdc-button__label {
+  padding: 0.1rem !important;
 }
 
 button.selector-button[disabled] {

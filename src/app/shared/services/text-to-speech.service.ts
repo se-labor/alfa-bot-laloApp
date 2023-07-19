@@ -28,8 +28,11 @@ export class TextToSpeechService {
   async toggleSpeaking(text: string) {
     if (this.speaking) {
       await TextToSpeech.stop();
+      this.speaking = false;
     } else {
-      this.speak(text);
+      this.speaking = true;
+      await this.speak(text);
+      this.speaking = false;
     }
   }
 
@@ -48,13 +51,11 @@ export class TextToSpeechService {
   }
 
 
-  speak(text: string) {
+  async speak(text: string) {
     const filteredText = this.filterText(text);
     if (filteredText !== '') {
       this.utterThis.text = filteredText; // Change the text of the utterance object to avoid creating a new one
-      TextToSpeech.speak(this.utterThis).then(ignored => {
-        this.speaking = false
-      })
+      await TextToSpeech.speak(this.utterThis)
     }
   }
 }
