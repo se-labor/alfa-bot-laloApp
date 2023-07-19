@@ -15,7 +15,7 @@
 -->
 
 
-<ngb-carousel *ngIf="chatBots" (slide)="idChanged($event)">
+<ngb-carousel *ngIf="chatBots" (slide)="indexChanged($event)">
   <ng-template ngbSlide *ngFor="let bot of chatBots">
     <div>
       <img [src]="bot.imageUrl" alt="Random first slide" [routerLink]="['/chat/', bot.id]" />

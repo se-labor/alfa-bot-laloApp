@@ -7,11 +7,11 @@ import {NgbCarouselConfig, NgbSlideEvent} from "@ng-bootstrap/ng-bootstrap";
   selector: 'app-carousel',
   templateUrl: './carousel.component.html',
   styleUrls: ['./carousel.component.scss'],
-  providers: [NgbCarouselConfig], // add NgbCarouselConfig to the component providers
+  providers: [NgbCarouselConfig],
   encapsulation: ViewEncapsulation.None
 })
 export class CarouselComponent{
-  index = 0;
+  public index: number = 0;
   public chatBots:ChatBot[] = [];
 
 
@@ -20,10 +20,14 @@ export class CarouselComponent{
     config.interval = 0;
   }
 
-  idChanged($event: NgbSlideEvent) {
+  indexChanged($event: NgbSlideEvent) {
     if (!$event.current.startsWith('ngb-slide-' )) {
       return;
     }
-    this.index = parseInt($event.current.replace('ngb-slide-', ''));
+    // Catch error, which could occur, if the user changes the slide name manually
+    try {
+      this.index = parseInt($event.current.replace('ngb-slide-', '')) % this.chatBots.length;
+    } catch (ignored) {
+    }
   }
 }

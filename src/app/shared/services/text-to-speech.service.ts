@@ -1,17 +1,24 @@
 import {Injectable} from '@angular/core';
 import {SettingService} from "./setting.service";
+import {TextToSpeech, TTSOptions} from "@capacitor-community/text-to-speech";
 
 @Injectable({
   providedIn: 'root'
 })
 export class TextToSpeechService {
 
-  public synth = window.speechSynthesis; // Get the speechSynthesis object
-  public utterThis = new SpeechSynthesisUtterance(""); // Create a new utterance object
+  public utterThis: TTSOptions;
+  public speaking: boolean = false;
 
   constructor(public settingService: SettingService) {
-    this.utterThis.rate = this.settingService.playbackSpeed;
-    this.utterThis.lang = 'de-DE';
+    this.utterThis = {
+      text: '',
+      lang: 'de-DE',
+      rate: this.settingService.playbackSpeed,
+      pitch: 1.0,
+      volume: 1.0,
+      category: 'ambient',
+    };
     this.settingService.playbackSpeedChanged.subscribe((value: number) => {
       this.utterThis.rate = value;
     });
@@ -19,8 +26,8 @@ export class TextToSpeechService {
 
   // Start speaking the text, if the speechSynthesis is not already speaking, else stop it
   async toggleSpeaking(text: string) {
-      if (this.synth.speaking){
-        this.synth.cancel();
+      if (this.speaking){
+        await TextToSpeech.stop();
       } else {
         this.speak(text);
       }
@@ -45,7 +52,7 @@ export class TextToSpeechService {
     const filteredText = this.filterText(text);
     if (filteredText !== '') {
       this.utterThis.text = filteredText; // Change the text of the utterance object to avoid creating a new one
-      this.synth.speak(this.utterThis);
+      TextToSpeech.speak(this.utterThis).then(ignored => {this.speaking=false})
     }
   }
 }
