@@ -1,0 +1,24 @@
+<!--
+<div id="carousel" class="carousel slide align-content-center" data-interval="false" fxLayout="row" fxLayoutAlign="center center">
+  <a class="arrow arrow-left" href="#carousel" role="button" data-slide="prev">
+    <mat-icon class="material-symbols-outlined arrow arrow&#45;&#45;left">arrow_back_ios</mat-icon>
+  </a>
+  <div id="carousel-inner" class="carousel-inner" data-interval="false">
+    <div *ngFor="let bot of chatBots,let i = index" class="carousel-item" [ngClass]="i == 0?'active': ''">
+      <img src="{{bot.imageUrl}}" [routerLink]="['/chat/', bot.id]" alt="">
+    </div>
+  </div>
+  <a class="arrow arrow-right" href="#carousel" role="button" data-slide="next">
+    <mat-icon class="material-symbols-outlined arrow arrow&#45;&#45;right">arrow_forward_ios</mat-icon>
+  </a>
+</div>
+-->
+
+
+<ngb-carousel *ngIf="chatBots" (slide)="idChanged($event)">
+  <ng-template ngbSlide *ngFor="let bot of chatBots">
+    <div>
+      <img [src]="bot.imageUrl" alt="Random first slide" [routerLink]="['/chat/', bot.id]" />
+    </div>
+  </ng-template>
+</ngb-carousel>

@@ -1,6 +1,4 @@
-import {Component, ViewChild} from '@angular/core';
-import {BotConfigService} from "../shared/services/bot-config.service";
-import {ChatBot} from "../shared/models/chat-bot.model";
+import {Component, ElementRef, ViewChild} from '@angular/core';
 import {TextToSpeechService} from "../shared/services/text-to-speech.service";
 
 @Component({
@@ -9,13 +7,8 @@ import {TextToSpeechService} from "../shared/services/text-to-speech.service";
   styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent{
-  public chatBots:ChatBot[] = [];
-  @ViewChild('swiper') swiper: HTMLElement | undefined;
+  @ViewChild("carousel") carousel: ElementRef<HTMLElement>;
 
-  constructor(
-    private botConfigService: BotConfigService,
-    public textToSpeechService: TextToSpeechService
-  ) {
-    this.chatBots = botConfigService.chatBots;
+  constructor(public textToSpeechService: TextToSpeechService) {
   }
 }

@@ -21,7 +21,8 @@ import {ChatComponent} from './chat/chat.component';
 import {MenuHeaderComponent} from "./menu/menu-header/menu-header.component";
 import { SettingsComponent } from './menu/sub-menus/settings/settings.component';
 import { InfoComponent } from './menu/sub-menus/info/info.component';
-import {SwiperComponent} from "./menu/swiper/swiper.component";
+import { CarouselComponent } from './menu/carousel/carousel.component';
+import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 
 export function apiConfigFactory(): Configuration {
 
@@ -51,7 +52,8 @@ export function botServiceFactory(httpClient: HttpClient, basePath: string): Bot
     MenuComponent,
     MenuHeaderComponent,
     SettingsComponent,
-    InfoComponent
+    InfoComponent,
+    CarouselComponent,
   ],
   imports: [
     HttpClientModule,
@@ -63,7 +65,7 @@ export function botServiceFactory(httpClient: HttpClient, basePath: string): Bot
     FormsModule,
     MarkdownModule.forRoot({loader: HttpClient}),
     FlexLayoutModule,
-    SwiperComponent
+    NgbModule
   ],
   providers: [
     {
