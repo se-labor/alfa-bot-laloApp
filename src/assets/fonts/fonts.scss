@@ -14,6 +14,11 @@
   src: local("MaterialIconsOutlined"), url("MaterialIconsOutlined/MaterialIconsOutlined.woff2") format('woff2');
 }
 
+@font-face {
+  font-family: "Roboto";
+  src: local("Roboto"), url("Roboto/Roboto-Regular.ttf") format("truetype");
+}
+
 .material-symbols-outlined {
   font-family: 'MaterialSymbolsOutlined', sans-serif;
   font-weight: normal;
