@@ -5,6 +5,7 @@ import {first} from "rxjs/operators";
 import {UserService} from "../shared/services/user.service";
 import {ApiConverterService} from "../shared/services/api-converter.service";
 import {Message} from "../shared/models/message.model";
+import {ResponseButtonService} from "./text-area/services/response-button.service";
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +19,8 @@ export class MessageService {
   constructor(
     private botService: BotService,
     private userService: UserService,
-    private apiDataConverterService: ApiConverterService
+    private apiDataConverterService: ApiConverterService,
+    private responseButtonService: ResponseButtonService
   ) {
   }
 
@@ -68,6 +70,7 @@ export class MessageService {
   }
 
   private processMessage(message: Message) {
+    this.responseButtonService.disableButtons();
     // Convert and safe User Message
     this.messages.push(message);
     this.listChanged.next(message);

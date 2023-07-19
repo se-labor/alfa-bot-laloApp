@@ -7,6 +7,7 @@ import {ImageService} from "../services/image.service";
 import {TextToSpeechService} from "../../../shared/services/text-to-speech.service";
 import {Message} from "../../../shared/models/message.model";
 import {ApiConverterService} from "../../../shared/services/api-converter.service";
+import {ResponseButtonService} from "../services/response-button.service";
 
 @Component({
   selector: 'app-bot-response',
@@ -19,11 +20,12 @@ export class BotResponseComponent implements OnInit {
   public responseType;
   public showVoiceOutputButton;
   public responseTypeString: String;
-  public responseButtonsDisabled: boolean;
+  @Input() public responseButtonsDisabled: boolean;
 
   constructor(private messageService: MessageService,
               private userService: UserService,
               private imageService: ImageService,
+              private responseButtonService: ResponseButtonService,
               private apiConverterService: ApiConverterService,
               public textToSpeechService: TextToSpeechService) {
   }
@@ -32,6 +34,9 @@ export class BotResponseComponent implements OnInit {
     this.responseType = this.determineType(this.message);
     this.responseTypeString = this.responseType.toString();
     this.showVoiceOutputButton = this.responseType !== BOT_RESPONSE_TYPE.IMAGE;
+    this.responseButtonService.disableResponseButtons.subscribe(() => {
+      this.responseButtonsDisabled = true;
+    });
   }
 
   determineType(message: Message): string {
