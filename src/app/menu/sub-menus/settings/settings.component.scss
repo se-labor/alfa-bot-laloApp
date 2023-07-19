@@ -1,9 +1,38 @@
-@media all  { div.button-font-size  { font-size:0.4em; } }
-@media all and (min-width: 320px) { div.button-font-size  { font-size:0.6em; } }
-@media all and (min-width: 400px) { div.button-font-size  { font-size:0.7em; } }
-@media all and (min-width: 500px) { div.button-font-size  { font-size:0.8em; } }
-@media all and (min-width: 600px) { div.button-font-size  { font-size:0.9em; } }
-@media all and (min-width: 700px) { div.button-font-size  { font-size:1em; } }
+@media all {
+  div.button-font-size {
+    font-size: 0.4em;
+  }
+}
+
+@media all and (min-width: 320px) {
+  div.button-font-size {
+    font-size: 0.6em;
+  }
+}
+
+@media all and (min-width: 400px) {
+  div.button-font-size {
+    font-size: 0.7em;
+  }
+}
+
+@media all and (min-width: 500px) {
+  div.button-font-size {
+    font-size: 0.8em;
+  }
+}
+
+@media all and (min-width: 600px) {
+  div.button-font-size {
+    font-size: 0.9em;
+  }
+}
+
+@media all and (min-width: 700px) {
+  div.button-font-size {
+    font-size: 1em;
+  }
+}
 
 mat-slider {
   width: 40vw;

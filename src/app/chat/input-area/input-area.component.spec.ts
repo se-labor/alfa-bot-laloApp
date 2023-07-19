@@ -21,8 +21,8 @@ describe('InputAreaComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ InputAreaComponent ],
-      providers: [ MessageService, UserService],
+      declarations: [InputAreaComponent],
+      providers: [MessageService, UserService],
       imports: [
         MaterialModule,
         FormsModule,
@@ -30,7 +30,7 @@ describe('InputAreaComponent', () => {
         BrowserAnimationsModule
       ]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

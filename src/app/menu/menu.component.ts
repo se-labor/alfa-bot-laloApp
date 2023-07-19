@@ -8,9 +8,9 @@ import {ChatBot} from "../shared/models/chat-bot.model";
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.scss']
 })
-export class MenuComponent implements AfterViewInit{
+export class MenuComponent implements AfterViewInit {
   @ViewChild("carousel") carousel: ElementRef<HTMLElement>;
-  public chatBots:ChatBot[] = [];
+  public chatBots: ChatBot[] = [];
 
   constructor(public textToSpeechService: TextToSpeechService, private botConfigService: BotConfigService) {
     this.chatBots = botConfigService.chatBots;

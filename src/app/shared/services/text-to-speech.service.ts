@@ -26,11 +26,11 @@ export class TextToSpeechService {
 
   // Start speaking the text, if the speechSynthesis is not already speaking, else stop it
   async toggleSpeaking(text: string) {
-      if (this.speaking){
-        await TextToSpeech.stop();
-      } else {
-        this.speak(text);
-      }
+    if (this.speaking) {
+      await TextToSpeech.stop();
+    } else {
+      this.speak(text);
+    }
   }
 
   filterText(text: string) {
@@ -42,7 +42,7 @@ export class TextToSpeechService {
     // Remove other unwanted symbols
     const symbolsToReplace = ["[", "]", "*"];
     symbolsToReplace.forEach((symbolToReplace) => {
-      filteredText =  filteredText.split(symbolToReplace).join("");
+      filteredText = filteredText.split(symbolToReplace).join("");
     });
     return filteredText;
   }
@@ -52,7 +52,9 @@ export class TextToSpeechService {
     const filteredText = this.filterText(text);
     if (filteredText !== '') {
       this.utterThis.text = filteredText; // Change the text of the utterance object to avoid creating a new one
-      TextToSpeech.speak(this.utterThis).then(ignored => {this.speaking=false})
+      TextToSpeech.speak(this.utterThis).then(ignored => {
+        this.speaking = false
+      })
     }
   }
 }

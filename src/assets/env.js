@@ -7,7 +7,7 @@
       {
         id: 'financeBot',
         name: 'Geld & Finanzen',
-        imageUrl: 'https://www.alfa-bot.de/wp-content/uploads/2023/04/logo_finanzen.png',
+        imageUrl: ' https://www.alfa-bot.de/wp-content/uploads/2023/07/logo_finanzen_kl.png',
         apiUrl: 'https://alfabot.se-labor.de/alfabotapi',
         apiKey: '92d13306-b96e-11eb-b8e0-0242ac120002'
       },

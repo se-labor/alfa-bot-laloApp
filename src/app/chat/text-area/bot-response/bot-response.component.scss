@@ -1,7 +1,4 @@
 
-
-
-
 .message {
   background-color: #F1F2F2;
   border-radius: 0.25em;
@@ -16,7 +13,7 @@
   max-height: 50vh;
 }
 
-.message-inner{
+.message-inner {
   border-radius: 1.15em;
   padding: 0.5em .875em;
 }
@@ -82,7 +79,7 @@ button.selector-button[disabled] {
   background-color: #E7F0F8;
 }
 
-button.speaker-button{
+button.speaker-button {
   box-shadow: none;
   background: #96bee4;
   border-radius: 2em;
@@ -108,14 +105,14 @@ button.speaker-button-for-button[disabled] {
   background-color: #E7F0F8;
 }
 
-.material-symbols-outlined{
+.material-symbols-outlined {
   font-size: 1.5em;
   color: #000000;
   background-color: transparent;
   padding: 0;
 }
 
-.material-symbols-outlined.disabled{
+.material-symbols-outlined.disabled {
   background-color: #E7F0F8;
   color: #73787D;
 }
@@ -128,6 +125,7 @@ button.speaker-button-for-button[disabled] {
     max-height: 50vw;
   }
 }
+
 markdown {
   font-size: clamp(0.6em, 2vw, 1.2em);
 }

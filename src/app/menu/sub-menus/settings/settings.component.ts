@@ -8,7 +8,8 @@ import {SettingService} from "../../../shared/services/setting.service";
 })
 export class SettingsComponent {
 
-  constructor(public settingService: SettingService) { }
+  constructor(public settingService: SettingService) {
+  }
 
   emitFontSizeChange(value: number) {
     this.settingService.fontSizeChanged.next(value);

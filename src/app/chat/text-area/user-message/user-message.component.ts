@@ -8,7 +8,9 @@ import {Message} from "../../../shared/models/message.model";
 })
 export class UserMessageComponent implements OnInit {
   @Input() message: Message;
-  constructor() { }
+
+  constructor() {
+  }
 
   ngOnInit() {
   }

@@ -1,8 +1,8 @@
 <div #messageList class="message-list">
   <ul class="chat">
     <li *ngFor="let message of messages"
-        [ngSwitch]="determineMessageType(message)"
-        [ngClass]="determineMessageType(message)===MESSAGE_TYPE_ENUM.USER?'user-message':'bot-response'">
+        [ngClass]="determineMessageType(message)===MESSAGE_TYPE_ENUM.USER?'user-message':'bot-response'"
+        [ngSwitch]="determineMessageType(message)">
       <ng-template [ngSwitchCase]="MESSAGE_TYPE_ENUM.BOT">
         <app-bot-response [message]="message"></app-bot-response>
       </ng-template>

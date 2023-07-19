@@ -8,10 +8,11 @@ import {ApiConverterService} from "../../shared/services/api-converter.service";
   templateUrl: './input-area.component.html',
   styleUrls: ['./input-area.component.scss']
 })
-export class InputAreaComponent{
+export class InputAreaComponent {
 
   constructor(private messageService: MessageService,
-              private apiConverterService: ApiConverterService) { }
+              private apiConverterService: ApiConverterService) {
+  }
 
   onSubmit(form: NgForm) {
     if (form.value.message) {

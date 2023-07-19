@@ -11,9 +11,9 @@ describe('UserMessageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UserMessageComponent, TestHostComponent ]
+      declarations: [UserMessageComponent, TestHostComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
@@ -27,7 +27,7 @@ describe('UserMessageComponent', () => {
     expect(testHostComponent).toBeTruthy();
   });
 
-  it('should render the message',  () => {
+  it('should render the message', () => {
     expect(testHostDe.query(By.css('p')).nativeElement.textContent.replace(/[^a-z0-9]/gmi, ""))
       .toBe('testMessage'); // Find out why there are weird spaces in queried String
   });
@@ -42,7 +42,8 @@ class TestHostComponent {
     identifier: '00000000-0000-0000-0000-000000000000',
     text: 'testMessage',
     payload: 'testPayload',
-    imageUrl:'',
-    buttons: [] };
+    imageUrl: '',
+    buttons: []
+  };
   @ViewChild(UserMessageComponent) userMessageComponent: UserMessageComponent;
 }

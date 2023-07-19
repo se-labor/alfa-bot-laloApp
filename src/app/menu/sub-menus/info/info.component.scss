@@ -1,5 +1,14 @@
-@media all and (orientation: landscape) { div.info-text  { height: 55vh; } }
-@media all and (orientation: portrait) { div.info-text  { height: 65vh; } }
+@media all and (orientation: landscape) {
+  div.info-text {
+    height: 55vh;
+  }
+}
+
+@media all and (orientation: portrait) {
+  div.info-text {
+    height: 65vh;
+  }
+}
 
 
 p {

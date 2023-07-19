@@ -1,6 +1,6 @@
-import { TestBed } from '@angular/core/testing';
+import {TestBed} from '@angular/core/testing';
 
-import { ApiConverterService } from './api-converter.service';
+import {ApiConverterService} from './api-converter.service';
 import {UserService} from "./user.service";
 
 describe('ApiDataConverterService', () => {

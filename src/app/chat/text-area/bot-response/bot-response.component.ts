@@ -25,12 +25,13 @@ export class BotResponseComponent implements OnInit {
               private userService: UserService,
               private imageService: ImageService,
               private apiConverterService: ApiConverterService,
-              public textToSpeechService: TextToSpeechService) { }
+              public textToSpeechService: TextToSpeechService) {
+  }
 
   ngOnInit() {
     this.responseType = this.determineType(this.message);
     this.responseTypeString = this.responseType.toString();
-    this.showVoiceOutputButton =this.responseType !== BOT_RESPONSE_TYPE.IMAGE;
+    this.showVoiceOutputButton = this.responseType !== BOT_RESPONSE_TYPE.IMAGE;
   }
 
   determineType(message: Message): string {
@@ -41,11 +42,11 @@ export class BotResponseComponent implements OnInit {
         return this.BOT_RESPONSE_TYPE_ENUM.BUTTONS;
       }
     } else if (message.text !== '') {
-        return this.BOT_RESPONSE_TYPE_ENUM.TEXT;
-      } else {
-        return this.BOT_RESPONSE_TYPE_ENUM.IMAGE;
-      }
+      return this.BOT_RESPONSE_TYPE_ENUM.TEXT;
+    } else {
+      return this.BOT_RESPONSE_TYPE_ENUM.IMAGE;
     }
+  }
 
   onButtonClick(button: BotButton) {
     this.messageService.sendMessage(this.apiConverterService.messageFromButton(button));

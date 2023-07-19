@@ -1,6 +1,6 @@
 import {fakeAsync, TestBed, tick} from '@angular/core/testing';
 
-import { SettingService } from './setting.service';
+import {SettingService} from './setting.service';
 
 describe('SettingService', () => {
   let service: SettingService;
@@ -28,7 +28,7 @@ describe('SettingService', () => {
     expect(service.fontSize).toBe(16);
   }));
 
-  xit('should set the document body font size to the set font size', fakeAsync( () => {
+  xit('should set the document body font size to the set font size', fakeAsync(() => {
     document.body.style.fontSize = '1px';
     service.fontSize = 1; // Set to one to make sure the test is not false positive
     service.fontSizeChanged.next(16);

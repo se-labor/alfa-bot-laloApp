@@ -19,7 +19,8 @@ export class ChatComponent implements OnInit {
     private botConfigService: BotConfigService,
     private activatedRoute: ActivatedRoute,
     private messageService: MessageService
-  ) { }
+  ) {
+  }
 
   ngOnInit(): void {
     let botId = this.activatedRoute.snapshot.url[1]?.path;
@@ -27,7 +28,7 @@ export class ChatComponent implements OnInit {
       return;
     }
 
-    this.chatBot = this.botConfigService.chatBots.find(bot => bot.id === botId );
+    this.chatBot = this.botConfigService.chatBots.find(bot => bot.id === botId);
 
     this.botService.configuration.basePath = this.chatBot.apiUrl;
     this.botService.configuration.credentials['Authorization'] = this.chatBot.apiKey;

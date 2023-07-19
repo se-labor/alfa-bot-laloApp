@@ -22,17 +22,18 @@ describe('MessageService', () => {
       observer.next([{
         'message': '',
         'imageUrl': '',
-        'buttons': [{'payload': 'TestButtonPayload', 'title': 'TestButtonTitle'}]}]);
+        'buttons': [{'payload': 'TestButtonPayload', 'title': 'TestButtonTitle'}]
+      }]);
       observer.complete();
     };
     const responseObservable = new Observable(responseObserver);
-    spyOn(mockBotService,'sendUserMessage').and.callFake(
+    spyOn(mockBotService, 'sendUserMessage').and.callFake(
       function (
         userMessage: UserMessage,
         observe?: any,
         reportProgress?: any,
         options?: any): Observable<any> {
-          return responseObservable;
+        return responseObservable;
       }
     );
 
@@ -47,15 +48,17 @@ describe('MessageService', () => {
       identifier: '00000000-0000-0000-0000-000000000000',
       text: 'testMessage',
       payload: 'testPayload',
-      imageUrl:'',
-      buttons: [] });
+      imageUrl: '',
+      buttons: []
+    });
     expect(service.getMessages()).toContain(
       {
         identifier: '00000000-0000-0000-0000-000000000000',
         text: 'testMessage',
         payload: 'testPayload',
-        imageUrl:'',
-        buttons: [] });
+        imageUrl: '',
+        buttons: []
+      });
   });
 
   it('should add the bot responses to the message list', fakeAsync(() => {
@@ -63,8 +66,9 @@ describe('MessageService', () => {
       identifier: '00000000-0000-0000-0000-000000000000',
       text: 'testMessage',
       payload: 'testPayload',
-      imageUrl:'',
-      buttons: [] });
+      imageUrl: '',
+      buttons: []
+    });
     tick(300);
     expect(service.getMessages().length).toBeGreaterThanOrEqual(2);
   }));

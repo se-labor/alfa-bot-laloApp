@@ -31,15 +31,19 @@ describe('TextAreaComponent', () => {
     component = fixture.componentInstance;
 
     mockMessageService = TestBed.inject(MessageService);
-    spyOn(mockMessageService, 'getMessages').and.returnValue([{identifier: '00000000-0000-0000-0000-000000000000',
+    spyOn(mockMessageService, 'getMessages').and.returnValue([{
+      identifier: '00000000-0000-0000-0000-000000000000',
       text: 'TestUserMessage',
       payload: 'TestPayload',
       imageUrl: 'TestImageUrl',
-      buttons: []}, {identifier: '00000000-0000-0000-0000-000000000000',
+      buttons: []
+    }, {
+      identifier: '00000000-0000-0000-0000-000000000000',
       text: 'TestUserMessage2',
       payload: 'TestPayload2',
       imageUrl: 'TestImageUrl2',
-      buttons: []}]);
+      buttons: []
+    }]);
 
     fixture.detectChanges();
   });
@@ -78,16 +82,20 @@ describe('TextAreaComponent', () => {
 
   it('should replace message list with emitted lists', () => {
     mockMessageService.listChanged
-      .next({identifier: '00000000-0000-0000-0000-000000000000',
+      .next({
+        identifier: '00000000-0000-0000-0000-000000000000',
         text: 'TestUserMessage',
         payload: 'TestPayload',
         imageUrl: 'TestImageUrl',
-        buttons: []});
+        buttons: []
+      });
     expect(component.messages[0])
-      .toEqual({identifier: '00000000-0000-0000-0000-000000000000',
+      .toEqual({
+        identifier: '00000000-0000-0000-0000-000000000000',
         text: 'TestUserMessage',
         payload: 'TestPayload',
         imageUrl: 'TestImageUrl',
-        buttons: []});
+        buttons: []
+      });
   });
 });

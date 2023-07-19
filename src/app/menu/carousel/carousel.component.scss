@@ -1,8 +1,8 @@
 img {
-    border-radius: 10px;
-    cursor: pointer;
+  border-radius: 10px;
+  cursor: pointer;
   overflow: hidden;
-  max-width: 80vw;
+  max-height: 40vh;
 }
 
 ngb-carousel .wrapper {
@@ -11,13 +11,14 @@ ngb-carousel .wrapper {
 }
 
 
-ngb-carousel .wrapper>img {
+ngb-carousel .wrapper > img {
   position: absolute;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
 }
+
 ngb-carousel {
   max-width: min-content;
   min-width: 0;
@@ -27,6 +28,7 @@ ngb-carousel {
   padding: 0;
   border-radius: 10px;
 }
+
 .carousel-control-next,
 .carousel-control-prev {
   opacity: 1;
@@ -39,6 +41,7 @@ ngb-carousel {
 .carousel-control-prev {
   left: calc(-1 * clamp(30px, 10vw, 75px)) !important;
 }
+
 .carousel-control-next-icon {
   background-image: url('../../../assets/images/arrow_forward_ios_FILL0_wght400_GRAD0_opsz48.svg');
 }

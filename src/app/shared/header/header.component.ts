@@ -9,5 +9,6 @@ export class HeaderComponent {
 
   @Input('title') title = "";
 
-  constructor() { }
+  constructor() {
+  }
 }

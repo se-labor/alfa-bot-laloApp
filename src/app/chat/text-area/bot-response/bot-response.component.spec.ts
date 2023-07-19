@@ -13,14 +13,14 @@ describe('BotResponseComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BotResponseComponent],
+      declarations: [BotResponseComponent],
       imports: [
         HttpClientTestingModule,
         MarkdownModule.forRoot({loader: HttpClient}),
         MatIconModule
       ]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
@@ -30,8 +30,9 @@ describe('BotResponseComponent', () => {
       identifier: '00000000-0000-0000-0000-000000000000',
       text: 'testMessage',
       payload: 'testPayload',
-      imageUrl:'',
-      buttons: [] };
+      imageUrl: '',
+      buttons: []
+    };
     de = fixture.debugElement;
     fixture.detectChanges();
   });
@@ -55,26 +56,30 @@ describe('BotResponseComponent', () => {
       text: 'TestText',
       payload: '',
       imageUrl: '',
-      buttons: []}))
+      buttons: []
+    }))
       .toBe('text');
     expect(component.determineType({
       identifier: '00000000-0000-0000-0000-000000000000',
       text: 'TestText',
       payload: '',
       imageUrl: '',
-      buttons: [{'payload':'TestButtonPayload', 'title':'TestButtonTitle'}]})).toBe('buttons_and_text');
+      buttons: [{'payload': 'TestButtonPayload', 'title': 'TestButtonTitle'}]
+    })).toBe('buttons_and_text');
     expect(component.determineType({
       identifier: '00000000-0000-0000-0000-000000000000',
       text: '',
       payload: '',
       imageUrl: 'https://test.com/test.png',
-      buttons: []})).toBe('image');
+      buttons: []
+    })).toBe('image');
     expect(component.determineType({
       identifier: '00000000-0000-0000-0000-000000000000',
       text: '',
       payload: '',
       imageUrl: '',
-      buttons: [{'payload':'TestButtonPayload', 'title':'TestButtonTitle'}]})).toBe('buttons');
+      buttons: [{'payload': 'TestButtonPayload', 'title': 'TestButtonTitle'}]
+    })).toBe('buttons');
 
   });
 });

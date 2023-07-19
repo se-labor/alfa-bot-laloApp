@@ -19,9 +19,9 @@ import {ImageLoadedDirective} from './chat/text-area/bot-response/image-loaded.d
 import {MenuComponent} from './menu/menu.component';
 import {ChatComponent} from './chat/chat.component';
 import {MenuHeaderComponent} from "./menu/menu-header/menu-header.component";
-import { SettingsComponent } from './menu/sub-menus/settings/settings.component';
-import { InfoComponent } from './menu/sub-menus/info/info.component';
-import { CarouselComponent } from './menu/carousel/carousel.component';
+import {SettingsComponent} from './menu/sub-menus/settings/settings.component';
+import {InfoComponent} from './menu/sub-menus/info/info.component';
+import {CarouselComponent} from './menu/carousel/carousel.component';
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 
 export function apiConfigFactory(): Configuration {
@@ -36,7 +36,7 @@ export function apiConfigFactory(): Configuration {
 }
 
 export function botServiceFactory(httpClient: HttpClient, basePath: string): BotService {
-  return new BotService(httpClient,basePath, apiConfigFactory());
+  return new BotService(httpClient, basePath, apiConfigFactory());
 }
 
 @NgModule({
@@ -75,4 +75,5 @@ export function botServiceFactory(httpClient: HttpClient, basePath: string): Bot
     },],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule {
+}

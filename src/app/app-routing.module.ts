@@ -6,16 +6,17 @@ import {InfoComponent} from "./menu/sub-menus/info/info.component";
 import {SettingsComponent} from "./menu/sub-menus/settings/settings.component";
 
 const routes: Routes = [
-  { path: '', component: MenuComponent, pathMatch: 'full' },
-  { path: 'info', component: InfoComponent },
-  { path: 'settings', component: SettingsComponent },
-  { path: 'chat/:id', component: ChatComponent, pathMatch: 'full'},
-  { path: 'chat', redirectTo: ''},
-  { path: '**', redirectTo: ''}
+  {path: '', component: MenuComponent, pathMatch: 'full'},
+  {path: 'info', component: InfoComponent},
+  {path: 'settings', component: SettingsComponent},
+  {path: 'chat/:id', component: ChatComponent, pathMatch: 'full'},
+  {path: 'chat', redirectTo: ''},
+  {path: '**', redirectTo: ''}
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}

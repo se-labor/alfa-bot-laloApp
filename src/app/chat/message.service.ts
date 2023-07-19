@@ -9,18 +9,18 @@ import {Message} from "../shared/models/message.model";
 @Injectable({
   providedIn: 'root'
 })
-export class MessageService{
-
-  private messages: Message[] = [];
-  private messageQueue: Message[] = [];
+export class MessageService {
 
   public listChanged = new Subject<Message>();
+  private messages: Message[] = [];
+  private messageQueue: Message[] = [];
 
   constructor(
     private botService: BotService,
     private userService: UserService,
     private apiDataConverterService: ApiConverterService
-  ) { }
+  ) {
+  }
 
   init() {
     // clear messages
@@ -44,6 +44,10 @@ export class MessageService{
     }
   }
 
+  getMessages(): Message[] {
+    return this.messages.slice();
+  }
+
   private processNextMessage() {
     if (this.messageQueue.length > 0) {
       this.processMessage(this.messageQueue[0]);
@@ -56,7 +60,7 @@ export class MessageService{
     this.listChanged.next(message);
 
     // Safe all Bot Responses
-    if(message.text != message.payload){
+    if (message.text != message.payload) {
       this.botService.sendUserMessage(this.apiDataConverterService.buttonToUserMessage(message)).pipe(first()).subscribe(
         (responses: BotResponse[]) => {
           responses.forEach(response => {
@@ -66,7 +70,7 @@ export class MessageService{
           });
           this.messageQueue.shift();
           this.processNextMessage();
-       });
+        });
     } else {
       this.botService.sendUserMessage(this.apiDataConverterService.messageToUserMessage(message)).pipe(first()).subscribe(
         (responses: BotResponse[]) => {
@@ -79,9 +83,5 @@ export class MessageService{
           this.processNextMessage();
         });
     }
-  }
-
-  getMessages(): Message[] {
-    return this.messages.slice();
   }
 }

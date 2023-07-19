@@ -10,22 +10,24 @@ import {Message} from "../../shared/models/message.model";
   templateUrl: './text-area.component.html',
   styleUrls: ['./text-area.component.scss']
 })
-export class TextAreaComponent implements OnInit, OnDestroy, AfterViewChecked  {
-  @ViewChild('messageList') private myScrollContainer: ElementRef;
+export class TextAreaComponent implements OnInit, OnDestroy, AfterViewChecked {
   public messages: Message[] = [];
   public MESSAGE_TYPE_ENUM = MESSAGE_TYPE; // Needs to be redefined to be accessible in template
+  @ViewChild('messageList') private myScrollContainer: ElementRef;
   private messageSubscription: Subscription;
+
   constructor(private messageService: MessageService,
-              private imageService: ImageService) {}
+              private imageService: ImageService) {
+  }
 
   ngOnInit() {
     this.messages = this.messageService.getMessages();
-     this.messageSubscription = this.messageService.listChanged.subscribe((message) => {
+    this.messageSubscription = this.messageService.listChanged.subscribe((message) => {
       this.messages.push(message);
     });
-     this.imageService.imageLoaded.subscribe(() => {
-       this.scrollToBottom();
-     });
+    this.imageService.imageLoaded.subscribe(() => {
+      this.scrollToBottom();
+    });
   }
 
   ngAfterViewChecked() {
@@ -45,7 +47,7 @@ export class TextAreaComponent implements OnInit, OnDestroy, AfterViewChecked  {
   }
 
   ngOnDestroy() {
-    if(this.messageSubscription) {
+    if (this.messageSubscription) {
       this.messageSubscription.unsubscribe();
     }
   }
