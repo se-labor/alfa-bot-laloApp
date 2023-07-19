@@ -1,16 +1,3 @@
-@media all and (orientation: landscape) {
-  div.info-text {
-    height: 55vh;
-  }
-}
-
-@media all and (orientation: portrait) {
-  div.info-text {
-    height: 65vh;
-  }
-}
-
-
 p {
   margin: 0;
   padding: 0;
@@ -23,10 +10,12 @@ div.info-text {
   margin-left: 10vw;
   margin-right: 10vw;
   width: 80vw;
+  height: fit-content;
 }
 
 div.logos {
-  margin-bottom: env(save-area-inset-bottom, 1rem)
+  margin-bottom: env(save-area-inset-bottom, 1rem);
+  top:0;
 }
 
 img.single-logo {
