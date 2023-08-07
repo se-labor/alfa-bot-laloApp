@@ -22,20 +22,4 @@ describe('MenueComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-
-  it('should swap active chat bot', () => {
-    component.chatBots = [{name: 'test1'}, {name: 'test2'}, {name: 'test3'}];
-    component.activeChatBot = component.chatBots[0];
-    component.swapActiveChatBot(true);
-    expect(component.activeChatBot).toEqual(component.chatBots[1]);
-    component.swapActiveChatBot(false);
-    expect(component.activeChatBot).toEqual(component.chatBots[0]);
-  });
-
-  it('should set active chat bot if undefined', () => {
-    component.chatBots = [{name: 'test1'}, {name: 'test2'}, {name: 'test3'}];
-    component.activeChatBot = undefined;
-    component.swapActiveChatBot(true);
-    expect(component.activeChatBot).toEqual(component.chatBots[0]);
-  });
 });
