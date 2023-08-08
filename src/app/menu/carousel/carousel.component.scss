@@ -20,6 +20,11 @@ ngb-carousel .wrapper > img {
   right: 0;
 }
 
+ngb-carousel div.carousel-inner{
+  overflow: hidden;
+  border-radius: inherit;
+}
+
 ngb-carousel {
   max-width: min-content;
   min-width: 0;

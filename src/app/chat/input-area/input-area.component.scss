@@ -8,6 +8,7 @@
 mat-form-field {
   margin: 1em;
   align-self: auto;
+  font-size: inherit;
 }
 
 div {
@@ -43,5 +44,6 @@ input {
   height: fit-content;
   padding-top: 1em;
   padding-bottom: 0.5em;
+  font-size: clamp(0.6em, 2vw, 1.2em) !important;
 }
 

@@ -73,8 +73,9 @@ button.selector-button {
   word-break: normal;
   overflow-wrap: normal;
   margin-right: 0;
-  max-width: 50%;
+  max-width: 70%;
   height: auto !important;
+  justify-content: flex-start;
 }
 
 .bot-button {
@@ -109,6 +110,7 @@ button.speaker-button-for-button {
   padding: 0;
   margin-left: 0;
   height: auto;
+  justify-content: space-evenly;
 }
 
 button.speaker-button-for-button[disabled] {
