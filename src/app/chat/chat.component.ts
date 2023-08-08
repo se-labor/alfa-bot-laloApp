@@ -34,8 +34,8 @@ export class ChatComponent implements OnInit {
     this.botService.configuration.credentials['Authorization'] = this.chatBot.apiKey;
 
     this.messageService.init();
-    let query = this.activatedRoute.snapshot.queryParams;
-    if (query["event"] !== undefined && query['event'] === "surveyCompleted") {
+    let queryParams = this.activatedRoute.snapshot.queryParams;
+    if (queryParams["event"] !== undefined && queryParams['event'] === "surveyCompleted") {
       this.messageService.getResponsesFor("surveyCompleted");
     }
   }
