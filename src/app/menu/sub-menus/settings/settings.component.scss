@@ -1,70 +1,23 @@
-@media all {
-  div.button-font-size {
-    font-size: 0.4em;
-  }
-}
-
-@media all and (min-width: 320px) {
-  div.button-font-size {
-    font-size: 0.6em;
-  }
-}
-
-@media all and (min-width: 400px) {
-  div.button-font-size {
-    font-size: 0.7em;
-  }
-}
-
-@media all and (min-width: 500px) {
-  div.button-font-size {
-    font-size: 0.8em;
-  }
-}
-
-@media all and (min-width: 600px) {
-  div.button-font-size {
-    font-size: 0.9em;
-  }
-}
-
-@media all and (min-width: 700px) {
-  div.button-font-size {
-    font-size: 1em;
-  }
-}
-
-mat-slider {
-  width: 40vw;
-  margin-left: 3rem;
-  margin-right: 3rem;
-  color: #1C5475;
+.text-font-size {
+  font-size: clamp(0.6em, 2vw, 1.2em);
 }
 
 span.material-symbols-outlined {
-  font-size: xxx-large;
+  font-size: 3rem;
+  width: fit-content;
   color: #1C5475;
 }
 
 mat-label {
-  font-size: xx-large;
-  color: #1C5475;
-  margin-left: 0.1rem;
-  margin-right: 0.1rem;
+  font-size: 2.5rem;
 }
 
-div {
-  color: #1C5475;
+mat-slider {
+  width: 40%;
 }
 
-div.text-font-size {
-  font-size: 1em;
-}
-
-div.setting {
-  padding: 1rem;
-}
-
-div.container {
-  height: 90%;
+// Override the padding of the row, because of incorrect padding of slider
+.row > * {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
 }
