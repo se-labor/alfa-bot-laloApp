@@ -3,7 +3,8 @@
 
   <div class="title">
     <span *ngIf="chatBots">{{chatBots[carousel.index].name}}</span>
-    <button (click)="textToSpeechService.toggleSpeaking(chatBots[carousel.index].name);" aria-label="speak message"
+    <button (click)="textToSpeechService.toggleSpeaking(chatBots[carousel.index].name);"
+            aria-label="Text vorlesen"
             class="speaker-button"
             color="accent" mat-flat-button>
       <span class="material-symbols-outlined">text_to_speech</span></button>
@@ -18,8 +19,10 @@
         <mat-icon class="not-inside-button" fontSet="material-symbols-outlined" inline="true">settings</mat-icon>
         <mat-card-title>Einstellungen</mat-card-title>
         <button (click)="textToSpeechService.toggleSpeaking('Einstellungen'); $event.stopPropagation()"
-                aria-label="speak message" class="speaker-button"
-                color="accent" mat-icon-button>
+                aria-label="Text vorlesen"
+                class="speaker-button"
+                color="accent"
+                mat-icon-button>
           <mat-icon fontSet="material-symbols-outlined" inline="true">text_to_speech</mat-icon>
         </button>
       </mat-card>
@@ -28,7 +31,8 @@
         <mat-icon class="not-inside-button" fontSet="material-symbols-outlined" inline="true">info</mat-icon>
         <mat-card-title>Über diese App</mat-card-title>
         <button (click)="textToSpeechService.toggleSpeaking('Über diese App'); $event.stopPropagation()"
-                aria-label="speak message" class="speaker-button"
+                aria-label="Text vorlesen"
+                class="speaker-button"
                 color="accent"
                 mat-icon-button>
           <mat-icon fontSet="material-symbols-outlined" inline="true">text_to_speech</mat-icon>
