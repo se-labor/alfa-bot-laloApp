@@ -1,31 +1,12 @@
-p {
-  margin: 0;
-  padding: 0;
-  text-align: left;
-  font-size: clamp(0.8em, 2vw, 1.5rem);
-}
-
-div.info-text {
-  align-content: center;
-  margin-left: 10vw;
-  margin-right: 10vw;
-  width: 80vw;
-  height: fit-content;
-}
-
-div.logos {
-  margin-bottom: env(save-area-inset-bottom, 1rem);
-  top:0;
-}
-
 img.single-logo {
-  max-width: 50vw;
   max-height: 15vh;
+  width: fit-content;
 }
 
 img.double-logo {
-  margin-left: 10vw;
-  margin-right: 10vw;
-  max-width: 80vw;
   max-height: 10vh;
+}
+
+p {
+  font-size: clamp(0.8em, 2vw, 1.5rem);
 }
