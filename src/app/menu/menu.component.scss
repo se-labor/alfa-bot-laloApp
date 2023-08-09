@@ -1,3 +1,25 @@
+div.background {
+  background-color: #F1F2F2;
+  height: 100%;
+}
+
+app-menu-header {
+  margin-bottom: 5vh;
+}
+
+span.title{
+  font-size: clamp(1.5em, 5vw, 3em);
+  max-height: 8vh;
+  height: fit-content;
+  width: fit-content;
+}
+
+mat-icon.title-icon {
+  font-size: clamp(1.5em, 5vw, 3em) !important;
+  width: fit-content !important;
+  color: #000000 !important;
+}
+
 div.menu {
   display: flex;
   flex-direction: column;
@@ -5,40 +27,6 @@ div.menu {
   width: fit-content;
 }
 
-div.background {
-  background-color: #F1F2F2;
-  display: flex;
-  flex-direction: column;
-  align-content: center;
-}
-
-// Header
-app-menu-header {
-  margin-bottom: 5vh;
-}
-
-//Title for Bot
-.title {
-  display: flex;
-  font-size: clamp(2em, 5vw, 3em);
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  max-height: 8vh;
-  text-align: center;
-  height: fit-content;
-}
-
-.title button {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  font-size: inherit;
-  margin: 0.25vh 0.25vw 0.25vh 0.25vw;
-  width: fit-content;
-  height: fit-content;
-  max-height: fit-content;
-}
 
 div.sub-menu {
   max-height: 25vh;
@@ -50,12 +38,13 @@ mat-card {
   border-radius: 1.5em;
   background-color: #96bee4;
   cursor: pointer;
-  min-height: fit-content;
-  padding: 0.5em 0.25em 0.25em 0.25em;
+  padding: 0 clamp(0.3em, 0.8vw, 0.6em) 0;
   margin-bottom: 1vh;
   max-height: 10vh;
   height: fit-content;
   width: 100%;
+  // Avoid Overriding bootstrap flex-direction
+  flex-direction: row;
 }
 
 mat-card-title {
@@ -65,33 +54,26 @@ mat-card-title {
   font-size: clamp(1em, 6vw, 2.6em);
 }
 
-.mdc-icon-button {
-  font-size: inherit !important;
-}
-
 mat-icon {
-  font-size: clamp(1.1em, 5vw, 2em) !important;
+  font-size: clamp(1em, 5vw, 2em) !important;
   width: fit-content !important;
+  color: #000000 !important;
 }
 
-mat-icon.not-inside-button {
-  padding: 0.5em !important;
-}
-
-.title .material-symbols-outlined {
-  font-size: 1em;
-}
-
-.speaker-button {
-  background: transparent !important;
+.speaker-button{
   margin: 0;
-  height: fit-content;
+  padding: 0;
   width: fit-content;
-  color: black;
+  background-color: transparent !important;
+  border: none;
+  cursor: pointer;
+}
+
+.mat-mdc-icon-button{
+  font-size: inherit;
 }
 
 app-carousel {
   max-height: 40vh;
   max-width: 80vw;
 }
-

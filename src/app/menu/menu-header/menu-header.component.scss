@@ -1,11 +1,11 @@
 img {
-  max-height: 15vh;
-  width: fit-content;
+  height: 15vh;
+  width: auto;
+  cursor: default;
 }
 
 h1 {
   height: fit-content;
   word-wrap: normal;
-  max-height: 10vh;
-  font-size: clamp(1em, 5vw, 4em);
+  font-size: clamp(2em, 6.25vw, 3.75em);
 }
