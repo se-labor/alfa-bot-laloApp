@@ -1,23 +1,25 @@
 <app-header title="Einstellungen"></app-header>
-<div class="container-fluid justify-content-center p-4 p-md-5">
-  <div class="row justify-content-center my-5">
-    <mat-label class="row justify-content-center">Vorlesegeschwindigkeit</mat-label>
-    <span class="material-symbols-outlined">play_arrow</span>
-    <mat-slider max="1.2" min="0.5" step="0.1" class="mx-4">
-      <input #playbackSpeed (change)="emitPlaybackSpeedChange(playbackSpeed.valueAsNumber)" matSliderThumb
-             value="{{settingService.playbackSpeed}}">
-    </mat-slider>
-    <span class="material-symbols-outlined">fast_forward</span>
-  </div>
+<div class="container-fluid justify-content-center p-4 p-md-5 h-75 d-flex">
+  <div class="my-auto w-100">
+    <div class="row justify-content-center my-5">
+      <mat-label class="row justify-content-center fs-1">Vorlesegeschwindigkeit</mat-label>
+      <span class="material-symbols-outlined">play_arrow</span>
+      <mat-slider max="1.2" min="0.5" step="0.1" class="mx-4">
+        <input #playbackSpeed (change)="emitPlaybackSpeedChange(playbackSpeed.valueAsNumber)" matSliderThumb
+               value="{{settingService.playbackSpeed}}">
+      </mat-slider>
+      <span class="material-symbols-outlined">fast_forward</span>
+    </div>
 
-  <div class="row justify-content-center my-5">
-    <mat-label class="row justify-content-center ">Textgröße</mat-label>
-    <span class="material-symbols-outlined">text_decrease</span>
-    <mat-slider max="24" min="12" step="1" class="mx-4">
-      <input #fontSize (change)="emitFontSizeChange(fontSize.valueAsNumber)" matSliderThumb
-             value="{{settingService.fontSize}}">
-    </mat-slider>
-    <span class="material-symbols-outlined">text_increase</span>
+    <div class="row justify-content-center my-5">
+      <mat-label class="row justify-content-center fs-1">Textgröße</mat-label>
+      <span class="material-symbols-outlined">text_decrease</span>
+      <mat-slider max="24" min="12" step="1" class="mx-4">
+        <input #fontSize (change)="emitFontSizeChange(fontSize.valueAsNumber)" matSliderThumb
+               value="{{settingService.fontSize}}">
+      </mat-slider>
+      <span class="material-symbols-outlined">text_increase</span>
+    </div>
+    <div class="row text-font-size justify-content-center">So groß ist der Text.</div>
   </div>
-  <div class="row text-font-size justify-content-center">So groß ist der Text.</div>
 </div>

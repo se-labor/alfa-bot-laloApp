@@ -1,19 +1,11 @@
-.text-font-size {
-  font-size: clamp(0.6em, 2vw, 1.2em);
-}
-
 span.material-symbols-outlined {
   font-size: 3rem;
   width: fit-content;
   color: #1C5475;
 }
 
-mat-label {
-  font-size: 2.5rem;
-}
-
 mat-slider {
-  width: 40%;
+  width: 40% !important;
 }
 
 // Override the padding of the row, because of incorrect padding of slider

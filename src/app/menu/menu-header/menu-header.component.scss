@@ -1,11 +1,18 @@
-img {
-  height: 15vh;
-  width: auto;
-  cursor: default;
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/mixins/breakpoints";
+@include media-breakpoint-up(sm) {
+  h1 {
+    font-size: 3rem;
+  }
 }
-
 h1 {
   height: fit-content;
   word-wrap: normal;
-  font-size: clamp(2em, 6.25vw, 3.75em);
+  font-size: 2.5rem;
+}
+
+img {
+  max-height: 15vh;
+  width: auto !important;
 }

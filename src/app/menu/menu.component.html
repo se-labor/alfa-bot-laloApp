@@ -1,40 +1,42 @@
-<div class="background container-fluid">
+<div class="background container-fluid py-2">
   <app-menu-header class="row"></app-menu-header>
-
-  <div class="row justify-content-center align-items-center">
-    <span class="title" *ngIf="chatBots">{{chatBots[carousel.index].name}}</span>
+  <div class="row justify-content-center align-items-center col-auto">
+    <h1 *ngIf="chatBots" class="title lh-1 fs-1 fw-semibold">{{chatBots[carousel.index].name}}</h1>
     <button (click)="textToSpeechService.toggleSpeaking(chatBots[carousel.index].name);"
             aria-label="Text vorlesen"
-            class="speaker-button">
-      <mat-icon class="title-icon" fontSet="material-symbols-outlined" inline="true">text_to_speech</mat-icon>
+            class="btn col-auto">
+      <mat-icon class="title-icon fs-2 col-auto" fontSet="material-symbols-outlined" inline="true">text_to_speech</mat-icon>
     </button>
   </div>
-<div class="row justify-content-center">
-  <div class="menu">
-    <app-carousel #carousel></app-carousel>
-    <div class="sub-menu">
-      <mat-card appearance="outlined" class="row justify-content-between align-items-center mb-2 ms-0" routerLink="/settings">
-          <mat-icon fontSet="material-symbols-outlined" inline="true" class="p-0 col-auto">settings</mat-icon>
-          <h1 class="p-0 mt-2 mt-md-3 col-auto">Einstellungen</h1>
-          <button (click)="textToSpeechService.toggleSpeaking('Einstellungen'); $event.stopPropagation()"
-                  aria-label="Text vorlesen"
-                  class="speaker-button mt-2 col-auto">
-            <mat-icon fontSet="material-symbols-outlined" inline="true">text_to_speech</mat-icon>
-          </button>
-      </mat-card>
-
-      <mat-card appearance="outlined" class="row justify-content-between align-items-center m-0" routerLink="/info">
-        <mat-icon fontSet="material-symbols-outlined" inline="true" class="p-0 col-auto">info</mat-icon>
-        <h1 class="p-0 mt-2 mt-md-3 col-auto">Über diese App</h1>
-        <button (click)="textToSpeechService.toggleSpeaking('Über diese App'); $event.stopPropagation()"
-                aria-label="Text vorlesen"
-                class="speaker-button mt-2 col-auto">
-          <mat-icon fontSet="material-symbols-outlined" inline="true">text_to_speech</mat-icon>
-        </button>
-      </mat-card>
+  <div class="row justify-content-center">
+    <div class="menu">
+      <app-carousel #carousel></app-carousel>
+      <div class="sub-menu">
+        <div class="card p-1 fs-2 rounded-3 mb-2 mt-3" routerLink="/settings">
+          <div class="card-body row justify-content-between align-items-center p-0 m-0">
+            <mat-icon class="p-0 col-auto" fontSet="material-symbols-outlined" inline="true">settings</mat-icon>
+            <h5 class="card-title col-auto m-0 fs-2">Einstellungen</h5>
+            <button (click)="textToSpeechService.toggleSpeaking('Einstellungen'); $event.stopPropagation()"
+                    aria-label="Text vorlesen"
+                    class="btn speaker-button col-auto lh-1 fs-2">
+              <mat-icon fontSet="material-symbols-outlined" inline="true">text_to_speech</mat-icon>
+            </button>
+          </div>
+        </div>
+        <div class="card p-1 fs-2 rounded-3 " routerLink="/info">
+          <div class="card-body row justify-content-between align-items-center p-0 m-0">
+            <mat-icon class="p-0 col-auto" fontSet="material-symbols-outlined" inline="true">info</mat-icon>
+            <h5 class="card-title col-auto m-0 fs-2">Über diese App</h5>
+            <button (click)="textToSpeechService.toggleSpeaking('Über diese App'); $event.stopPropagation()"
+                    aria-label="Text vorlesen"
+                    class="btn speaker-button col-auto lh-1 fs-2">
+              <mat-icon fontSet="material-symbols-outlined" inline="true">text_to_speech</mat-icon>
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-</div>
 </div>
 
 
