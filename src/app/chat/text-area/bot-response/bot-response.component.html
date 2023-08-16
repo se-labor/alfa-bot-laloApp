@@ -4,42 +4,46 @@
       <ng-template [ngSwitchCase]="BOT_RESPONSE_TYPE_ENUM.TEXT">
         <div fxLayout="row">
           <markdown [data]="message.text"></markdown>
-          <button (click)="textToSpeechService.toggleSpeaking(message.text)" *ngIf="showVoiceOutputButton" aria-label="speak message"
+          <button (click)="textToSpeechService.toggleSpeaking(message.text)" *ngIf="showVoiceOutputButton"
+                  aria-label="speak message"
                   class="speaker-button" mat-flat-button><span
             class="material-symbols-outlined" fxLayoutAlign="center">text_to_speech</span></button>
         </div>
       </ng-template>
 
       <ng-template [ngSwitchCase]="BOT_RESPONSE_TYPE_ENUM.BUTTONS">
-        <div *ngFor="let button of message.buttons" fxLayout="row" class="bot-button">
+        <div *ngFor="let button of message.buttons" class="bot-button" fxLayout="row">
           <button (click)="onButtonClick(button)" [disabled]="responseButtonsDisabled" class="selector-button"
                   mat-raised-button>{{button.title}}</button>
-          <button (click)="textToSpeechService.toggleSpeaking(button.title)" [disabled]="responseButtonsDisabled" class="speaker-button-for-button"
+          <button (click)="textToSpeechService.toggleSpeaking(button.title)" [disabled]="responseButtonsDisabled"
+                  class="speaker-button-for-button"
                   mat-raised-button><span [ngStyle]="{'color':responseButtonsDisabled? 'lightgray' : 'black' }"
-                                                                                   class="material-symbols-outlined"
-                                                                                   fxLayoutAlign="center">text_to_speech</span></button>
+                                          class="material-symbols-outlined"
+                                          fxLayoutAlign="center">text_to_speech</span></button>
         </div>
       </ng-template>
 
       <ng-template [ngSwitchCase]="BOT_RESPONSE_TYPE_ENUM.BUTTONS_AND_TEXT">
         <div fxLayout="row">
           <markdown [data]="message.text"></markdown>
-          <button (click)="textToSpeechService.toggleSpeaking(message.text)" *ngIf="showVoiceOutputButton" aria-label="speak message"
+          <button (click)="textToSpeechService.toggleSpeaking(message.text)" *ngIf="showVoiceOutputButton"
+                  aria-label="speak message"
                   class="speaker-button" mat-flat-button><span
             class="material-symbols-outlined" fxLayoutAlign="center">text_to_speech</span></button>
         </div>
-        <div *ngFor="let button of message.buttons" fxLayout="row" class="bot-button">
+        <div *ngFor="let button of message.buttons" class="bot-button" fxLayout="row">
           <button (click)="onButtonClick(button)" [disabled]="responseButtonsDisabled" class="selector-button"
                   mat-raised-button>{{button.title}}</button>
-          <button (click)="textToSpeechService.toggleSpeaking(button.title)" [disabled]="responseButtonsDisabled" class="speaker-button-for-button"
+          <button (click)="textToSpeechService.toggleSpeaking(button.title)" [disabled]="responseButtonsDisabled"
+                  class="speaker-button-for-button"
                   mat-flat-button><span [ngClass]="responseButtonsDisabled? 'disabled' : ''"
-                                                                                   class="material-symbols-outlined"
-                                                                                   fxLayoutAlign="center">text_to_speech</span></button>
+                                        class="material-symbols-outlined"
+                                        fxLayoutAlign="center">text_to_speech</span></button>
         </div>
       </ng-template>
 
       <ng-template [ngSwitchCase]="BOT_RESPONSE_TYPE_ENUM.IMAGE">
-        <img (loaded)="onImageLoad()" [src]="message.imageUrl" alt="image" loadedEmitter>
+        <img (loaded)="onImageLoad()" [src]="message.imageUrl" alt="image" appLoadedEmitter>
       </ng-template>
     </span>
   </div>

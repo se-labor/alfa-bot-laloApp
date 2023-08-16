@@ -8,7 +8,8 @@
     "build-mobile": "ng build --configuration=production && npx cap sync",
     "build-web": "ng build --configuration=production",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "lint": "ng lint"
   },
   "engines": {
     "node": "18.17.0",
@@ -45,13 +46,21 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^16.1.8",
+    "@angular-eslint/builder": "16.1.0",
+    "@angular-eslint/eslint-plugin": "16.1.0",
+    "@angular-eslint/eslint-plugin-template": "16.1.0",
+    "@angular-eslint/schematics": "16.1.0",
+    "@angular-eslint/template-parser": "16.1.0",
     "@angular/cli": "^16.1.8",
     "@angular/compiler-cli": "^16.1.8",
     "@capacitor/cli": "^5.2.2",
     "@types/jasmine": "~4.3.5",
     "@types/node": "20.4.8",
     "@types/uuid": "^9.0.2",
+    "@typescript-eslint/eslint-plugin": "5.62.0",
+    "@typescript-eslint/parser": "5.62.0",
     "dotenv": "^16.3.1",
+    "eslint": "^8.44.0",
     "jasmine-core": "~5.1.0",
     "karma": "~6.4.2",
     "karma-chrome-launcher": "~3.2.0",

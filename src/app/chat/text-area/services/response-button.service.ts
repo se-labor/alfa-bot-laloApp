@@ -6,8 +6,6 @@ import {EventEmitter, Injectable, Output} from '@angular/core';
 export class ResponseButtonService {
   @Output() public disableResponseButtons = new EventEmitter<void>();
 
-  constructor() { }
-
   public disableButtons() {
     this.disableResponseButtons.emit();
   }

@@ -19,7 +19,7 @@ export class BotResponseComponent implements OnInit {
   public BOT_RESPONSE_TYPE_ENUM = BOT_RESPONSE_TYPE;  // Needs to be redefined to be accessible in template
   public responseType;
   public showVoiceOutputButton;
-  public responseTypeString: String;
+  public responseTypeString: string;
   @Input() public responseButtonsDisabled: boolean;
 
   constructor(private messageService: MessageService,

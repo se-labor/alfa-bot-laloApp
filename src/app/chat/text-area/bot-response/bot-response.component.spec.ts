@@ -1,7 +1,6 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {BotResponseComponent} from './bot-response.component';
-import {DebugElement} from "@angular/core";
 import {MarkdownModule} from "ngx-markdown";
 import {HttpClient} from "@angular/common/http";
 import {MatIconModule} from "@angular/material/icon";
@@ -9,7 +8,6 @@ import {MatIconModule} from "@angular/material/icon";
 describe('BotResponseComponent', () => {
   let component: BotResponseComponent;
   let fixture: ComponentFixture<BotResponseComponent>;
-  let de: DebugElement;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -33,7 +31,6 @@ describe('BotResponseComponent', () => {
       imageUrl: '',
       buttons: []
     };
-    de = fixture.debugElement;
     fixture.detectChanges();
   });
 

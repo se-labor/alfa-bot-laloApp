@@ -8,7 +8,7 @@ import {TextToSpeech, TTSOptions} from "@capacitor-community/text-to-speech";
 export class TextToSpeechService {
 
   public utterThis: TTSOptions;
-  public speaking: boolean = false;
+  public speaking = false;
 
   constructor(public settingService: SettingService) {
     this.utterThis = {
@@ -39,7 +39,7 @@ export class TextToSpeechService {
   filterText(text: string) {
     let filteredText: string = text;
     // Matches valid links, which are surrounded by brackets. Also includes matching of special german characters.
-    const rExp: RegExp = new RegExp("\\(https?:\\/\\/(www\\.)?[\u00F0-\u02AF-a-zA-Z0-9@:%._+~#=]{1,256}\\.[a-zA-Z\\d()]{1,6}\\b([\u00F0-\u02AF-a-zA-Z\\d!@:%_+.~#?&\\/=])+\\)");
+    const rExp = new RegExp("\\(https?:\\/\\/(www\\.)?[\u00F0-\u02AF-a-zA-Z0-9@:%._+~#=]{1,256}\\.[a-zA-Z\\d()]{1,6}\\b([\u00F0-\u02AF-a-zA-Z\\d!@:%_+.~#?&\\/=])+\\)");
     // Removes link occurrences from the text, till there are none left
     filteredText = filteredText.replace(rExp, "");
     // Remove other unwanted symbols

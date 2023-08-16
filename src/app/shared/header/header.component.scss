@@ -1,12 +1,14 @@
+@media screen and (max-width: 368px) {
+  mat-toolbar {
+    justify-content: flex-end !important;
+  }
+}
+
 mat-toolbar {
   padding-top: calc(env(safe-area-inset-top) + 2.5rem);
   padding-right: env(safe-area-inset-right);
   padding-bottom: 2.5rem;
   background: #FFFFFF !important;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  max-height: fit-content !important;
 }
 
 mat-toolbar-row {
@@ -27,7 +29,6 @@ span.nav-element {
 
 span.title {
   color: #000000;
-  font-size: clamp(1.5em, 5vw, 3em);
 }
 
 div.nav-element {
@@ -35,9 +36,5 @@ div.nav-element {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-}
-
-div {
-
 }
 

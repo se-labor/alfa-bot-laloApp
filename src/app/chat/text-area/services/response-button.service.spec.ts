@@ -1,6 +1,6 @@
-import { TestBed } from '@angular/core/testing';
+import {TestBed} from '@angular/core/testing';
 
-import { ResponseButtonService } from './response-button.service';
+import {ResponseButtonService} from './response-button.service';
 
 describe('ResponseButtonService', () => {
   let service: ResponseButtonService;

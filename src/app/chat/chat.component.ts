@@ -23,7 +23,7 @@ export class ChatComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    let botId = this.activatedRoute.snapshot.url[1]?.path;
+    const botId = this.activatedRoute.snapshot.url[1]?.path;
     if (!botId) {
       return;
     }
@@ -34,7 +34,7 @@ export class ChatComponent implements OnInit {
     this.botService.configuration.credentials['Authorization'] = this.chatBot.apiKey;
 
     this.messageService.init();
-    let queryParams = this.activatedRoute.snapshot.queryParams;
+    const queryParams = this.activatedRoute.snapshot.queryParams;
     if (queryParams["event"] !== undefined && queryParams['event'] === "surveyCompleted") {
       this.messageService.getResponsesFor("surveyCompleted");
     }

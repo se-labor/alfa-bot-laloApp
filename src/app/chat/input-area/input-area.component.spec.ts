@@ -65,7 +65,7 @@ describe('InputAreaComponent', () => {
   it('should reset the form after the onSubmit Method is called', waitForAsync(() => {
     const input = de.query(By.css('input'));
     input.nativeElement.value = 'InputAreaComponentTest';
-    let form = fixture.debugElement.query(By.css('form'));
+    const form = fixture.debugElement.query(By.css('form'));
     form.triggerEventHandler('submit', null);
     fixture.whenStable().then(() => {
       fixture.detectChanges();

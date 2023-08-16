@@ -8,7 +8,7 @@ export class Message {
   buttons: Array<BotButton>
 
   // Don't use this constructor, use the apiConverterService instead
-  constructor(identifier: string, text: string = '', payload: string = '', imageUrl: string = '', buttons: Array<BotButton> = []) {
+  constructor(identifier: string, text = '', payload = '', imageUrl = '', buttons: Array<BotButton> = []) {
     this.identifier = identifier;
     this.text = text;
     this.payload = payload;

@@ -30,7 +30,7 @@ export class MessageService {
     this.botService.getInitialBotMessage(this.userService.getUUID()).pipe(first()).subscribe(
       (responses: BotResponse[]) => {
         responses.forEach(response => {
-          let message = this.apiDataConverterService.botResponseToMessage(response);
+          const message = this.apiDataConverterService.botResponseToMessage(response);
           this.messages.push(message);
           this.listChanged.next(message);
         });
@@ -47,12 +47,12 @@ export class MessageService {
   }
 
   public getResponsesFor(message: string) {
-    let userMessage: UserMessage = {identifier: this.userService.getUUID(), content: message};
+    const userMessage: UserMessage = {identifier: this.userService.getUUID(), content: message};
     // Safe all Bot Responses
     this.botService.sendUserMessage(userMessage).pipe(first()).subscribe(
       (responses: BotResponse[]) => {
         responses.forEach(response => {
-          let message = this.apiDataConverterService.botResponseToMessage(response);
+          const message = this.apiDataConverterService.botResponseToMessage(response);
           this.messages.push(message);
           this.listChanged.next(message);
         });
@@ -80,7 +80,7 @@ export class MessageService {
       this.botService.sendUserMessage(this.apiDataConverterService.buttonToUserMessage(message)).pipe(first()).subscribe(
         (responses: BotResponse[]) => {
           responses.forEach(response => {
-            let message = this.apiDataConverterService.botResponseToMessage(response);
+            const message = this.apiDataConverterService.botResponseToMessage(response);
             this.messages.push(message);
             this.listChanged.next(message);
           });
@@ -91,7 +91,7 @@ export class MessageService {
       this.botService.sendUserMessage(this.apiDataConverterService.messageToUserMessage(message)).pipe(first()).subscribe(
         (responses: BotResponse[]) => {
           responses.forEach(response => {
-            let message = this.apiDataConverterService.botResponseToMessage(response);
+            const message = this.apiDataConverterService.botResponseToMessage(response);
             this.messages.push(message);
             this.listChanged.next(message);
           });

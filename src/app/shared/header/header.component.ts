@@ -6,9 +6,5 @@ import {Component, Input} from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-
-  @Input('title') title = "";
-
-  constructor() {
-  }
+  @Input() title = "";
 }

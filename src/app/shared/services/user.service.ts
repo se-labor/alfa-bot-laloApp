@@ -9,10 +9,6 @@ export class UserService {
 
   private UUID = uuidv4();
 
-  constructor() {
-
-  }
-
   getUUID() {
     return this.UUID;
   }

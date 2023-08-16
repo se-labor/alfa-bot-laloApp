@@ -19,5 +19,4 @@ export class MenuComponent implements AfterViewInit {
   ngAfterViewInit(): void {
     this.chatBots = this.botConfigService.chatBots;
   }
-
 }

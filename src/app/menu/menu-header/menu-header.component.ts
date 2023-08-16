@@ -6,7 +6,4 @@ import {Component} from '@angular/core';
   styleUrls: ['./menu-header.component.scss']
 })
 export class MenuHeaderComponent {
-
-  constructor() {
-  }
 }

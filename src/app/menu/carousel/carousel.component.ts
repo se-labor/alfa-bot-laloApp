@@ -11,7 +11,7 @@ import {NgbCarouselConfig, NgbSlideEvent} from "@ng-bootstrap/ng-bootstrap";
   encapsulation: ViewEncapsulation.None
 })
 export class CarouselComponent {
-  public index: number = 0;
+  public index = 0;
   public chatBots: ChatBot[] = [];
 
 
@@ -28,6 +28,7 @@ export class CarouselComponent {
     try {
       this.index = parseInt($event.current.replace('ngb-slide-', '')) % this.chatBots.length;
     } catch (ignored) {
+      // Do nothing
     }
   }
 }

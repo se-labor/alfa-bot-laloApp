@@ -34,7 +34,7 @@ describe('UserMessageComponent', () => {
 });
 
 @Component({
-  selector: 'test-host-component',
+  selector: 'app-test-host-component',
   template: '<app-user-message [message]="this.testUserMessage"></app-user-message>'
 })
 class TestHostComponent {

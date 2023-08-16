@@ -1,7 +1,10 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "cli": {
-    "analytics": "6d7b3faa-756d-4dd2-875b-b718407df1f3"
+    "analytics": "6d7b3faa-756d-4dd2-875b-b718407df1f3",
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ]
   },
   "version": 1,
   "newProjectRoot": "projects",
@@ -41,11 +44,15 @@
             ],
             "scripts": [
               "node_modules/marked/marked.min.js"
-          ]
+            ]
           },
           "configurations": {
             "production": {
-              "optimization": {"styles": {"inlineCritical": false }},
+              "optimization": {
+                "styles": {
+                  "inlineCritical": false
+                }
+              },
               "budgets": [
                 {
                   "type": "initial",
@@ -114,7 +121,16 @@
             ],
             "scripts": [
               "node_modules/marked/marked.min.js"
-          ]
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
           }
         }
       }

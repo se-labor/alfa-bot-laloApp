@@ -1,7 +1,7 @@
 import {Directive, ElementRef, EventEmitter, HostListener, Output} from '@angular/core';
 
 @Directive({
-  selector: '[loadedEmitter]'
+  selector: '[appLoadedEmitter]'
 })
 export class ImageLoadedDirective {
   @Output() loaded = new EventEmitter();
