@@ -86,4 +86,13 @@ describe('InputAreaComponent', () => {
     expect(input).toBeTruthy();
   });
 
+  it('should call sendMessage() when send button is pressed and input field is not empty', () => {
+    const input = de.query(By.css('input')).nativeElement;
+    const button = de.query(By.css('button')).nativeElement;
+    input.value = 'test message';
+    fixture.detectChanges();
+    button.click();
+    expect(mockMessageService).toHaveBeenCalled();
+  });
+
 });
