@@ -16,9 +16,9 @@ import {ResponseButtonService} from "../services/response-button.service";
 })
 export class BotResponseComponent implements OnInit {
   @Input() message: Message;
-  public BOT_RESPONSE_TYPE_ENUM = BOT_RESPONSE_TYPE;  // Needs to be redefined to be accessible in template
-  public responseType;
-  public showVoiceOutputButton;
+  public TYPE = BOT_RESPONSE_TYPE;  // Needs to be redefined to be accessible in template
+  public responseType: string;
+  public showVoiceOutputButton: boolean;
   public responseTypeString: string;
   @Input() public responseButtonsDisabled: boolean;
 
@@ -42,14 +42,14 @@ export class BotResponseComponent implements OnInit {
   determineType(message: Message): string {
     if (message.buttons.length > 0) {
       if (message.text !== '') {
-        return this.BOT_RESPONSE_TYPE_ENUM.BUTTONS_AND_TEXT;
+        return this.TYPE.BUTTONS_AND_TEXT;
       } else {
-        return this.BOT_RESPONSE_TYPE_ENUM.BUTTONS;
+        return this.TYPE.BUTTONS;
       }
     } else if (message.text !== '') {
-      return this.BOT_RESPONSE_TYPE_ENUM.TEXT;
+      return this.TYPE.TEXT;
     } else {
-      return this.BOT_RESPONSE_TYPE_ENUM.IMAGE;
+      return this.TYPE.IMAGE;
     }
   }
 
