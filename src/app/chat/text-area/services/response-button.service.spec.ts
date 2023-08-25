@@ -13,4 +13,10 @@ describe('ResponseButtonService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+  it('should emit disableButtons event when disableButtons() method is called', () => {
+    spyOn(service.disableResponseButtons, 'emit');
+    service.disableButtons();
+    expect(service.disableResponseButtons.emit).toHaveBeenCalled();
+  });
 });

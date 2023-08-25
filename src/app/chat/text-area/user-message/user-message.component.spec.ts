@@ -28,8 +28,9 @@ describe('UserMessageComponent', () => {
   });
 
   it('should render the message', () => {
-    expect(testHostDe.query(By.css('p')).nativeElement.textContent.replace(/[^a-z0-9]/gmi, ""))
-      .toBe('testMessage'); // Find out why there are weird spaces in queried String
+    expect(testHostDe.query(By.css('p'))
+      .nativeElement.textContent.replace(/[^a-zA-Z]/g, "")) // Remove all non-alphabetic characters
+      .toBe('testMessage');
   });
 });
 

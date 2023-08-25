@@ -1,8 +1,10 @@
-(function(window){
+(function (window) {
   window.env = window.env || {};
   //Enviroment variables
 
-  window['env']['BOT_CONFIG']=
+  // Keep the apiUrl and apiKey in chat.component.spec.ts in sync with one of the bots listed here.
+  // Check when changing the bot list.
+  window['env']['BOT_CONFIG'] =
     [
       {
         id: 'financeBot',

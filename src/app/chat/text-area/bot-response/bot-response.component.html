@@ -2,25 +2,27 @@
   <div class="row ps-2">
     <div class="message-inner message-style">
       <div *ngIf="responseType == TYPE.TEXT||responseType == TYPE.BUTTONS_AND_TEXT" class="row flex-nowrap">
-          <markdown [data]="message.text" class="flex-fill"></markdown>
-          <button (click)="textToSpeechService.toggleSpeaking(message.text)" *ngIf="showVoiceOutputButton"
-                  aria-label="Spreche Nachricht"
-                  class="speaker-button" mat-flat-button><span
-            class="material-symbols-outlined d-flex justify-content-center">text_to_speech</span>
-          </button>
+        <markdown [data]="message.text" class="flex-fill"></markdown>
+        <button (click)="textToSpeechService.toggleSpeaking(message.text)" *ngIf="showVoiceOutputButton"
+                aria-label="Spreche Nachricht"
+                class="speaker-button" mat-flat-button><span
+          class="material-symbols-outlined d-flex justify-content-center">text_to_speech</span>
+        </button>
       </div>
       <div *ngIf="responseType == TYPE.BUTTONS || responseType == TYPE.BUTTONS_AND_TEXT">
-          <div *ngFor="let button of message.buttons" class="bot-button d-flex row">
-            <button (click)="onButtonClick(button)" [disabled]="responseButtonsDisabled" class="selector-button col-auto"
-                    mat-raised-button>{{button.title}}</button>
-            <button (click)="textToSpeechService.toggleSpeaking(button.title)" [disabled]="responseButtonsDisabled"
-                    class="speaker-button-for-button  col-auto"
-                    mat-flat-button
-                    aria-label="Spreche Knopf Titel"><span [ngClass]="responseButtonsDisabled? 'disabled' : ''"
-                                          class="material-symbols-outlined d-flex justify-content-center"
-                                          >text_to_speech</span>
-            </button>
-          </div>
+        <div *ngFor="let button of message.buttons" class="bot-button d-flex row">
+          <button (click)="onButtonClick(button)" [disabled]="responseButtonsDisabled"
+                  class="selector-button col-auto"
+                  mat-raised-button>{{button.title}}</button>
+          <button (click)="textToSpeechService.toggleSpeaking(button.title)"
+                  [disabled]="responseButtonsDisabled"
+                  aria-label="Spreche Knopf Titel"
+                  class="speaker-button-for-button  col-auto"
+                  mat-flat-button><span [ngClass]="responseButtonsDisabled? 'disabled' : ''"
+                                        class="material-symbols-outlined d-flex justify-content-center"
+          >text_to_speech</span>
+          </button>
+        </div>
       </div>
       <img (loaded)="onImageLoad()" *ngIf="responseType == TYPE.IMAGE" [src]="message.imageUrl"
            alt="image" appLoadedEmitter>

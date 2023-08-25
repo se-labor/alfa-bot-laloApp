@@ -1,6 +1,7 @@
 <form #form="ngForm" (ngSubmit)="onSubmit(form)" autocomplete="off">
   <div>
-    <mat-form-field appearance="outline" floatLabel="always" class="flex-grow-1" hideRequiredMarker subscriptSizing="dynamic">
+    <mat-form-field appearance="outline" class="flex-grow-1" floatLabel="always" hideRequiredMarker
+                    subscriptSizing="dynamic">
       <input matInput name="message" ngModel placeholder="Schreib mir etwas..." spellcheck="false" type="text">
     </mat-form-field>
     <button aria-label="send" mat-flat-button type="submit">

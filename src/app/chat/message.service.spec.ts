@@ -72,4 +72,11 @@ describe('MessageService', () => {
     tick(300);
     expect(service.getMessages().length).toBeGreaterThanOrEqual(2);
   }));
+
+  it('should not send a user message when getResponsesFor is called', () => {
+    const amountUserMessagesBefore = service.getMessages().filter(message => message.payload !== '').length;
+    service.getResponsesFor('test');
+    const amountUserMessagesAfter = service.getMessages().filter(message => message.payload !== '').length;
+    expect(amountUserMessagesAfter).toBe(amountUserMessagesBefore);
+  });
 });

@@ -77,6 +77,38 @@ describe('BotResponseComponent', () => {
       imageUrl: '',
       buttons: [{'payload': 'TestButtonPayload', 'title': 'TestButtonTitle'}]
     })).toBe('buttons');
+  });
 
+
+  it('should call onButtonClick method when button is clicked', () => {
+    spyOn(component, 'onButtonClick');
+    component.message = {
+      identifier: '00000000-0000-0000-0000-000000000000',
+      text: '',
+      payload: '',
+      imageUrl: '',
+      buttons: [{'payload': 'TestButtonPayload', 'title': 'TestButtonTitle'}]
+    };
+    component.ngOnInit();
+    fixture.detectChanges();
+    const buttonElement = fixture.nativeElement.querySelector('.message-inner .bot-button button');
+    buttonElement.click();
+    expect(component.onButtonClick).toHaveBeenCalled();
+  });
+
+  it('should call onImageLoad method when image is loaded', () => {
+    spyOn(component, 'onImageLoad');
+    component.message = {
+      identifier: '00000000-0000-0000-0000-000000000000',
+      text: '',
+      payload: '',
+      imageUrl: 'https://picsum.photos/200/300',
+      buttons: []
+    };
+    component.ngOnInit();
+    fixture.detectChanges();
+    const imageElement = fixture.nativeElement.querySelector('.message-inner img');
+    imageElement.dispatchEvent(new Event('loaded'));
+    expect(component.onImageLoad).toHaveBeenCalled();
   });
 });

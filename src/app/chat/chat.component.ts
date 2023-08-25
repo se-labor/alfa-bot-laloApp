@@ -18,7 +18,7 @@ export class ChatComponent implements OnInit {
     private botService: BotService,
     private botConfigService: BotConfigService,
     private activatedRoute: ActivatedRoute,
-    private messageService: MessageService
+    public messageService: MessageService
   ) {
   }
 
@@ -29,14 +29,25 @@ export class ChatComponent implements OnInit {
     }
 
     this.chatBot = this.botConfigService.chatBots.find(bot => bot.id === botId);
-
     this.botService.configuration.basePath = this.chatBot.apiUrl;
     this.botService.configuration.credentials['Authorization'] = this.chatBot.apiKey;
 
     this.messageService.init();
+
+    this.handleQueryParams();
+  }
+
+  handleQueryParams() {
     const queryParams = this.activatedRoute.snapshot.queryParams;
-    if (queryParams["event"] !== undefined && queryParams['event'] === "surveyCompleted") {
-      this.messageService.getResponsesFor("surveyCompleted");
+    for (const key of Object.keys(queryParams)) {
+      if (key !== "event") {
+        continue;
+      }
+      switch (queryParams[key]) {
+        case "surveyCompleted":
+          this.messageService.getResponsesFor("surveyCompleted");
+          break;
+      }
     }
   }
 }
