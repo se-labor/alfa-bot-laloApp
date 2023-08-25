@@ -39,12 +39,12 @@ describe('BotResponseComponent', () => {
   });
 
   it('should have an enum that contains the possible message types', () => {
-    expect(component.TYPE).toBeTruthy();
+    expect(component.BOT_RESPONSE_TYPE_ENUM).toBeTruthy();
 
-    expect(component.TYPE.IMAGE).toBe("image");
-    expect(component.TYPE.TEXT).toBe("text");
-    expect(component.TYPE.BUTTONS).toBe("buttons");
-    expect(component.TYPE.BUTTONS_AND_TEXT).toBe("buttons_and_text");
+    expect(component.BOT_RESPONSE_TYPE_ENUM.IMAGE).toBe("image");
+    expect(component.BOT_RESPONSE_TYPE_ENUM.TEXT).toBe("text");
+    expect(component.BOT_RESPONSE_TYPE_ENUM.BUTTONS).toBe("buttons");
+    expect(component.BOT_RESPONSE_TYPE_ENUM.BUTTONS_AND_TEXT).toBe("buttons_and_text");
   });
 
   it('should correctly determine the message type', () => {

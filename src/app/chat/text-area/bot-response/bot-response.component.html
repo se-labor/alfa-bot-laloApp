@@ -1,29 +1,52 @@
-<div class="message">
-  <div class="row ps-2">
+<div [ngSwitch]="responseType" class="message">
+  <div fxLayout="row">
     <span class="message-inner message-style">
-      <div *ngIf="responseType == TYPE.TEXT||responseType == TYPE.BUTTONS_AND_TEXT" class="row flex-nowrap">
-          <markdown [data]="message.text" class="flex-fill"></markdown>
+      <ng-template [ngSwitchCase]="BOT_RESPONSE_TYPE_ENUM.TEXT">
+        <div fxLayout="row">
+          <markdown [data]="message.text"></markdown>
           <button (click)="textToSpeechService.toggleSpeaking(message.text)" *ngIf="showVoiceOutputButton"
-                  aria-label="Spreche Nachricht"
+                  aria-label="speak message"
                   class="speaker-button" mat-flat-button><span
-            class="material-symbols-outlined d-flex justify-content-center">text_to_speech</span>
-          </button>
-      </div>
-      <div *ngIf="responseType == TYPE.BUTTONS || responseType == TYPE.BUTTONS_AND_TEXT">
-          <div *ngFor="let button of message.buttons" class="bot-button d-flex row">
-            <button (click)="onButtonClick(button)" [disabled]="responseButtonsDisabled" class="selector-button col-auto"
-                    mat-raised-button>{{button.title}}</button>
-            <button (click)="textToSpeechService.toggleSpeaking(button.title)" [disabled]="responseButtonsDisabled"
-                    class="speaker-button-for-button  col-auto"
-                    mat-flat-button
-                    aria-label="Spreche Knopf Titel"><span [ngClass]="responseButtonsDisabled? 'disabled' : ''"
-                                          class="material-symbols-outlined d-flex justify-content-center"
-                                          >text_to_speech</span>
-            </button>
-          </div>
-      </div>
-      <img (loaded)="onImageLoad()" *ngIf="responseType == TYPE.IMAGE" [src]="message.imageUrl"
-           alt="image" appLoadedEmitter>
+            class="material-symbols-outlined" fxLayoutAlign="center">text_to_speech</span></button>
+        </div>
+      </ng-template>
+
+      <ng-template [ngSwitchCase]="BOT_RESPONSE_TYPE_ENUM.BUTTONS">
+        <div *ngFor="let button of message.buttons" class="bot-button" fxLayout="row">
+          <button (click)="onButtonClick(button)" [disabled]="responseButtonsDisabled" class="selector-button"
+                  mat-raised-button>{{button.title}}</button>
+          <button (click)="textToSpeechService.toggleSpeaking(button.title)" [disabled]="responseButtonsDisabled"
+                  class="speaker-button-for-button"
+                  mat-raised-button><span [ngStyle]="{'color':responseButtonsDisabled? 'lightgray' : 'black' }"
+                                          class="material-symbols-outlined"
+                                          fxLayoutAlign="center">text_to_speech</span></button>
+        </div>
+      </ng-template>
+
+      <ng-template [ngSwitchCase]="BOT_RESPONSE_TYPE_ENUM.BUTTONS_AND_TEXT">
+        <div fxLayout="row">
+          <markdown [data]="message.text"></markdown>
+          <button (click)="textToSpeechService.toggleSpeaking(message.text)" *ngIf="showVoiceOutputButton"
+                  aria-label="speak message"
+                  class="speaker-button" mat-flat-button><span
+            class="material-symbols-outlined" fxLayoutAlign="center">text_to_speech</span></button>
+        </div>
+        <div *ngFor="let button of message.buttons" class="bot-button" fxLayout="row">
+          <button (click)="onButtonClick(button)" [disabled]="responseButtonsDisabled" class="selector-button"
+                  mat-raised-button>{{button.title}}</button>
+          <button (click)="textToSpeechService.toggleSpeaking(button.title)" [disabled]="responseButtonsDisabled"
+                  class="speaker-button-for-button"
+                  mat-flat-button><span [ngClass]="responseButtonsDisabled? 'disabled' : ''"
+                                        class="material-symbols-outlined"
+                                        fxLayoutAlign="center">text_to_speech</span></button>
+        </div>
+      </ng-template>
+
+      <ng-template [ngSwitchCase]="BOT_RESPONSE_TYPE_ENUM.IMAGE">
+        <img (loaded)="onImageLoad()" [src]="message.imageUrl" alt="image" appLoadedEmitter>
+      </ng-template>
     </span>
   </div>
 </div>
+
+
