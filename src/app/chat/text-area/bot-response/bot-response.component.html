@@ -1,6 +1,6 @@
 <div class="message">
   <div class="row ps-2">
-    <span class="message-inner message-style">
+    <div class="message-inner message-style">
       <div *ngIf="responseType == TYPE.TEXT||responseType == TYPE.BUTTONS_AND_TEXT" class="row flex-nowrap">
           <markdown [data]="message.text" class="flex-fill"></markdown>
           <button (click)="textToSpeechService.toggleSpeaking(message.text)" *ngIf="showVoiceOutputButton"
@@ -24,6 +24,6 @@
       </div>
       <img (loaded)="onImageLoad()" *ngIf="responseType == TYPE.IMAGE" [src]="message.imageUrl"
            alt="image" appLoadedEmitter>
-    </span>
+    </div>
   </div>
 </div>

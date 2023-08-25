@@ -18,15 +18,15 @@
   padding: 0.5em .875em;
 }
 
-.message span.message-style::before,
-.message span.message-style::after {
+.message div.message-style::before,
+.message div.message-style::after {
   bottom: -0.1em;
   content: "";
   height: 1em;
   position: absolute;
 }
 
-.message span.message-style {
+.message div.message-style {
   align-items: flex-start;
   background-color: #FFFFFF;
   color: #000000;
@@ -39,14 +39,14 @@
   line-height: 1.25;
 }
 
-.message span.message-style:before {
+.message div.message-style:before {
   border-bottom-right-radius: 0.8em 0.7em;
   border-left: 1em solid #FFFFFF;
   left: -0.35em;
   transform: translate(0, -0.1em);
 }
 
-.message span.message-style::after {
+.message div.message-style::after {
   background-color: #F1F2F2;
   border-bottom-right-radius: 0.5em;
   left: 1.14em;
