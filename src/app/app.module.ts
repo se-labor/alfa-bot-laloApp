@@ -14,7 +14,6 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {MaterialModule} from "./modules/material/material.module";
 import {FormsModule} from "@angular/forms";
 import {MarkdownModule, MarkedOptions, MarkedRenderer} from "ngx-markdown";
-import {FlexLayoutModule} from "@angular/flex-layout";
 import {ImageLoadedDirective} from './chat/text-area/bot-response/image-loaded.directive';
 import {MenuComponent} from './menu/menu.component';
 import {ChatComponent} from './chat/chat.component';
@@ -94,7 +93,6 @@ export function markedOptionsFactory(): MarkedOptions {
         useFactory: markedOptionsFactory
       }
     }),
-    FlexLayoutModule,
     NgbModule
   ],
   providers: [
