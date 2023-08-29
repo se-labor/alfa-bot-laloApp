@@ -13,7 +13,7 @@ import {ApiModule, BotService, Configuration} from "./modules/api";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {MaterialModule} from "./modules/material/material.module";
 import {FormsModule} from "@angular/forms";
-import {MarkdownModule} from "ngx-markdown";
+import {MarkdownModule, MarkedOptions, MarkedRenderer} from "ngx-markdown";
 import {FlexLayoutModule} from "@angular/flex-layout";
 import {ImageLoadedDirective} from './chat/text-area/bot-response/image-loaded.directive';
 import {MenuComponent} from './menu/menu.component';
@@ -37,6 +37,30 @@ export function apiConfigFactory(): Configuration {
 
 export function botServiceFactory(httpClient: HttpClient, basePath: string): BotService {
   return new BotService(httpClient, basePath, apiConfigFactory());
+}
+
+// function that returns `MarkedOptions` with renderer override
+export function markedOptionsFactory(): MarkedOptions {
+  const renderer = new MarkedRenderer();
+
+  renderer.blockquote = (text: string) => {
+    return '<blockquote class="blockquote"><p>' + text + '</p></blockquote>';
+  };
+
+  const linkRenderer = renderer.link;
+  renderer.link = (href, title, text) => {
+    const html = linkRenderer.call(renderer, href, title, text);
+    return html.replace(/^<a /, '<a target="_blank"" ');
+  };
+
+  return {
+    renderer: renderer,
+    gfm: true,
+    breaks: false,
+    pedantic: false,
+    smartLists: true,
+    smartypants: false,
+  };
 }
 
 @NgModule({
@@ -63,7 +87,13 @@ export function botServiceFactory(httpClient: HttpClient, basePath: string): Bot
     BrowserAnimationsModule,
     MaterialModule,
     FormsModule,
-    MarkdownModule.forRoot({loader: HttpClient}),
+    MarkdownModule.forRoot({
+      loader: HttpClient,
+      markedOptions: {
+        provide: MarkedOptions,
+        useFactory: markedOptionsFactory
+      }
+    }),
     FlexLayoutModule,
     NgbModule
   ],
