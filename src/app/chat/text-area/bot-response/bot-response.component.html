@@ -12,7 +12,7 @@
       <div *ngIf="responseType == TYPE.BUTTONS || responseType == TYPE.BUTTONS_AND_TEXT">
         <div *ngFor="let button of message.buttons" class="bot-button d-flex row">
           <button (click)="onButtonClick(button)" [disabled]="responseButtonsDisabled"
-                  class="selector-button col-auto"
+                  class="selector-button col-auto text-wrap"
                   mat-raised-button>{{button.title}}</button>
           <button (click)="textToSpeechService.toggleSpeaking(button.title)"
                   [disabled]="responseButtonsDisabled"

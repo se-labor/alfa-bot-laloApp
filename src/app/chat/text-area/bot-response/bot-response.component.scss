@@ -1,3 +1,9 @@
+@media (screen and max-width: 576px) {
+  .message {
+    max-width: 95vw !important;
+  }
+}
+
 
 .message {
   background-color: #F1F2F2;
@@ -55,8 +61,11 @@
 }
 
 button {
-  font-size: clamp(0.6em, 2vw, 1.2em);
+  font-size: clamp(0.8em, 2vw, 1.2em);
   line-height: clamp(0.9em, 3vw, 1.8em);
+  padding-top: 0.3em;
+  overflow-wrap: break-word !important;
+  hyphens: auto !important;
 }
 
 
@@ -139,5 +148,5 @@ button.speaker-button-for-button[disabled] {
 }
 
 markdown {
-  font-size: clamp(0.6em, 2vw, 1.2em);
+  font-size: clamp(0.8em, 2vw, 1.2em) !important;
 }
