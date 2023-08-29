@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, ViewChild} from '@angular/core';
+import {AfterViewInit, Component} from '@angular/core';
 import {TextToSpeechService} from "../shared/services/text-to-speech.service";
 import {BotConfigService} from "../shared/services/bot-config.service";
 import {ChatBot} from "../shared/models/chat-bot.model";
@@ -9,7 +9,6 @@ import {ChatBot} from "../shared/models/chat-bot.model";
   styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent implements AfterViewInit {
-  @ViewChild("carousel") carousel: ElementRef<HTMLElement>;
   public chatBots: ChatBot[] = [];
 
   constructor(public textToSpeechService: TextToSpeechService, private botConfigService: BotConfigService) {

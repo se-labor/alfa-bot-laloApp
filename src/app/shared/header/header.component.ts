@@ -35,7 +35,7 @@ export class HeaderComponent implements AfterViewInit {
 
     let toolbarWidth = toolbar.getBoundingClientRect().width;
     const titleWidth = title.getBoundingClientRect().width;
-    const buttonWidth = button.clientWidth;
+    const buttonWidth = title.getBoundingClientRect().width
     let combinedWidth = titleWidth + buttonWidth + 16; //Add 16px for padding
     let fontSize = parseInt(
       window.getComputedStyle(title).fontSize

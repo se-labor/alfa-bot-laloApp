@@ -1,7 +1,7 @@
 <div class="background container-fluid py-2">
   <app-menu-header class="row"></app-menu-header>
   <div class="row justify-content-center align-items-center col-auto">
-    <h1 *ngIf="chatBots" class="title lh-1 fs-1 fw-semibold">{{chatBots[carousel.index].name}}</h1>
+    <h1 *ngIf="chatBots" class="title lh-1 fs-1 fw-medium">{{chatBots[carousel.index].name}}</h1>
     <button (click)="textToSpeechService.toggleSpeaking(chatBots[carousel.index].name);"
             aria-label="Text vorlesen"
             class="btn col-auto">
@@ -16,7 +16,7 @@
         <div class="card p-1 fs-2 rounded-3 mb-2 mt-3" routerLink="/settings">
           <div class="card-body row justify-content-between align-items-center p-0 m-0">
             <mat-icon class="p-0 col-auto" fontSet="material-symbols-outlined" inline="true">settings</mat-icon>
-            <h5 class="card-title col-auto m-0 fs-2">Einstellungen</h5>
+            <h5 class="card-title col-auto m-0 fs-2 fw-normal">Einstellungen</h5>
             <button (click)="textToSpeechService.toggleSpeaking('Einstellungen'); $event.stopPropagation()"
                     aria-label="Text vorlesen"
                     class="btn speaker-button col-auto lh-1 fs-2">
@@ -27,7 +27,7 @@
         <div class="card p-1 fs-2 rounded-3 " routerLink="/info">
           <div class="card-body row justify-content-between align-items-center p-0 m-0">
             <mat-icon class="p-0 col-auto" fontSet="material-symbols-outlined" inline="true">info</mat-icon>
-            <h5 class="card-title col-auto m-0 fs-2">Über diese App</h5>
+            <h5 class="card-title col-auto m-0 fs-2 fw-normal">Über diese App</h5>
             <button (click)="textToSpeechService.toggleSpeaking('Über diese App'); $event.stopPropagation()"
                     aria-label="Text vorlesen"
                     class="btn speaker-button col-auto lh-1 fs-2">
