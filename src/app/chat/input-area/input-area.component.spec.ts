@@ -17,12 +17,14 @@ describe('InputAreaComponent', () => {
 
   let mockMessageService: MessageService;
   let mockUserService: UserService;
-  let spy: jasmine.Spy;
 
   beforeEach(async () => {
+    mockMessageService = jasmine.createSpyObj<MessageService>('MessageService', ['sendMessage']);
     await TestBed.configureTestingModule({
       declarations: [InputAreaComponent],
-      providers: [MessageService, UserService],
+      providers: [
+        {provide: MessageService, useValue: mockMessageService},
+        {provide: UserService, useValue: mockUserService}],
       imports: [
         MaterialModule,
         FormsModule,
@@ -37,12 +39,7 @@ describe('InputAreaComponent', () => {
     fixture = TestBed.createComponent(InputAreaComponent);
     component = fixture.componentInstance;
     de = fixture.debugElement;
-
-    mockMessageService = TestBed.inject(MessageService);
-    spy = spyOn(mockMessageService, 'sendMessage');
-
     mockUserService = TestBed.inject(UserService)
-    spyOn(mockUserService, 'getUUID').and.returnValue('28f7cd1c-8a1f-4be4-8a8b-5bc38f0d7ac7');
 
     fixture.detectChanges();
   });
@@ -65,34 +62,34 @@ describe('InputAreaComponent', () => {
   it('should reset the form after the onSubmit Method is called', waitForAsync(() => {
     const input = de.query(By.css('input'));
     input.nativeElement.value = 'InputAreaComponentTest';
-    const form = fixture.debugElement.query(By.css('form'));
-    form.triggerEventHandler('submit', null);
+    fixture.detectChanges();
+    const button = de.query(By.css('button')).nativeElement;
+    button.click();
     fixture.whenStable().then(() => {
       fixture.detectChanges();
       expect(input.nativeElement.value).toBe('');
     });
   }));
 
-  it('should be invalid while empty', () => {
+  it('should not call sendMessage() while empty', waitForAsync(() => {
     const input = de.query(By.css('input'));
+    input.nativeElement.value = 'InputAreaComponentTest';
     fixture.detectChanges();
-    expect(input.nativeElement.valid).toBeFalsy();
-  });
-
-  it('should be valid while not empty', () => {
-    const input = de.query(By.css('input'));
-    input.nativeElement.textContent = 'InputAreaComponentTest'
-    fixture.detectChanges();
-    expect(input).toBeTruthy();
-  });
+    const form = fixture.debugElement.query(By.css('form'));
+    form.triggerEventHandler('submit',);
+    fixture.whenStable().then(() => {
+      fixture.detectChanges();
+      expect(mockMessageService.sendMessage).not.toHaveBeenCalled();
+    });
+  }));
 
   it('should call sendMessage() when send button is pressed and input field is not empty', () => {
     const input = de.query(By.css('input')).nativeElement;
-    const button = de.query(By.css('button')).nativeElement;
     input.value = 'test message';
     fixture.detectChanges();
-    button.click();
-    expect(mockMessageService).toHaveBeenCalled();
+    const form = fixture.debugElement.query(By.css('form'));
+    form.triggerEventHandler('submit');
+    expect(mockMessageService.sendMessage).toHaveBeenCalled();
   });
-
 });
+
