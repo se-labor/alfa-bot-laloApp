@@ -1,5 +1,6 @@
 # builder
-FROM node:18.17.0-alpine AS builder
+# call FROM --platform=linux/amd64 node:18.17.1 AS builder if on Apple Silicon chip.
+FROM --platform=linux/amd64 node:18.17.1 AS builder
 WORKDIR /usr/src/app
 COPY package.json package-lock.json ./
 RUN npm install
@@ -7,7 +8,7 @@ COPY . .
 RUN npm run build-web
 
 # web service
-FROM nginx:1.25.1-alpine
+FROM --platform=linux/amd64 nginx:1.25.1-alpine
 
 ARG BASE_PATH="alfabotclient"
 ENV BASE_PATH=$BASE_PATH
