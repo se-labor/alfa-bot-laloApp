@@ -22,10 +22,12 @@ $standard-background: #FFFFFF;
 // Font Size for Page Titles
 .fs-0 {
   font-size: calc(1.71875rem + 1.875vw);
+  line-height: calc(1.71875rem + 1.875vw);
 }
 
 @media screen and (min-width: 1200px) {
   .fs-0 {
     font-size: 3.125rem !important;
+    line-height: 3.125rem !important;
   }
 }

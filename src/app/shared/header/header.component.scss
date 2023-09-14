@@ -1,6 +1,5 @@
 mat-toolbar {
   padding-top: calc(env(safe-area-inset-top) + 2.5rem);
-  padding-right: env(safe-area-inset-right);
   padding-bottom: 2.5rem;
   background: #FFFFFF !important;
 }
@@ -12,6 +11,7 @@ mat-toolbar-row {
 button {
   color: #1C5475;
   height: fit-content !important;
+  border: 0;
 }
 
 span.nav-element {
