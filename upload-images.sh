@@ -3,4 +3,4 @@ set -e
 
 ./build-images.sh
 
-docker push nexus.beemo.eu:5555/alfabot/angular/client
+docker push nexus.beemo.eu:5555/alfabot/angular/client:4.0.3

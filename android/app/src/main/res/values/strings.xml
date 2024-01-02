@@ -1,7 +1,0 @@
-<?xml version='1.0' encoding='utf-8'?>
-<resources>
-    <string name="app_name">Lalo</string>
-    <string name="title_activity_main">Lalo</string>
-    <string name="package_name">de.fhms.alfabot.app</string>
-    <string name="custom_url_scheme">de.fhms.alfabot.app</string>
-</resources>

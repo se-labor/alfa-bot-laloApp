@@ -8,7 +8,12 @@ const config: CapacitorConfig = {
   bundledWebRuntime: false,
   ios: {
     preferredContentMode: "mobile"
-  }
+  },
+//  server: {
+//    hostname: "http://localhost:8100",
+//    cleartext: true,
+//    allowNavigation: ["*"]
+//  }
 };
 
 export default config;
